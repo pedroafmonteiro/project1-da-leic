@@ -21,12 +21,19 @@ std::vector<std::vector<std::string>> readCSV(const std::string &filePath) {
     while (std::getline(file, line)) {
         lineCount++;
 
+        // Trim whitespace from the line
+        line.erase(line.begin(), std::find_if(line.begin(), line.end(), [](unsigned char ch) {
+            return !std::isspace(ch);
+        }));
+        line.erase(std::find_if(line.rbegin(), line.rend(), [](unsigned char ch) {
+            return !std::isspace(ch);
+        }).base(), line.end());
+
         if (line.empty()) {
             std::cout << "Skipping empty line at " << lineCount << std::endl;
             continue;
         }
 
-        std::cout << "Line " << lineCount << ": " << line << std::endl; // Debug Output
 
         std::vector<std::string> row;
         std::stringstream lineStream(line);
@@ -42,9 +49,18 @@ std::vector<std::vector<std::string>> readCSV(const std::string &filePath) {
     if (file.eof()) {
         std::cout << "Reached EOF successfully after " << lineCount << " lines." << std::endl;
     } else if (file.fail()) {
-        std::cerr << "File stream failed before EOF at line " << lineCount << std::endl;
+        std::cerr << "Error: File stream failed before reaching EOF at line " << lineCount << std::endl;
     }
 
     file.close();
     return data;
+}
+
+void printData(const std::vector<std::vector<std::string>>& data) {
+    for (const auto& row : data) {
+        for (const auto& cell : row) {
+            std::cout << cell << "\t";  // Using tab as a separator for better alignment
+        }
+        std::cout << std::endl;
+    }
 }
