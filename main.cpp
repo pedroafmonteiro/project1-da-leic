@@ -1,8 +1,15 @@
 #include <iostream>
 
 #include "menu/menu.h"
+#include "readData/readData.h"
 
 int main() {
-    Menu menu;
+    std::string filePath = "/Users/pedrolunet/feup/da/project/data/Distances.csv";
+    std::vector<std::vector<std::string>> data = readCSV(filePath);
+
+    if (data.empty()) {
+        std::cerr << "Error: CSV file is empty or could not be read!" << std::endl;
+        return 1;
+    }
     return 0;
 }
