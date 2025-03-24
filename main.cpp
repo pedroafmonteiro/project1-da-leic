@@ -5,8 +5,7 @@
 #include "parseData/parseData.h"
 #include "parseData/dataManager.h"
 
-int main()
-{
+int main() {
     Menu menu;
     menu.mainMenu();
 

@@ -4,13 +4,11 @@
 #include <vector>
 #include "../parseData/dataManager.h"
 
-Menu::Menu()
-{
+Menu::Menu() {
     dataManager = DataManager::getInstance();
 }
 
-void Menu::mainMenu()
-{
+void Menu::mainMenu() {
     std::cout << "" << std::endl;
     std::cout << "Design of Algorithms Project 1 - Spring 2025" << std::endl;
     std::cout << "Developed by Group 2 - Class 15" << std::endl;
@@ -19,7 +17,8 @@ void Menu::mainMenu()
     std::cout << "" << std::endl;
     std::cout << "  1. Independent Route. Best (fastest) route between a source and destination." << std::endl;
     std::cout << "  2. Restricted Route. Fastest route with specific routing restrictions." << std::endl;
-    std::cout << "  3. Environmentally-Friendly Route. Best (shortest overall) route for driving and walking." << std::endl;
+    std::cout << "  3. Environmentally-Friendly Route. Best (shortest overall) route for driving and walking." <<
+            std::endl;
     std::cout << "" << std::endl;
     std::cout << "  4. Exit." << std::endl;
     std::cout << "" << std::endl;
@@ -28,58 +27,40 @@ void Menu::mainMenu()
     optionPicker();
 }
 
-void Menu::optionPicker()
-{
+void Menu::optionPicker() {
     int option;
     std::cin >> option;
 
-    if (option == 0)
-    {
+    if (option == 0) {
         datasetMenu();
         mainMenu();
-    }
-    else if (option == 1)
-    {
-        if (!checkDataLoaded())
-        {
+    } else if (option == 1) {
+        if (!checkDataLoaded()) {
             mainMenu();
             return;
         }
         std::cout << "" << std::endl;
         std::cout << "Independent Route not yet implemented." << std::endl;
-        std::cout << "" << std::endl;
         mainMenu();
-    }
-    else if (option == 2)
-    {
-        if (!checkDataLoaded())
-        {
+    } else if (option == 2) {
+        if (!checkDataLoaded()) {
             mainMenu();
             return;
         }
         std::cout << "" << std::endl;
         std::cout << "Restricted Route not yet implemented." << std::endl;
-        std::cout << "" << std::endl;
         mainMenu();
-    }
-    else if (option == 3)
-    {
-        if (!checkDataLoaded())
-        {
+    } else if (option == 3) {
+        if (!checkDataLoaded()) {
             mainMenu();
             return;
         }
         std::cout << "" << std::endl;
         std::cout << "Environmentally-Friendly Route not yet implemented." << std::endl;
-        std::cout << "" << std::endl;
         mainMenu();
-    }
-    else if (option == 4)
-    {
+    } else if (option == 4) {
         exit(0);
-    }
-    else
-    {
+    } else {
         std::cout << "" << std::endl;
         std::cout << "Invalid option. Please try again." << std::endl;
         std::cout << "" << std::endl;
@@ -88,24 +69,24 @@ void Menu::optionPicker()
     }
 }
 
-bool Menu::checkDataLoaded()
-{
-    if (!dataManager->isDataLoaded())
-    {
+bool Menu::checkDataLoaded() {
+    if (!dataManager->isDataLoaded()) {
         std::cout << "" << std::endl;
         std::cout << "No data loaded. Select load dataset from the main menu." << std::endl;
-        std::cout << "" << std::endl;
         return false;
     }
     return true;
 }
 
-void Menu::datasetMenu()
-{
+void Menu::datasetMenu() {
     std::cout << "" << std::endl;
     std::cout << "For this program to work, you will need to load two csv files:" << std::endl;
-    std::cout << "  1. A file with locations, which contains the information regarding the various locations, or points, in the urban environment." << std::endl;
-    std::cout << "  2. A file with distances, which contains the information regarding the travelling time (or distance) between two locations, in the two modes of mobility, in this case, driving and walking." << std::endl;
+    std::cout <<
+            "  1. A file with locations, which contains the information regarding the various locations, or points, in the urban environment."
+            << std::endl;
+    std::cout <<
+            "  2. A file with distances, which contains the information regarding the travelling time (or distance) between two locations, in the two modes of mobility, in this case, driving and walking."
+            << std::endl;
     std::cout << "" << std::endl;
     std::cout << "Please enter the file path for the locations csv file: ";
     std::string locationsFilePath;
@@ -117,10 +98,10 @@ void Menu::datasetMenu()
 
     bool loaded = dataManager->loadData(locationsFilePath, distancesFilePath);
 
-    if (loaded)
-    {
+    if (loaded) {
         std::cout << "" << std::endl;
         std::cout << "Data loaded successfully!" << std::endl;
+        std::cout << "" << std::endl;
 
         // Display some information about the loaded data
         auto distanceData = dataManager->getDistanceData();
@@ -129,9 +110,7 @@ void Menu::datasetMenu()
         std::cout << "Locations loaded: " << locationData.size() << std::endl;
         std::cout << "Distances loaded: " << distanceData.size() << std::endl;
         std::cout << "" << std::endl;
-    }
-    else
-    {
+    } else {
         std::cout << "" << std::endl;
         std::cout << "Failed to load data. Please check the file paths and try again." << std::endl;
         std::cout << "" << std::endl;

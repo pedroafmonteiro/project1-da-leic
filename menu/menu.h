@@ -4,17 +4,18 @@
 #include <vector>
 #include "../parseData/dataManager.h"
 
-class Menu
-{
+class Menu {
     DataManager *dataManager;
 
 public:
     Menu();
 
     void mainMenu();
+
     void datasetMenu();
 
     void optionPicker();
+
     bool checkDataLoaded();
 };
 

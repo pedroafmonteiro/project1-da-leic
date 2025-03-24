@@ -7,9 +7,9 @@
 #include <string>
 
 // Function to check if a string is a valid integer
-bool isInteger(const std::string& str) {
+bool isInteger(const std::string &str) {
     if (str.empty() || (str[0] == '-' && str.size() == 1)) return false;
-    for (char ch : str) {
+    for (char ch: str) {
         if (!isdigit(ch)) return false;
     }
     return true;

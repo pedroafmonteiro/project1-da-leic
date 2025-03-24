@@ -19,6 +19,7 @@ struct LocationData {
 };
 
 std::vector<DistanceData> readDistancesCSV(const std::string &filePath);
+
 std::vector<LocationData> readLocationsCSV(const std::string &filePath);
 
 #endif // PARSEDATA_H

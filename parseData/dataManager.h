@@ -5,8 +5,7 @@
 #include <vector>
 #include "../parseData/parseData.h"
 
-class DataManager
-{
+class DataManager {
     static DataManager *instance;
 
     std::vector<DistanceData> distanceData;
@@ -19,9 +18,11 @@ public:
     static DataManager *getInstance();
 
     bool loadData(const std::string &locationsFilePath, const std::string &distancesFilePath);
+
     bool isDataLoaded() const;
 
     std::vector<DistanceData> getDistanceData() const;
+
     std::vector<LocationData> getLocationData() const;
 };
 
