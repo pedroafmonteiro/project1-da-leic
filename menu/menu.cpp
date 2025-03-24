@@ -69,7 +69,7 @@ void Menu::optionPicker() {
     }
 }
 
-bool Menu::checkDataLoaded() {
+bool Menu::checkDataLoaded() const {
     if (!dataManager->isDataLoaded()) {
         std::cout << "" << std::endl;
         std::cout << "No data loaded. Select load dataset from the main menu." << std::endl;
@@ -78,9 +78,9 @@ bool Menu::checkDataLoaded() {
     return true;
 }
 
-void Menu::datasetMenu() {
+void Menu::datasetMenu() const {
     std::cout << "" << std::endl;
-    std::cout << "For this program to work, you will need to load two csv files:" << std::endl;
+    std::cout << "You will need to load two csv files:" << std::endl;
     std::cout <<
             "  1. A file with locations, which contains the information regarding the various locations, or points, in the urban environment."
             << std::endl;
@@ -90,11 +90,11 @@ void Menu::datasetMenu() {
     std::cout << "" << std::endl;
     std::cout << "Please enter the file path for the locations csv file: ";
     std::string locationsFilePath;
-    std::cin >> locationsFilePath;
+    std::getline(std::cin >> std::ws, locationsFilePath);
     std::cout << "" << std::endl;
     std::cout << "Please enter the file path for the distances csv file: ";
     std::string distancesFilePath;
-    std::cin >> distancesFilePath;
+    std::getline(std::cin >> std::ws, distancesFilePath);
 
     bool loaded = dataManager->loadData(locationsFilePath, distancesFilePath);
 
@@ -109,10 +109,9 @@ void Menu::datasetMenu() {
 
         std::cout << "Locations loaded: " << locationData.size() << std::endl;
         std::cout << "Distances loaded: " << distanceData.size() << std::endl;
-        std::cout << "" << std::endl;
     } else {
+        std::cerr << "Failed to load data. Please check the file paths and try again." << std::endl;
         std::cout << "" << std::endl;
-        std::cout << "Failed to load data. Please check the file paths and try again." << std::endl;
-        std::cout << "" << std::endl;
+        exit(0);
     }
 }

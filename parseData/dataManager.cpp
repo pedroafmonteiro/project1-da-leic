@@ -15,13 +15,10 @@ DataManager *DataManager::getInstance() {
 }
 
 bool DataManager::loadData(const std::string &locationsFilePath, const std::string &distancesFilePath) {
-    // Parse the data from the CSV files
     distanceData = readDistancesCSV(distancesFilePath);
     locationData = readLocationsCSV(locationsFilePath);
 
-    // Check if the files were read successfully
     if (distanceData.empty() || locationData.empty()) {
-        std::cerr << "Error: One of the CSV files is empty or could not be read!" << std::endl;
         dataLoaded = false;
         return false;
     }

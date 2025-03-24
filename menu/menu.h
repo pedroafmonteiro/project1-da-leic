@@ -12,11 +12,11 @@ public:
 
     void mainMenu();
 
-    void datasetMenu();
+    void datasetMenu() const;
 
     void optionPicker();
 
-    bool checkDataLoaded();
+    bool checkDataLoaded() const;
 };
 
 #endif // MENU_H
