@@ -1,11 +1,21 @@
 #ifndef MENU_H
 #define MENU_H
+
 #include <string>
-#include <vector>
 #include "../parseData/dataManager.h"
+#include "../graph_structure/Graph.h"
+#include "../graph_builder/GraphBuilder.h"
 
 class Menu {
     DataManager *dataManager;
+    Graph<LocationInfo> transportGraph;
+    bool graphBuilt;
+
+    void optionPicker();
+
+    bool checkDataLoaded() const;
+
+    void buildGraph();
 
 public:
     Menu();
@@ -13,10 +23,6 @@ public:
     void mainMenu();
 
     void datasetMenu() const;
-
-    void optionPicker();
-
-    bool checkDataLoaded() const;
 };
 
 #endif // MENU_H

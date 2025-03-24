@@ -3,9 +3,11 @@
 #include <iostream>
 #include <vector>
 #include "../parseData/dataManager.h"
+#include "../graph_builder/GraphBuilder.h"
 
 Menu::Menu() {
     dataManager = DataManager::getInstance();
+    graphBuilt = false;
 }
 
 void Menu::mainMenu() {
@@ -33,6 +35,7 @@ void Menu::optionPicker() {
 
     if (option == 0) {
         datasetMenu();
+        buildGraph();
         mainMenu();
     } else if (option == 1) {
         if (!checkDataLoaded()) {
@@ -75,7 +78,36 @@ bool Menu::checkDataLoaded() const {
         std::cout << "No data loaded. Select load dataset from the main menu." << std::endl;
         return false;
     }
+    if (!graphBuilt) {
+        std::cout << "" << std::endl;
+        std::cout << "Graph not built. Please try reloading the dataset." << std::endl;
+        return false;
+    }
     return true;
+}
+
+void Menu::buildGraph() {
+    if (!dataManager->isDataLoaded()) {
+        return;
+    }
+
+    std::cout << "" << std::endl;
+    std::cout << "Building integrated transport graph from loaded data..." << std::endl;
+
+    try {
+        // Create an integrated graph with both driving and walking segments
+        transportGraph = GraphBuilder::buildGraphFromDataManager();
+        graphBuilt = true;
+
+        std::cout << "Graph built successfully!" << std::endl;
+        std::cout << "Transport graph has " << transportGraph.getNumVertex() << " vertices." << std::endl;
+
+        // Optional: Print detailed graph information
+        GraphBuilder::printGraph(transportGraph);
+    } catch (const std::exception &e) {
+        std::cerr << "Error building graph: " << e.what() << std::endl;
+        graphBuilt = false;
+    }
 }
 
 void Menu::datasetMenu() const {

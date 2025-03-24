@@ -7,4 +7,6 @@ add_executable(project1-da-leic main.cpp menu/menu.cpp menu/menu.h
         parseData/parseData.cpp
         parseData/parseData.h
         parseData/dataManager.cpp
-        parseData/dataManager.h)
+        parseData/dataManager.h
+        graph_builder/GraphBuilder.cpp
+        graph_builder/GraphBuilder.h)
