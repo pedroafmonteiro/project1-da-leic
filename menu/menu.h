@@ -17,14 +17,21 @@ class Menu {
 
     void buildGraph();
 
+    bool readInput(const std::string &filename,
+                   std::string &sourceCode,
+                   std::string &destCode,
+                   Edge<LocationInfo>::EdgeType &transportMode) const;
+
 public:
     Menu();
 
     void mainMenu();
 
-    void credits();
+    static void credits();
 
     void datasetMenu() const;
+
+    void independentRoute();
 };
 
 #endif // MENU_H
