@@ -22,7 +22,7 @@ struct LocationInfo {
     LocationInfo() : name(""), id(0), code(""), hasParking(false) {
     }
 
-    // Operator for comparison (required by Graph) - now comparing by code
+    // Operator for comparison (required by Graph)
     bool operator==(const LocationInfo &other) const {
         return code == other.code;
     }

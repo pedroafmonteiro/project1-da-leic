@@ -45,37 +45,58 @@ Graph<LocationInfo> GraphBuilder::buildIntegratedGraph(
             continue;
         }
 
-        // Create LocationInfo objects with just the code for lookup
+        // Create LocationInfo objects for lookup
         LocationInfo source("", 0, sourceCode, false);
         LocationInfo dest("", 0, destCode, false);
+
+        // Find the actual vertices
+        Vertex<LocationInfo> *sourceVertex = graph.findVertex(source);
+        Vertex<LocationInfo> *destVertex = graph.findVertex(dest);
+
+        if (!sourceVertex || !destVertex) {
+            std::cerr << "Could not find vertices for codes: " << sourceCode << " or " << destCode << std::endl;
+            failedEdges++;
+            continue;
+        }
 
         // Debug output
         std::cout << "Processing edge: " << sourceCode << " -> " << destCode;
         std::cout << " (Driving: " << distance.driving << ", Walking: " << distance.walking << ")" << std::endl;
 
         // Add driving edge if it's drivable (driving time != -1)
-        // Removed the parking condition since it doesn't matter for drivability
         if (distance.driving != -1) {
-            bool added = graph.addBidirectionalEdge(source, dest, distance.driving);
-            if (added) {
-                drivingEdges += 2; // Count both directions
-                std::cout << "  Added driving edge (weight: " << distance.driving << ")" << std::endl;
-            } else {
-                std::cerr << "  Failed to add driving edge!" << std::endl;
-                failedEdges++;
-            }
+            // Create a forward edge (source -> dest)
+            Edge<LocationInfo> *edge = sourceVertex->addEdge(destVertex, distance.driving);
+            edge->setType(Edge<LocationInfo>::EdgeType::DRIVING);
+
+            // Create a backward edge (dest -> source)
+            Edge<LocationInfo> *reverseEdge = destVertex->addEdge(sourceVertex, distance.driving);
+            reverseEdge->setType(Edge<LocationInfo>::EdgeType::DRIVING);
+
+            // Link them as reverse edges
+            edge->setReverse(reverseEdge);
+            reverseEdge->setReverse(edge);
+
+            drivingEdges += 2; // Count both directions
+            std::cout << "  Added driving edge (weight: " << distance.driving << ")" << std::endl;
         }
 
         // Add walking edge if it exists (should always be valid)
         if (distance.walking != -1) {
-            bool added = graph.addBidirectionalEdge(source, dest, distance.walking);
-            if (added) {
-                walkingEdges += 2; // Count both directions
-                std::cout << "  Added walking edge (weight: " << distance.walking << ")" << std::endl;
-            } else {
-                std::cerr << "  Failed to add walking edge!" << std::endl;
-                failedEdges++;
-            }
+            // Create a forward edge (source -> dest)
+            Edge<LocationInfo> *edge = sourceVertex->addEdge(destVertex, distance.walking);
+            edge->setType(Edge<LocationInfo>::EdgeType::WALKING);
+
+            // Create a backward edge (dest -> source)
+            Edge<LocationInfo> *reverseEdge = destVertex->addEdge(sourceVertex, distance.walking);
+            reverseEdge->setType(Edge<LocationInfo>::EdgeType::WALKING);
+
+            // Link them as reverse edges
+            edge->setReverse(reverseEdge);
+            reverseEdge->setReverse(edge);
+
+            walkingEdges += 2; // Count both directions
+            std::cout << "  Added walking edge (weight: " << distance.walking << ")" << std::endl;
         }
     }
 
@@ -109,6 +130,9 @@ void GraphBuilder::printGraph(const Graph<LocationInfo> &graph) {
     auto vertices = graph.getVertexSet();
 
     int totalEdges = 0;
+    int drivingEdges = 0;
+    int walkingEdges = 0;
+
     for (const auto &vertex: vertices) {
         const LocationInfo &info = vertex->getInfo();
 
@@ -125,12 +149,23 @@ void GraphBuilder::printGraph(const Graph<LocationInfo> &graph) {
             std::cout << "  Connections: ";
             for (const auto &edge: edges) {
                 const LocationInfo &destInfo = edge->getDest()->getInfo();
+                std::string edgeType = edge->getTypeString();
+
+                // Count edge types
+                if (edge->getType() == Edge<LocationInfo>::EdgeType::DRIVING) {
+                    drivingEdges++;
+                } else if (edge->getType() == Edge<LocationInfo>::EdgeType::WALKING) {
+                    walkingEdges++;
+                }
+
                 std::cout << destInfo.code << " - " << destInfo.name
-                        << " (weight: " << edge->getWeight() << ") ";
+                        << " (" << edgeType << ", weight: " << edge->getWeight() << ") ";
             }
             std::cout << std::endl;
         }
     }
 
     std::cout << "Total directed edges in the graph: " << totalEdges << std::endl;
+    std::cout << "Driving edges: " << drivingEdges << std::endl;
+    std::cout << "Walking edges: " << walkingEdges << std::endl;
 }
