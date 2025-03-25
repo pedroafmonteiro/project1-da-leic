@@ -3,8 +3,11 @@
 #include <iostream>
 #include <thread>
 #include <vector>
+#include <fstream>
 #include "../parseData/dataManager.h"
 #include "../graph_builder/GraphBuilder.h"
+#include "../routing/routing.h"
+#include "../independent_route/independent_route.h"
 
 Menu::Menu() {
     dataManager = DataManager::getInstance();
@@ -40,9 +43,7 @@ void Menu::optionPicker() {
             mainMenu();
             return;
         }
-        std::cout << "" << std::endl;
-        std::cout << "Independent Route not yet implemented." << std::endl;
-        mainMenu();
+        independentRoute();
     } else if (option == 2) {
         if (!checkDataLoaded()) {
             mainMenu();
@@ -92,7 +93,6 @@ void Menu::buildGraph() {
     std::cout << "" << std::endl;
 
     try {
-        // Create an integrated graph with both driving and walking segments
         transportGraph = GraphBuilder::buildGraphFromDataManager();
         graphBuilt = true;
 
@@ -131,7 +131,6 @@ void Menu::datasetMenu() const {
         std::cout << "Data loaded successfully!" << std::endl;
         std::cout << "" << std::endl;
 
-        // Display some information about the loaded data
         auto distanceData = dataManager->getDistanceData();
         auto locationData = dataManager->getLocationData();
 
@@ -143,6 +142,176 @@ void Menu::datasetMenu() const {
         std::this_thread::sleep_for(std::chrono::seconds(1));
         datasetMenu();
     }
+}
+
+bool Menu::readInput(const std::string &filename,
+                     std::string &sourceCode,
+                     std::string &destCode,
+                     Edge<LocationInfo>::EdgeType &transportMode) const {
+    std::ifstream file(filename);
+
+    if (!file.is_open()) {
+        std::cerr << "Could not open file " << filename << std::endl;
+        return false;
+    }
+
+    std::string line;
+    int sourceId = -1;
+    int destId = -1;
+    std::string mode;
+
+    while (std::getline(file, line)) {
+        line.erase(0, line.find_first_not_of(" \t"));
+
+        if (line.find("Mode:") == 0) {
+            mode = line.substr(5);
+            mode.erase(0, mode.find_first_not_of(" \t"));
+        } else if (line.find("Source:") == 0) {
+            try {
+                sourceId = std::stoi(line.substr(7));
+            } catch (const std::exception &e) {
+                std::cerr << "Error parsing source ID: " << e.what() << std::endl;
+                return false;
+            }
+        } else if (line.find("Destination:") == 0) {
+            try {
+                destId = std::stoi(line.substr(12));
+            } catch (const std::exception &e) {
+                std::cerr << "Error parsing destination ID: " << e.what() << std::endl;
+                return false;
+            }
+        }
+    }
+
+    file.close();
+
+    if (sourceId == -1 || destId == -1 || mode.empty()) {
+        std::cerr << "Missing required data in input file" << std::endl;
+        return false;
+    }
+
+    if (mode == "driving") {
+        transportMode = Edge<LocationInfo>::EdgeType::DRIVING;
+    } else if (mode == "walking") {
+        transportMode = Edge<LocationInfo>::EdgeType::WALKING;
+    } else {
+        transportMode = Edge<LocationInfo>::EdgeType::DEFAULT;
+    }
+
+    bool foundSource = false;
+    bool foundDest = false;
+
+    std::vector<LocationData> locations = dataManager->getLocationData();
+
+    for (const auto &loc: locations) {
+        if (loc.id == sourceId) {
+            sourceCode = loc.code;
+            foundSource = true;
+        }
+        if (loc.id == destId) {
+            destCode = loc.code;
+            foundDest = true;
+        }
+
+        if (foundSource && foundDest) {
+            break;
+        }
+    }
+
+    // Check if we found the codes
+    if (!foundSource || !foundDest) {
+        std::cerr << "Could not find location codes for the provided IDs" << std::endl;
+        return false;
+    }
+
+    return true;
+}
+
+void Menu::independentRoute() {
+    std::cout << "\n--- Independent Route ---\n";
+    std::cout << "Best (fastest) route between a source and destination.\n";
+
+    std::cout << "\nDo you want to read data from input.txt? (y/n): ";
+    char choice;
+    std::cin >> choice;
+
+    std::string sourceCode, destCode;
+    int sourceId = -1, destId = -1;
+    Edge<LocationInfo>::EdgeType transportMode = Edge<LocationInfo>::EdgeType::DRIVING;
+
+    if (choice == 'y' || choice == 'Y') {
+        std::cout << "Enter the path to the input file (default: input.txt): ";
+        std::string filePath;
+        std::cin.ignore();
+        std::getline(std::cin, filePath);
+
+        if (filePath.empty()) {
+            filePath = "input.txt";
+        }
+
+        if (!readInput(filePath, sourceCode, destCode, transportMode)) {
+            std::cerr << "Failed to read route data from file. Please check the format and try again." << std::endl;
+            std::cout << "\nPress Enter to return to the main menu...";
+            std::cin.get();
+            mainMenu();
+            return;
+        }
+
+        auto locations = dataManager->getLocationData();
+        for (const auto &loc: locations) {
+            if (loc.code == sourceCode) {
+                sourceId = loc.id;
+            }
+            if (loc.code == destCode) {
+                destId = loc.id;
+            }
+            if (sourceId != -1 && destId != -1) {
+                break;
+            }
+        }
+
+        std::cout << "Successfully read route from file." << std::endl;
+    } else {
+        std::cout << "\nEnter source location code: ";
+        std::cin.ignore();
+        std::getline(std::cin, sourceCode);
+
+        std::cout << "Enter destination location code: ";
+        std::getline(std::cin, destCode);
+
+        auto locations = dataManager->getLocationData();
+        for (const auto &loc: locations) {
+            if (loc.code == sourceCode) {
+                sourceId = loc.id;
+            }
+            if (loc.code == destCode) {
+                destId = loc.id;
+            }
+            if (sourceId != -1 && destId != -1) {
+                break;
+            }
+        }
+
+        transportMode = Edge<LocationInfo>::EdgeType::DRIVING;
+    }
+
+    std::vector<LocationInfo> fastestRoute = Routing::findFastestRoute(
+        transportGraph, sourceCode, destCode, transportMode);
+
+    std::vector<LocationInfo> alternativeRoute;
+    if (!fastestRoute.empty()) {
+        alternativeRoute = IndependentRoute::findAlternativeRoute(
+            transportGraph, fastestRoute, sourceCode, destCode, transportMode);
+    }
+
+    std::string outputFilename = "output.txt";
+    Routing::outputRoutesToFile(outputFilename, sourceId, destId, fastestRoute, alternativeRoute, transportGraph);
+
+    std::cout << "\nPress Enter to return to the main menu...";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cin.get();
+
+    mainMenu();
 }
 
 void Menu::credits() {
