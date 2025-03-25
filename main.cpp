@@ -1,12 +1,10 @@
 // main.cpp
 
-#include <iostream>
 #include "menu/menu.h"
-#include "parseData/parseData.h"
-#include "parseData/dataManager.h"
 
-int main() {
+int main(int argc, char *argv[]) {
     Menu menu;
+    menu.credits();
     menu.mainMenu();
 
     return 0;

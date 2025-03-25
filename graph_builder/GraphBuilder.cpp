@@ -25,8 +25,6 @@ Graph<LocationInfo> GraphBuilder::buildIntegratedGraph(
         graph.addVertex(info);
     }
 
-    std::cout << "Added " << graph.getNumVertex() << " vertices to the graph." << std::endl;
-
     int drivingEdges = 0;
     int walkingEdges = 0;
     int failedEdges = 0;
@@ -59,10 +57,6 @@ Graph<LocationInfo> GraphBuilder::buildIntegratedGraph(
             continue;
         }
 
-        // Debug output
-        std::cout << "Processing edge: " << sourceCode << " -> " << destCode;
-        std::cout << " (Driving: " << distance.driving << ", Walking: " << distance.walking << ")" << std::endl;
-
         // Add driving edge if it's drivable (driving time != -1)
         if (distance.driving != -1) {
             // Create a forward edge (source -> dest)
@@ -78,7 +72,6 @@ Graph<LocationInfo> GraphBuilder::buildIntegratedGraph(
             reverseEdge->setReverse(edge);
 
             drivingEdges += 2; // Count both directions
-            std::cout << "  Added driving edge (weight: " << distance.driving << ")" << std::endl;
         }
 
         // Add walking edge if it exists (should always be valid)
@@ -96,12 +89,9 @@ Graph<LocationInfo> GraphBuilder::buildIntegratedGraph(
             reverseEdge->setReverse(edge);
 
             walkingEdges += 2; // Count both directions
-            std::cout << "  Added walking edge (weight: " << distance.walking << ")" << std::endl;
         }
     }
 
-    std::cout << "Added " << drivingEdges << " driving edges and "
-            << walkingEdges << " walking edges to the graph." << std::endl;
     if (failedEdges > 0) {
         std::cout << "Failed to add " << failedEdges << " edges." << std::endl;
     }

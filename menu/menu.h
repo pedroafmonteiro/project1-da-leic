@@ -22,6 +22,8 @@ public:
 
     void mainMenu();
 
+    void credits();
+
     void datasetMenu() const;
 };
 

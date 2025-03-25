@@ -1,6 +1,7 @@
 #include "menu.h"
 
 #include <iostream>
+#include <thread>
 #include <vector>
 #include "../parseData/dataManager.h"
 #include "../graph_builder/GraphBuilder.h"
@@ -11,9 +12,6 @@ Menu::Menu() {
 }
 
 void Menu::mainMenu() {
-    std::cout << "" << std::endl;
-    std::cout << "Design of Algorithms Project 1 - Spring 2025" << std::endl;
-    std::cout << "Developed by Group 2 - Class 15" << std::endl;
     std::cout << "" << std::endl;
     std::cout << "  0. Load dataset." << std::endl;
     std::cout << "" << std::endl;
@@ -92,7 +90,6 @@ void Menu::buildGraph() {
     }
 
     std::cout << "" << std::endl;
-    std::cout << "Building integrated transport graph from loaded data..." << std::endl;
 
     try {
         // Create an integrated graph with both driving and walking segments
@@ -100,10 +97,9 @@ void Menu::buildGraph() {
         graphBuilt = true;
 
         std::cout << "Graph built successfully!" << std::endl;
-        std::cout << "Transport graph has " << transportGraph.getNumVertex() << " vertices." << std::endl;
 
         // Optional: Print detailed graph information
-        GraphBuilder::printGraph(transportGraph);
+        // GraphBuilder::printGraph(transportGraph);
     } catch (const std::exception &e) {
         std::cerr << "Error building graph: " << e.what() << std::endl;
         graphBuilt = false;
@@ -144,6 +140,13 @@ void Menu::datasetMenu() const {
     } else {
         std::cerr << "Failed to load data. Please check the file paths and try again." << std::endl;
         std::cout << "" << std::endl;
-        exit(0);
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+        datasetMenu();
     }
+}
+
+void Menu::credits() {
+    std::cout << "" << std::endl;
+    std::cout << "Design of Algorithms Project 1 - Spring 2025" << std::endl;
+    std::cout << "Developed by Group 2 - Class 15" << std::endl;
 }
