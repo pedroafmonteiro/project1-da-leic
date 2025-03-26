@@ -57,9 +57,7 @@ void Menu::optionPicker() {
             mainMenu();
             return;
         }
-        std::cout << "" << std::endl;
-        std::cout << "Environmentally-Friendly Route not yet implemented." << std::endl;
-        mainMenu();
+        efRoute();
     } else if (option == 4) {
         exit(0);
     } else {
@@ -230,6 +228,93 @@ bool Menu::readInput(const std::string &filename,
 void Menu::independentRoute() {
     std::cout << "\n--- Independent Route ---\n";
     std::cout << "Best (fastest) route between a source and destination.\n";
+
+    std::cout << "\nDo you want to read data from input.txt? (y/n): ";
+    char choice;
+    std::cin >> choice;
+
+    std::string sourceCode, destCode;
+    int sourceId = -1, destId = -1;
+    Edge<LocationInfo>::EdgeType transportMode = Edge<LocationInfo>::EdgeType::DRIVING;
+
+    if (choice == 'y' || choice == 'Y') {
+        std::cout << "Enter the path to the input file (default: input.txt): ";
+        std::string filePath;
+        std::cin.ignore();
+        std::getline(std::cin, filePath);
+
+        if (filePath.empty()) {
+            filePath = "input.txt";
+        }
+
+        if (!readInput(filePath, sourceCode, destCode, transportMode)) {
+            std::cerr << "Failed to read route data from file. Please check the format and try again." << std::endl;
+            std::cout << "\nPress Enter to return to the main menu...";
+            std::cin.get();
+            mainMenu();
+            return;
+        }
+
+        auto locations = dataManager->getLocationData();
+        for (const auto &loc: locations) {
+            if (loc.code == sourceCode) {
+                sourceId = loc.id;
+            }
+            if (loc.code == destCode) {
+                destId = loc.id;
+            }
+            if (sourceId != -1 && destId != -1) {
+                break;
+            }
+        }
+
+        std::cout << "Successfully read route from file." << std::endl;
+    } else {
+        std::cout << "\nEnter source location code: ";
+        std::cin.ignore();
+        std::getline(std::cin, sourceCode);
+
+        std::cout << "Enter destination location code: ";
+        std::getline(std::cin, destCode);
+
+        auto locations = dataManager->getLocationData();
+        for (const auto &loc: locations) {
+            if (loc.code == sourceCode) {
+                sourceId = loc.id;
+            }
+            if (loc.code == destCode) {
+                destId = loc.id;
+            }
+            if (sourceId != -1 && destId != -1) {
+                break;
+            }
+        }
+
+        transportMode = Edge<LocationInfo>::EdgeType::DRIVING;
+    }
+
+    std::vector<LocationInfo> fastestRoute = Routing::findFastestRoute(
+        transportGraph, sourceCode, destCode, transportMode);
+
+    std::vector<LocationInfo> alternativeRoute;
+    if (!fastestRoute.empty()) {
+        alternativeRoute = IndependentRoute::findAlternativeRoute(
+            transportGraph, fastestRoute, sourceCode, destCode, transportMode);
+    }
+
+    std::string outputFilename = "output.txt";
+    Routing::outputRoutesToFile(outputFilename, sourceId, destId, fastestRoute, alternativeRoute, transportGraph);
+
+    std::cout << "\nPress Enter to return to the main menu...";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cin.get();
+
+    mainMenu();
+}
+
+void Menu::efRoute() {
+    std::cout << "\n--- Environmentally-Friendly Route ---\n";
+    std::cout << "Best (shortest overall) route for driving and walking.\n";
 
     std::cout << "\nDo you want to read data from input.txt? (y/n): ";
     char choice;

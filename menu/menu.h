@@ -32,6 +32,8 @@ public:
     void datasetMenu() const;
 
     void independentRoute();
+
+    void efRoute();
 };
 
 #endif // MENU_H
