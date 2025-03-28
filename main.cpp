@@ -1,6 +1,6 @@
 // main.cpp
 
-#include "menu/menu.h"
+#include "menu/Menu.h"
 
 int main(int argc, char *argv[]) {
     Menu menu;

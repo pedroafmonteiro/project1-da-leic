@@ -2,7 +2,7 @@
 #define MENU_H
 
 #include <string>
-#include "../parseData/dataManager.h"
+#include "../parse_data/DataManager.h"
 #include "../graph_structure/Graph.h"
 #include "../graph_builder/GraphBuilder.h"
 

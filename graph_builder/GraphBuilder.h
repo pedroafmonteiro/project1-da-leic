@@ -2,8 +2,8 @@
 #define GRAPHBUILDER_H
 
 #include <string>
-#include "../parseData/parseData.h"
-#include "../parseData/dataManager.h"
+#include "../parse_data/ParseData.h"
+#include "../parse_data/DataManager.h"
 #include "../graph_structure/Graph.h"
 
 // Structure to store location information for graph vertices

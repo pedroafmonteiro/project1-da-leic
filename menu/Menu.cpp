@@ -1,4 +1,4 @@
-#include "menu.h"
+#include "Menu.h"
 
 #include <iostream>
 #include <thread>
@@ -7,10 +7,9 @@
 #include <sstream>
 #include <unordered_map>
 
-#include "../parseData/dataManager.h"
+#include "../parse_data/DataManager.h"
 #include "../graph_builder/GraphBuilder.h"
-#include "../routing/routing.h"
-#include "../independent_route/independent_route.h"
+#include "../routing/Routing.h"
 
 Menu::Menu()
 {
@@ -465,7 +464,7 @@ void Menu::independentRoute()
     std::vector<LocationInfo> alternativeRoute;
     if (!fastestRoute.empty())
     {
-        alternativeRoute = IndependentRoute::findAlternativeRoute(
+        alternativeRoute = Routing::findAlternativeRoute(
             transportGraph, fastestRoute, sourceCode, destCode, transportMode);
     }
 
