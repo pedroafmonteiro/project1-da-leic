@@ -23,6 +23,13 @@ public:
         const std::string &destCode,
         Edge<LocationInfo>::EdgeType transportMode = Edge<LocationInfo>::EdgeType::DEFAULT);
 
+    static std::vector<LocationInfo> findAlternativeRoute(
+        const Graph<LocationInfo> &originalGraph,
+        const std::vector<LocationInfo> &fastestPath,
+        const std::string &sourceCode,
+        const std::string &destCode,
+        Edge<LocationInfo>::EdgeType transportMode = Edge<LocationInfo>::EdgeType::DEFAULT);
+
     static std::vector<LocationInfo> findRouteWithFilter(
         const Graph<LocationInfo> &graph,
         const std::string &sourceCode,
@@ -56,6 +63,10 @@ private:
         const Graph<LocationInfo> &graph,
         const LocationInfo &source,
         const LocationInfo &dest);
+
+    static Graph<LocationInfo> createGraphWithoutPath(
+        const Graph<LocationInfo> &originalGraph,
+        const std::vector<LocationInfo> &pathToRemove);
 };
 
 #endif // ROUTING_H

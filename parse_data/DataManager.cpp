@@ -1,5 +1,5 @@
-#include "dataManager.h"
-#include "parseData.h"
+#include "DataManager.h"
+#include "ParseData.h"
 #include <iostream>
 
 DataManager *DataManager::instance = nullptr;
