@@ -6,14 +6,6 @@
 
 #include "../graph_structure/Graph.h"
 
-std::vector<LocationInfo> IndependentRoute::findFastestRoute(
-    const Graph<LocationInfo> &graph,
-    const std::string &sourceCode,
-    const std::string &destCode,
-    Edge<LocationInfo>::EdgeType transportMode) {
-    return Routing::findFastestRoute(graph, sourceCode, destCode, transportMode);
-}
-
 Graph<LocationInfo> IndependentRoute::createGraphWithoutPath(
     const Graph<LocationInfo> &originalGraph,
     const std::vector<LocationInfo> &pathToRemove) {
