@@ -560,9 +560,9 @@ void Routing::outputEcoRouteToFile(
     outFile << "Destination:" << destId << std::endl;
     
     if (!route.isValid) {
-        outFile << "DrivingRoute:none" << std::endl;
-        outFile << "ParkingNode:none" << std::endl;
-        outFile << "WalkingRoute:none" << std::endl;
+        outFile << "DrivingRoute:" << std::endl;
+        outFile << "ParkingNode:" << std::endl;
+        outFile << "WalkingRoute:" << std::endl;
         outFile << "TotalTime:" << std::endl;
         outFile << "Message:" << route.errorMessage << std::endl;
     } else {
