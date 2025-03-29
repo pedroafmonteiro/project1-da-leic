@@ -1085,6 +1085,25 @@ void Menu::environmentallyFriendlyRoute()
             }
         }
 
+        // Find source and destination IDs for output
+        if (!isSourceId) {
+            for (const auto &loc : dataManager->getLocationData()) {
+                if (loc.code == sourceCode) {
+                    sourceId = loc.id;
+                    break;
+                }
+            }
+        }
+
+        if (!isDestId) {
+            for (const auto &loc : dataManager->getLocationData()) {
+                if (loc.code == destCode) {
+                    destId = loc.id;
+                    break;
+                }
+            }
+        }
+
         // Get maximum walking time
         std::cout << "Enter maximum walking time (minutes): ";
         std::cin >> maxWalkingTime;
@@ -1151,39 +1170,10 @@ void Menu::environmentallyFriendlyRoute()
         // Display results
         displayEcoRouteResults(ecoRoute, sourceCode, destCode);
         
-        // Ask user if they want to save to a file
-        std::cout << "\nDo you want to save the results to a file? (y/n): ";
-        char saveOption;
-        std::cin >> saveOption;
-        
-        if (saveOption == 'y' || saveOption == 'Y') {
-            std::cout << "Enter output filename (default: output.txt): ";
-            std::string outputFilename;
-            
-            // Clear input buffer before getline
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            
-            // Read the filename
-            std::getline(std::cin, outputFilename);
-            
-            // Use default if empty
-            if (outputFilename.empty() || outputFilename == "\n") {
-                outputFilename = "output.txt";
-            }
-            
-            // Find source and destination IDs for output
-            int sourceIdForOutput = -1, destIdForOutput = -1;
-            for (const auto &location : dataManager->getLocationData()) {
-                if (location.code == sourceCode) {
-                    sourceIdForOutput = location.id;
-                }
-                if (location.code == destCode) {
-                    destIdForOutput = location.id;
-                }
-            }
-            
-            Routing::outputEcoRouteToFile(outputFilename, sourceIdForOutput, destIdForOutput, ecoRoute);
-        }
+        // Automatically save to output.txt without asking
+        std::string outputFilename = "output.txt";
+        Routing::outputEcoRouteToFile(outputFilename, sourceId, destId, ecoRoute);
+        std::cout << "\nResults saved to " << outputFilename << std::endl;
     }
     else {
         std::cout << "\nInvalid option. Returning to main menu." << std::endl;
