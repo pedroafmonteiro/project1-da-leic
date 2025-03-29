@@ -1,0 +1,122 @@
+\doxysection{Routing.\+h}
+\hypertarget{_routing_8h_source}{}\label{_routing_8h_source}\index{routing/Routing.h@{routing/Routing.h}}
+\mbox{\hyperlink{_routing_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ROUTING\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ROUTING\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_graph_8h}{../graph\_structure/Graph.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_graph_builder_8h}{../graph\_builder/GraphBuilder.h}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_routing}{Routing}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_routing_a40078f3585157c2f9314b6881c759c45}{EdgeFilter}}\ =\ std::function<bool(\mbox{\hyperlink{class_edge}{Edge<LocationInfo>}}\ *)>;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_routing_aaeca0964e20b7fa33dab816ffb19e860}{dijkstra}}(}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<LocationInfo>}}\ \&graph,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_location_info}{LocationInfo}}\ \&source,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_routing_a40078f3585157c2f9314b6881c759c45}{EdgeFilter}}\ filter\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<LocationInfo>\ \mbox{\hyperlink{class_routing_a7e0953101de9ba843cf52865ff9f004d}{findFastestRoute}}(}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_graph}{Graph<LocationInfo>}}\ \&graph,}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&sourceCode,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&destCode,}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_edge_aa5a6e4523109a035b3b1f93477542090}{Edge<LocationInfo>::EdgeType}}\ transportMode\ =\ \mbox{\hyperlink{class_edge_aa5a6e4523109a035b3b1f93477542090a5b39c8b553c821e7cddc6da64b5bd2ee}{Edge<LocationInfo>::EdgeType::DEFAULT}});}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<LocationInfo>\ \mbox{\hyperlink{class_routing_a31b7c4a334ae2ca50ea84f255a17f098}{findAlternativeRoute}}(}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_graph}{Graph<LocationInfo>}}\ \&originalGraph,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<LocationInfo>\ \&fastestPath,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&sourceCode,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&destCode,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_edge_aa5a6e4523109a035b3b1f93477542090}{Edge<LocationInfo>::EdgeType}}\ transportMode\ =\ \mbox{\hyperlink{class_edge_aa5a6e4523109a035b3b1f93477542090a5b39c8b553c821e7cddc6da64b5bd2ee}{Edge<LocationInfo>::EdgeType::DEFAULT}});}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<LocationInfo>\ \mbox{\hyperlink{class_routing_a551d7b0be324be82759b103c18f34405}{findRouteWithFilter}}(}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_graph}{Graph<LocationInfo>}}\ \&graph,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&sourceCode,}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&destCode,}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_routing_a40078f3585157c2f9314b6881c759c45}{EdgeFilter}}\ filter);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_routing_a65d76b9f046be6a3f9950bf3c8fc731c}{calculateRouteTime}}(}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<LocationInfo>\ \&path,}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_graph}{Graph<LocationInfo>}}\ \&graph);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_routing_a65d76b9f046be6a3f9950bf3c8fc731c}{calculateRouteTime}}(}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<LocationInfo>\ \&path,}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_graph}{Graph<LocationInfo>}}\ \&graph,}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_edge_aa5a6e4523109a035b3b1f93477542090}{Edge<LocationInfo>::EdgeType}}\ transportMode);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_routing_a5943e3078cfa99e57f0d25e26c8a330f}{displayRoute}}(}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<LocationInfo>\ \&path,}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_graph}{Graph<LocationInfo>}}\ \&graph);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_routing_ac334b488ccd2d712a555258b3e2f7dc4}{outputRoutesToFile}}(}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&filename,}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sourceId,}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ destId,}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<LocationInfo>\ \&bestRoute,}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<LocationInfo>\ \&alternativeRoute,}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_graph}{Graph<LocationInfo>}}\ \&graph);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{class_routing_a372d470bb22736a8ce6eac6d80d17780}{formatRouteForOutput}}(}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<LocationInfo>\ \&route,}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ totalTime);}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_routing_1_1_eco_route}{EcoRoute}}\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ std::vector<LocationInfo>\ \mbox{\hyperlink{struct_routing_1_1_eco_route_abfad8c70a1a92c30678831bcc8268b00}{drivingRoute}};\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_location_info}{LocationInfo}}\ \mbox{\hyperlink{struct_routing_1_1_eco_route_a78f4cdddfca0d551ac3a21767b2fe5dc}{parkingNode}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ std::vector<LocationInfo>\ \mbox{\hyperlink{struct_routing_1_1_eco_route_a4369edab928a5a0ed119d45a78d7e963}{walkingRoute}};\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_routing_1_1_eco_route_ae20ee0569d2996e4431a54232a7b1d02}{totalTime}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_routing_1_1_eco_route_a311c275fa0d6668d251467fce20c087e}{walkingTime}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_routing_1_1_eco_route_a4baa14af8c1176b2ad696d08f343152b}{isValid}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{struct_routing_1_1_eco_route_a9782bfbd1d2e33960ad1a405349a1052}{errorMessage}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00157\ \ \ \ \ \};}
+\DoxyCodeLine{00158\ \ \ \ \ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{struct_routing_1_1_eco_route}{EcoRoute}}\ \mbox{\hyperlink{class_routing_ab5d4694482ba9db54435b7940052db8e}{findEnvironmentallyFriendlyRoute}}(}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_graph}{Graph<LocationInfo>}}\ \&graph,}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&sourceCode,}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&destCode,}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ maxWalkingTime,}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int>\ \&avoidNodes\ =\ \{\},}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::pair<int,\ int>>\ \&avoidSegments\ =\ \{\});}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_routing_aaefb6d614b0601af4d0b607f70d759d3}{outputEcoRouteToFile}}(}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&filename,}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sourceId,}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ destId,}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_routing_1_1_eco_route}{EcoRoute}}\ \&route);}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_routing_ae488d05223b08815b8eae4e26ddac861}{processEcoRouteFromFile}}(}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&inputFilename,}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&outputFilename,}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Graph<LocationInfo>\ \&graph);}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ relax(Edge<LocationInfo>\ *edge);}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<LocationInfo>\ getPath(}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Graph<LocationInfo>\ \&graph,}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ LocationInfo\ \&source,}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ LocationInfo\ \&dest);}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keyword}{static}\ Graph<LocationInfo>\ createGraphWithoutPath(}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Graph<LocationInfo>\ \&originalGraph,}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<LocationInfo>\ \&pathToRemove);}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_routing_a40078f3585157c2f9314b6881c759c45}{EdgeFilter}}\ createEcoRouteFilter(}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int>\ \&avoidNodes,}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::pair<int,\ int>>\ \&avoidSegments,}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_edge_aa5a6e4523109a035b3b1f93477542090}{Edge<LocationInfo>::EdgeType}}\ transportMode);}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ areNodesAdjacent(}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Graph<LocationInfo>\ \&graph,}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ LocationInfo\ \&node1,}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ LocationInfo\ \&node2);}
+\DoxyCodeLine{00266\ \};}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ROUTING\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,127 @@
+\doxysection{Menu Class Reference}
+\hypertarget{class_menu}{}\label{class_menu}\index{Menu@{Menu}}
+
+
+Main user interface class that handles user interaction and routing operations.  
+
+
+
+
+{\ttfamily \#include $<$Menu.\+h$>$}
+
+
+
+Collaboration diagram for Menu\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{class_menu__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_menu_ad466dd83355124a6ed958430450bfe94}{Menu}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_menu}{Menu} class @complexity O(1) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_abd8a18583a4d2bfde309aa5d84544103}{dataset\+Menu}} () const
+\begin{DoxyCompactList}\small\item\em \doxylink{class_menu}{Menu} for loading dataset files @complexity O(\+N) where N is the size of the dataset. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a69e3eff6c62959a8128b2cbeacbaf451}{environmentally\+Friendly\+Route}} ()
+\begin{DoxyCompactList}\small\item\em Handles the environmentally-\/friendly route planning functionality @complexity O(\+P \texorpdfstring{$\ast$}{*} E log V) where P is the number of parking nodes and E, V are edges and vertices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a9ed91693201da62d46c882cbeaedfcd5}{independent\+Route}} ()
+\begin{DoxyCompactList}\small\item\em Handles the independent route planning functionality @complexity O(\+E log V) due to Dijkstra\textquotesingle{}s algorithm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_aef9edee86d2ea460606361c92e061583}{main\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Displays the main menu options @complexity O(1) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a30cf0a74f8ae010c98a107140cec958e}{restricted\+Route}} ()
+\begin{DoxyCompactList}\small\item\em Handles the restricted route planning functionality @complexity O(\+E log V) due to Dijkstra\textquotesingle{}s algorithm with added filters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_menu_ad038639f1dbf6e0d16ce7986d141155d}{credits}} ()
+\begin{DoxyCompactList}\small\item\em Displays project credits @complexity O(1) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main user interface class that handles user interaction and routing operations. 
+
+The \doxylink{class_menu}{Menu} class provides a command-\/line interface for users to interact with the routing system. It presents various options for route planning, handles user input, and displays results. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_menu_ad466dd83355124a6ed958430450bfe94}\index{Menu@{Menu}!Menu@{Menu}}
+\index{Menu@{Menu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{Menu()}{Menu()}}
+{\footnotesize\ttfamily \label{class_menu_ad466dd83355124a6ed958430450bfe94} 
+Menu\+::\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructor for the \doxylink{class_menu}{Menu} class @complexity O(1) 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_menu_ad038639f1dbf6e0d16ce7986d141155d}\index{Menu@{Menu}!credits@{credits}}
+\index{credits@{credits}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{credits()}{credits()}}
+{\footnotesize\ttfamily \label{class_menu_ad038639f1dbf6e0d16ce7986d141155d} 
+void Menu\+::credits (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Displays project credits @complexity O(1) 
+
+\Hypertarget{class_menu_abd8a18583a4d2bfde309aa5d84544103}\index{Menu@{Menu}!datasetMenu@{datasetMenu}}
+\index{datasetMenu@{datasetMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{datasetMenu()}{datasetMenu()}}
+{\footnotesize\ttfamily \label{class_menu_abd8a18583a4d2bfde309aa5d84544103} 
+void Menu\+::dataset\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+\doxylink{class_menu}{Menu} for loading dataset files @complexity O(\+N) where N is the size of the dataset. 
+
+\Hypertarget{class_menu_a69e3eff6c62959a8128b2cbeacbaf451}\index{Menu@{Menu}!environmentallyFriendlyRoute@{environmentallyFriendlyRoute}}
+\index{environmentallyFriendlyRoute@{environmentallyFriendlyRoute}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{environmentallyFriendlyRoute()}{environmentallyFriendlyRoute()}}
+{\footnotesize\ttfamily \label{class_menu_a69e3eff6c62959a8128b2cbeacbaf451} 
+void Menu\+::environmentally\+Friendly\+Route (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Handles the environmentally-\/friendly route planning functionality @complexity O(\+P \texorpdfstring{$\ast$}{*} E log V) where P is the number of parking nodes and E, V are edges and vertices. 
+
+\Hypertarget{class_menu_a9ed91693201da62d46c882cbeaedfcd5}\index{Menu@{Menu}!independentRoute@{independentRoute}}
+\index{independentRoute@{independentRoute}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{independentRoute()}{independentRoute()}}
+{\footnotesize\ttfamily \label{class_menu_a9ed91693201da62d46c882cbeaedfcd5} 
+void Menu\+::independent\+Route (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Handles the independent route planning functionality @complexity O(\+E log V) due to Dijkstra\textquotesingle{}s algorithm. 
+
+\Hypertarget{class_menu_aef9edee86d2ea460606361c92e061583}\index{Menu@{Menu}!mainMenu@{mainMenu}}
+\index{mainMenu@{mainMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{mainMenu()}{mainMenu()}}
+{\footnotesize\ttfamily \label{class_menu_aef9edee86d2ea460606361c92e061583} 
+void Menu\+::main\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Displays the main menu options @complexity O(1) 
+
+\Hypertarget{class_menu_a30cf0a74f8ae010c98a107140cec958e}\index{Menu@{Menu}!restrictedRoute@{restrictedRoute}}
+\index{restrictedRoute@{restrictedRoute}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{restrictedRoute()}{restrictedRoute()}}
+{\footnotesize\ttfamily \label{class_menu_a30cf0a74f8ae010c98a107140cec958e} 
+void Menu\+::restricted\+Route (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Handles the restricted route planning functionality @complexity O(\+E log V) due to Dijkstra\textquotesingle{}s algorithm with added filters. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+menu/\mbox{\hyperlink{_menu_8h}{Menu.\+h}}\item 
+menu/\mbox{\hyperlink{_menu_8cpp}{Menu.\+cpp}}\end{DoxyCompactItemize}
