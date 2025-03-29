@@ -55,6 +55,36 @@ public:
     static std::string formatRouteForOutput(
         const std::vector<LocationInfo> &route,
         double totalTime);
+        
+    // New methods for environmentally-friendly route planning
+    struct EcoRoute {
+        std::vector<LocationInfo> drivingRoute;
+        LocationInfo parkingNode;
+        std::vector<LocationInfo> walkingRoute;
+        double totalTime;
+        double walkingTime;
+        bool isValid;
+        std::string errorMessage;
+    };
+    
+    static EcoRoute findEnvironmentallyFriendlyRoute(
+        const Graph<LocationInfo> &graph,
+        const std::string &sourceCode,
+        const std::string &destCode,
+        double maxWalkingTime,
+        const std::vector<int> &avoidNodes = {},
+        const std::vector<std::pair<int, int>> &avoidSegments = {});
+        
+    static void outputEcoRouteToFile(
+        const std::string &filename,
+        int sourceId,
+        int destId,
+        const EcoRoute &route);
+        
+    static bool processEcoRouteFromFile(
+        const std::string &inputFilename,
+        const std::string &outputFilename,
+        const Graph<LocationInfo> &graph);
 
 private:
     static bool relax(Edge<LocationInfo> *edge);
@@ -67,6 +97,17 @@ private:
     static Graph<LocationInfo> createGraphWithoutPath(
         const Graph<LocationInfo> &originalGraph,
         const std::vector<LocationInfo> &pathToRemove);
+        
+    // Helper methods for eco-routing
+    static EdgeFilter createEcoRouteFilter(
+        const std::vector<int> &avoidNodes,
+        const std::vector<std::pair<int, int>> &avoidSegments,
+        Edge<LocationInfo>::EdgeType transportMode);
+        
+    static bool areNodesAdjacent(
+        const Graph<LocationInfo> &graph,
+        const LocationInfo &node1,
+        const LocationInfo &node2);
 };
 
 #endif // ROUTING_H

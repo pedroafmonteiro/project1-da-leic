@@ -5,6 +5,9 @@
 #include <algorithm>
 #include <fstream>
 #include <sstream>
+#include <limits>
+#include <unordered_set>
+#include <map>
 #include "../graph_structure/MutablePriorityQueue.h"
 
 bool Routing::relax(Edge<LocationInfo> *edge) {
@@ -312,4 +315,325 @@ std::vector<LocationInfo> Routing::findAlternativeRoute(
     Graph<LocationInfo> graphWithoutPath = createGraphWithoutPath(originalGraph, fastestPath);
 
     return findFastestRoute(graphWithoutPath, sourceCode, destCode, transportMode);
+}
+
+// Helper method to check if two nodes are adjacent
+bool Routing::areNodesAdjacent(
+    const Graph<LocationInfo> &graph,
+    const LocationInfo &node1,
+    const LocationInfo &node2) {
+    
+    Vertex<LocationInfo> *v1 = graph.findVertex(node1);
+    if (!v1) return false;
+    
+    for (Edge<LocationInfo> *edge : v1->getAdj()) {
+        if (edge->getDest()->getInfo().code == node2.code) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+// Create a filter for eco-routing based on avoid nodes/segments and transport mode
+Routing::EdgeFilter Routing::createEcoRouteFilter(
+    const std::vector<int> &avoidNodes,
+    const std::vector<std::pair<int, int>> &avoidSegments,
+    Edge<LocationInfo>::EdgeType transportMode) {
+    
+    return [avoidNodes, avoidSegments, transportMode](Edge<LocationInfo> *edge) {
+        // Check transport mode
+        if (transportMode != Edge<LocationInfo>::EdgeType::DEFAULT && 
+            edge->getType() != transportMode) {
+            return false;
+        }
+        
+        // Check if source or destination is in avoid nodes
+        int origId = edge->getOrig()->getInfo().id;
+        int destId = edge->getDest()->getInfo().id;
+        
+        if (std::find(avoidNodes.begin(), avoidNodes.end(), origId) != avoidNodes.end() ||
+            std::find(avoidNodes.begin(), avoidNodes.end(), destId) != avoidNodes.end()) {
+            return false;
+        }
+        
+        // Check if edge is in avoid segments
+        for (const auto &segment : avoidSegments) {
+            if ((segment.first == origId && segment.second == destId) ||
+                (segment.first == destId && segment.second == origId)) {
+                return false;
+            }
+        }
+        
+        return true;
+    };
+}
+
+// Find environmentally-friendly route combining driving and walking
+Routing::EcoRoute Routing::findEnvironmentallyFriendlyRoute(
+    const Graph<LocationInfo> &graph,
+    const std::string &sourceCode,
+    const std::string &destCode,
+    double maxWalkingTime,
+    const std::vector<int> &avoidNodes,
+    const std::vector<std::pair<int, int>> &avoidSegments) {
+    
+    EcoRoute result;
+    result.isValid = false;
+    result.totalTime = std::numeric_limits<double>::max();
+    result.walkingTime = 0;
+    
+    // Find source and destination vertices
+    LocationInfo source("", 0, sourceCode, false);
+    LocationInfo dest("", 0, destCode, false);
+    
+    Vertex<LocationInfo> *sourceVertex = graph.findVertex(source);
+    Vertex<LocationInfo> *destVertex = graph.findVertex(dest);
+    
+    if (!sourceVertex || !destVertex) {
+        result.errorMessage = "Source or destination vertex not found.";
+        return result;
+    }
+    
+    // Check if source or destination has parking
+    if (sourceVertex->getInfo().hasParking) {
+        result.errorMessage = "Origin cannot be a parking node.";
+        return result;
+    }
+    
+    if (destVertex->getInfo().hasParking) {
+        result.errorMessage = "Destination cannot be a parking node.";
+        return result;
+    }
+    
+    // Check if source and destination are adjacent
+    if (areNodesAdjacent(graph, sourceVertex->getInfo(), destVertex->getInfo())) {
+        result.errorMessage = "Origin and destination cannot be adjacent nodes.";
+        return result;
+    }
+    
+    // Find all parking nodes
+    std::vector<Vertex<LocationInfo>*> parkingNodes;
+    for (Vertex<LocationInfo> *v : graph.getVertexSet()) {
+        if (v->getInfo().hasParking && 
+            v->getInfo().code != sourceCode && 
+            v->getInfo().code != destCode &&
+            std::find(avoidNodes.begin(), avoidNodes.end(), v->getInfo().id) == avoidNodes.end()) {
+            parkingNodes.push_back(v);
+        }
+    }
+    
+    if (parkingNodes.empty()) {
+        result.errorMessage = "No available parking nodes that satisfy the constraints.";
+        return result;
+    }
+    
+    // Create mutable graph for algorithms
+    Graph<LocationInfo> mutableGraph = graph;
+    
+    // Create filters for driving and walking
+    EdgeFilter drivingFilter = createEcoRouteFilter(avoidNodes, avoidSegments, Edge<LocationInfo>::EdgeType::DRIVING);
+    EdgeFilter walkingFilter = createEcoRouteFilter(avoidNodes, avoidSegments, Edge<LocationInfo>::EdgeType::WALKING);
+    
+    // Find best eco-friendly route
+    double shortestTotalTime = std::numeric_limits<double>::max();
+    double longestWalkingTime = 0;
+    
+    for (Vertex<LocationInfo> *parkingNode : parkingNodes) {
+        // Find driving route from source to parking
+        dijkstra(mutableGraph, source, drivingFilter);
+        std::vector<LocationInfo> drivingRoute = getPath(mutableGraph, source, parkingNode->getInfo());
+        
+        // If no driving route exists, try next parking node
+        if (drivingRoute.empty()) continue;
+        
+        // Find walking route from parking to destination
+        dijkstra(mutableGraph, parkingNode->getInfo(), walkingFilter);
+        std::vector<LocationInfo> walkingRoute = getPath(mutableGraph, parkingNode->getInfo(), dest);
+        
+        // If no walking route exists, try next parking node
+        if (walkingRoute.empty()) continue;
+        
+        // Calculate total times
+        double drivingTime = calculateRouteTime(drivingRoute, graph);
+        double walkingTime = calculateRouteTime(walkingRoute, graph);
+        double totalTime = drivingTime + walkingTime;
+        
+        // Check if walking time exceeds maximum
+        if (walkingTime > maxWalkingTime) continue;
+        
+        // Check if this is the best route so far
+        if (totalTime < shortestTotalTime || 
+            (totalTime == shortestTotalTime && walkingTime > longestWalkingTime)) {
+            shortestTotalTime = totalTime;
+            longestWalkingTime = walkingTime;
+            
+            result.drivingRoute = drivingRoute;
+            result.parkingNode = parkingNode->getInfo();
+            result.walkingRoute = walkingRoute;
+            result.totalTime = totalTime;
+            result.walkingTime = walkingTime;
+            result.isValid = true;
+            result.errorMessage = "";
+        }
+    }
+    
+    if (!result.isValid) {
+        if (parkingNodes.empty()) {
+            result.errorMessage = "No available parking nodes.";
+        } else {
+            result.errorMessage = "No suitable route found that satisfies the walking time constraint.";
+        }
+    }
+    
+    return result;
+}
+
+// Output eco-route to file
+void Routing::outputEcoRouteToFile(
+    const std::string &filename,
+    int sourceId,
+    int destId,
+    const EcoRoute &route) {
+    
+    std::ofstream outFile(filename);
+    
+    if (!outFile.is_open()) {
+        std::cerr << "Error opening file " << filename << " for writing." << std::endl;
+        return;
+    }
+    
+    outFile << "Source:" << sourceId << std::endl;
+    outFile << "Destination:" << destId << std::endl;
+    
+    if (!route.isValid) {
+        outFile << "DrivingRoute:none" << std::endl;
+        outFile << "ParkingNode:none" << std::endl;
+        outFile << "WalkingRoute:none" << std::endl;
+        outFile << "TotalTime:" << std::endl;
+        outFile << "Message:" << route.errorMessage << std::endl;
+    } else {
+        // Format driving route
+        std::string drivingRouteStr;
+        for (size_t i = 0; i < route.drivingRoute.size(); i++) {
+            drivingRouteStr += std::to_string(route.drivingRoute[i].id);
+            if (i < route.drivingRoute.size() - 1) {
+                drivingRouteStr += ",";
+            }
+        }
+        drivingRouteStr += "(" + std::to_string(static_cast<int>(route.totalTime - route.walkingTime)) + ")";
+        
+        // Format walking route
+        std::string walkingRouteStr;
+        for (size_t i = 0; i < route.walkingRoute.size(); i++) {
+            walkingRouteStr += std::to_string(route.walkingRoute[i].id);
+            if (i < route.walkingRoute.size() - 1) {
+                walkingRouteStr += ",";
+            }
+        }
+        walkingRouteStr += "(" + std::to_string(static_cast<int>(route.walkingTime)) + ")";
+        
+        outFile << "DrivingRoute:" << drivingRouteStr << std::endl;
+        outFile << "ParkingNode:" << route.parkingNode.id << std::endl;
+        outFile << "WalkingRoute:" << walkingRouteStr << std::endl;
+        outFile << "TotalTime:" << static_cast<int>(route.totalTime) << std::endl;
+    }
+    
+    outFile.close();
+}
+
+// Process eco-route from input file
+bool Routing::processEcoRouteFromFile(
+    const std::string &inputFilename,
+    const std::string &outputFilename,
+    const Graph<LocationInfo> &graph) {
+    
+    std::ifstream inFile(inputFilename);
+    
+    if (!inFile.is_open()) {
+        std::cerr << "Error opening input file " << inputFilename << std::endl;
+        return false;
+    }
+    
+    std::string line;
+    std::string sourceStr, destStr, maxWalkTimeStr;
+    std::vector<int> avoidNodes;
+    std::vector<std::pair<int, int>> avoidSegments;
+    
+    // Read input file
+    while (std::getline(inFile, line)) {
+        if (line.find("Source:") == 0) {
+            sourceStr = line.substr(7);
+        } else if (line.find("Destination:") == 0) {
+            destStr = line.substr(12);
+        } else if (line.find("MaxWalkTime:") == 0) {
+            maxWalkTimeStr = line.substr(12);
+        } else if (line.find("AvoidNodes:") == 0) {
+            std::string nodesStr = line.substr(11);
+            if (!nodesStr.empty()) {
+                std::stringstream ss(nodesStr);
+                std::string nodeStr;
+                while (std::getline(ss, nodeStr, ',')) {
+                    avoidNodes.push_back(std::stoi(nodeStr));
+                }
+            }
+        } else if (line.find("AvoidSegments:") == 0) {
+            std::string segmentsStr = line.substr(14);
+            if (!segmentsStr.empty()) {
+                // Parse segments in format (id,id),(id,id),...
+                size_t pos = 0;
+                while ((pos = segmentsStr.find("(", pos)) != std::string::npos) {
+                    size_t endPos = segmentsStr.find(")", pos);
+                    if (endPos == std::string::npos) break;
+                    
+                    std::string segmentStr = segmentsStr.substr(pos + 1, endPos - pos - 1);
+                    std::stringstream ss(segmentStr);
+                    std::string node1Str, node2Str;
+                    
+                    if (std::getline(ss, node1Str, ',') && std::getline(ss, node2Str)) {
+                        avoidSegments.push_back({std::stoi(node1Str), std::stoi(node2Str)});
+                    }
+                    
+                    pos = endPos + 1;
+                }
+            }
+        }
+    }
+    
+    inFile.close();
+    
+    // Validate and convert input
+    if (sourceStr.empty() || destStr.empty() || maxWalkTimeStr.empty()) {
+        std::cerr << "Missing required input parameters." << std::endl;
+        return false;
+    }
+    
+    int sourceId = std::stoi(sourceStr);
+    int destId = std::stoi(destStr);
+    double maxWalkTime = std::stod(maxWalkTimeStr);
+    
+    // Find source and destination codes
+    std::string sourceCode, destCode;
+    for (Vertex<LocationInfo> *v : graph.getVertexSet()) {
+        if (v->getInfo().id == sourceId) {
+            sourceCode = v->getInfo().code;
+        }
+        if (v->getInfo().id == destId) {
+            destCode = v->getInfo().code;
+        }
+    }
+    
+    if (sourceCode.empty() || destCode.empty()) {
+        std::cerr << "Source or destination ID not found in graph." << std::endl;
+        return false;
+    }
+    
+    // Find eco-friendly route
+    EcoRoute route = findEnvironmentallyFriendlyRoute(
+        graph, sourceCode, destCode, maxWalkTime, avoidNodes, avoidSegments);
+    
+    // Output results to file
+    outputEcoRouteToFile(outputFilename, sourceId, destId, route);
+    
+    return true;
 }

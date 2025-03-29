@@ -5,6 +5,7 @@
 #include "../parse_data/DataManager.h"
 #include "../graph_structure/Graph.h"
 #include "../graph_builder/GraphBuilder.h"
+#include "../routing/Routing.h"
 
 class Menu
 {
@@ -27,6 +28,11 @@ class Menu
                    std::vector<std::pair<int, int>> &avoidSegments,
                    int &includeNode);
 
+    // Helper method to display eco-route results
+    void displayEcoRouteResults(const Routing::EcoRoute &route, 
+                               const std::string &sourceCode, 
+                               const std::string &destCode);
+
 public:
     Menu();
 
@@ -39,6 +45,8 @@ public:
     void independentRoute();
 
     void restrictedRoute();
+    
+    void environmentallyFriendlyRoute();
 };
 
 #endif // MENU_H

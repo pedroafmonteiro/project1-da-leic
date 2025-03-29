@@ -69,9 +69,7 @@ void Menu::optionPicker()
             mainMenu();
             return;
         }
-        std::cout << "" << std::endl;
-        std::cout << "Environmentally-Friendly Route not yet implemented." << std::endl;
-        mainMenu();
+        environmentallyFriendlyRoute();
     }
     else if (option == 4)
     {
@@ -681,6 +679,244 @@ void Menu::restrictedRoute()
     std::cout << "\nPress Enter to return to the main menu...";
     std::cin.get();
     mainMenu();
+}
+
+void Menu::environmentallyFriendlyRoute()
+{
+    std::cout << std::endl;
+    std::cout << "Environmentally-Friendly Route Planning" << std::endl;
+    std::cout << "--------------------------------------" << std::endl;
+    std::cout << "This feature plans a route combining driving and walking:" << std::endl;
+    std::cout << "1. Drive to a parking location" << std::endl;
+    std::cout << "2. Park the vehicle" << std::endl;
+    std::cout << "3. Walk to your destination" << std::endl;
+    std::cout << std::endl;
+    
+    std::string sourceCode, destCode;
+    double maxWalkingTime;
+    std::vector<int> avoidNodes;
+    std::vector<std::pair<int, int>> avoidSegments;
+    
+    // Option 1: Manual input 
+    // Option 2: Use input file
+    std::cout << "Choose input method:" << std::endl;
+    std::cout << "1. Manual input" << std::endl;
+    std::cout << "2. Use input file (input.txt)" << std::endl;
+    std::cout << "Select option: ";
+    
+    int inputOption;
+    std::cin >> inputOption;
+    
+    if (inputOption == 1) {
+        // Get source location
+        std::cout << std::endl << "Enter source location code: ";
+        std::cin >> sourceCode;
+        
+        // Get destination location
+        std::cout << "Enter destination location code: ";
+        std::cin >> destCode;
+        
+        // Get maximum walking time
+        std::cout << "Enter maximum walking time (minutes): ";
+        std::cin >> maxWalkingTime;
+        
+        // Ask about avoiding nodes
+        std::cout << std::endl << "Do you want to avoid specific nodes? (y/n): ";
+        char avoidNodesOption;
+        std::cin >> avoidNodesOption;
+        
+        if (avoidNodesOption == 'y' || avoidNodesOption == 'Y') {
+            std::cout << "Enter IDs of nodes to avoid (comma-separated): ";
+            std::string avoidNodesInput;
+            std::cin >> avoidNodesInput;
+            
+            std::stringstream ss(avoidNodesInput);
+            std::string nodeId;
+            while (std::getline(ss, nodeId, ',')) {
+                try {
+                    avoidNodes.push_back(std::stoi(nodeId));
+                } catch (const std::exception &e) {
+                    std::cerr << "Error parsing node ID: " << e.what() << std::endl;
+                }
+            }
+        }
+        
+        // Ask about avoiding segments
+        std::cout << "Do you want to avoid specific segments? (y/n): ";
+        char avoidSegmentsOption;
+        std::cin >> avoidSegmentsOption;
+        
+        if (avoidSegmentsOption == 'y' || avoidSegmentsOption == 'Y') {
+            std::cout << "Enter segments to avoid in format (id1,id2),(id3,id4): ";
+            std::string avoidSegmentsInput;
+            std::cin.ignore(); // Clear the buffer
+            std::getline(std::cin, avoidSegmentsInput);
+            
+            // Parse segments
+            size_t pos = 0;
+            while ((pos = avoidSegmentsInput.find("(", pos)) != std::string::npos) {
+                size_t endPos = avoidSegmentsInput.find(")", pos);
+                if (endPos == std::string::npos) break;
+                
+                std::string segmentStr = avoidSegmentsInput.substr(pos + 1, endPos - pos - 1);
+                std::stringstream ss(segmentStr);
+                std::string node1Str, node2Str;
+                
+                if (std::getline(ss, node1Str, ',') && std::getline(ss, node2Str)) {
+                    try {
+                        avoidSegments.push_back({std::stoi(node1Str), std::stoi(node2Str)});
+                    } catch (const std::exception &e) {
+                        std::cerr << "Error parsing segment: " << e.what() << std::endl;
+                    }
+                }
+                
+                pos = endPos + 1;
+            }
+        }
+        
+        // Find eco-friendly route
+        Routing::EcoRoute ecoRoute = Routing::findEnvironmentallyFriendlyRoute(
+            transportGraph, sourceCode, destCode, maxWalkingTime, avoidNodes, avoidSegments);
+        
+        // Display results
+        displayEcoRouteResults(ecoRoute, sourceCode, destCode);
+        
+        // Ask user if they want to save to a file
+        std::cout << std::endl << "Do you want to save the results to a file? (y/n): ";
+        char saveOption;
+        std::cin >> saveOption;
+        
+        if (saveOption == 'y' || saveOption == 'Y') {
+            std::cout << "Enter output filename (default: output.txt): ";
+            std::string outputFilename;
+            std::cin >> outputFilename;
+            
+            if (outputFilename.empty()) {
+                outputFilename = "output.txt";
+            }
+            
+            // Find source and destination IDs
+            int sourceId = -1, destId = -1;
+            for (const auto &location : dataManager->getLocationData()) {
+                if (location.code == sourceCode) {
+                    sourceId = location.id;
+                }
+                if (location.code == destCode) {
+                    destId = location.id;
+                }
+            }
+            
+            Routing::outputEcoRouteToFile(outputFilename, sourceId, destId, ecoRoute);
+            std::cout << "Results saved to " << outputFilename << std::endl;
+        }
+    }
+    else if (inputOption == 2) {
+        std::string inputFilename = "input.txt";
+        std::string outputFilename = "output.txt";
+        
+        std::cout << std::endl << "Using default filenames: input.txt and output.txt" << std::endl;
+        std::cout << "Processing input file..." << std::endl;
+        
+        bool success = Routing::processEcoRouteFromFile(inputFilename, outputFilename, transportGraph);
+        
+        if (success) {
+            std::cout << "Route processed successfully and saved to " << outputFilename << std::endl;
+        } else {
+            std::cout << "Failed to process route from input file." << std::endl;
+        }
+    }
+    else {
+        std::cout << "Invalid option." << std::endl;
+    }
+    
+    // Return to the main menu
+    std::cout << std::endl << "Press Enter to return to the main menu...";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cin.get();
+    mainMenu();
+}
+
+void Menu::displayEcoRouteResults(const Routing::EcoRoute &route, const std::string &sourceCode, const std::string &destCode)
+{
+    std::cout << std::endl;
+    std::cout << "Eco-Friendly Route Results" << std::endl;
+    std::cout << "--------------------------" << std::endl;
+    
+    // Display source and destination
+    std::string sourceName, destName;
+    for (const auto &location : dataManager->getLocationData()) {
+        if (location.code == sourceCode) {
+            sourceName = location.location;
+        }
+        if (location.code == destCode) {
+            destName = location.location;
+        }
+    }
+    
+    std::cout << "From: " << sourceName << " (" << sourceCode << ")" << std::endl;
+    std::cout << "To: " << destName << " (" << destCode << ")" << std::endl;
+    std::cout << std::endl;
+    
+    if (!route.isValid) {
+        std::cout << "No suitable route found!" << std::endl;
+        std::cout << "Reason: " << route.errorMessage << std::endl;
+        return;
+    }
+    
+    // Display driving route
+    std::cout << "Driving Route:" << std::endl;
+    std::cout << "--------------" << std::endl;
+    for (size_t i = 0; i < route.drivingRoute.size(); i++) {
+        std::cout << i + 1 << ". " << route.drivingRoute[i].name 
+                 << " (" << route.drivingRoute[i].code << ")";
+                 
+        if (i < route.drivingRoute.size() - 1) {
+            
+            Vertex<LocationInfo> *current = transportGraph.findVertex(route.drivingRoute[i]);
+            
+            for (Edge<LocationInfo> *edge : current->getAdj()) {
+                if (edge->getDest()->getInfo().code == route.drivingRoute[i+1].code && 
+                    edge->getType() == Edge<LocationInfo>::EdgeType::DRIVING) {
+                    std::cout << " -> " << edge->getWeight() << " minutes (driving)";
+                    break;
+                }
+            }
+        }
+        
+        std::cout << std::endl;
+    }
+    std::cout << "Total driving time: " << route.totalTime - route.walkingTime << " minutes" << std::endl;
+    
+    // Display parking location
+    std::cout << std::endl << "Parking at: " << route.parkingNode.name 
+             << " (" << route.parkingNode.code << ")" << std::endl;
+    
+    // Display walking route
+    std::cout << std::endl << "Walking Route:" << std::endl;
+    std::cout << "--------------" << std::endl;
+    for (size_t i = 0; i < route.walkingRoute.size(); i++) {
+        std::cout << i + 1 << ". " << route.walkingRoute[i].name 
+                 << " (" << route.walkingRoute[i].code << ")";
+                 
+        if (i < route.walkingRoute.size() - 1) {
+            
+            Vertex<LocationInfo> *current = transportGraph.findVertex(route.walkingRoute[i]);
+            
+            for (Edge<LocationInfo> *edge : current->getAdj()) {
+                if (edge->getDest()->getInfo().code == route.walkingRoute[i+1].code && 
+                    edge->getType() == Edge<LocationInfo>::EdgeType::WALKING) {
+                    std::cout << " -> " << edge->getWeight() << " minutes (walking)";
+                    break;
+                }
+            }
+        }
+        
+        std::cout << std::endl;
+    }
+    std::cout << "Total walking time: " << route.walkingTime << " minutes" << std::endl;
+    
+    // Display total time
+    std::cout << std::endl << "Total travel time: " << route.totalTime << " minutes" << std::endl;
 }
 
 void Menu::credits()
