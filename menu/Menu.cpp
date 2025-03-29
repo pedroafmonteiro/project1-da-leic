@@ -929,7 +929,7 @@ void Menu::restrictedRoute()
     }
 
     // Create a routing filter based on restrictions
-    Routing::EdgeFilter restrictionFilter = [&avoidNodeIds, &transportMode](Edge<LocationInfo> *edge)
+    Routing::EdgeFilter restrictionFilter = [&avoidNodeIds, &avoidSegments, &transportMode](Edge<LocationInfo> *edge)
     {
         // Skip edges that don't match the required transport mode
         if (edge->getType() != transportMode)
@@ -939,11 +939,22 @@ void Menu::restrictedRoute()
 
         // Check if destination is in avoid nodes list by comparing IDs
         int destId = edge->getDest()->getInfo().id;
+        int origId = edge->getOrig()->getInfo().id;
 
         // Skip edges that lead to any avoided node
         for (int avoidId : avoidNodeIds)
         {
             if (destId == avoidId)
+            {
+                return false;
+            }
+        }
+
+        // Skip edges that match any avoided segment
+        for (const auto &segment : avoidSegments)
+        {
+            if ((segment.first == origId && segment.second == destId) ||
+                (segment.first == destId && segment.second == origId))
             {
                 return false;
             }
