@@ -11,7 +11,7 @@
 /**
  * @class Routing
  * @brief Provides algorithms and utilities for route planning and path finding
- * 
+ *
  * This class implements various routing algorithms including Dijkstra's shortest path,
  * alternative route finding, and environmentally-friendly routes that combine driving
  * and walking segments.
@@ -142,20 +142,20 @@ public:
     static std::string formatRouteForOutput(
         const std::vector<LocationInfo> &route,
         double totalTime);
-        
+
     /**
      * @brief Structure to store environmentally-friendly route information
      */
     struct EcoRoute {
         std::vector<LocationInfo> drivingRoute; /**< The driving segment of the route */
-        LocationInfo parkingNode;               /**< The parking location */
+        LocationInfo parkingNode; /**< The parking location */
         std::vector<LocationInfo> walkingRoute; /**< The walking segment of the route */
-        double totalTime;                       /**< Total travel time in minutes */
-        double walkingTime;                     /**< Walking time in minutes */
-        bool isValid;                           /**< Flag indicating if the route is valid */
-        std::string errorMessage;               /**< Error message if route is invalid */
+        double totalTime; /**< Total travel time in minutes */
+        double walkingTime; /**< Walking time in minutes */
+        bool isValid; /**< Flag indicating if the route is valid */
+        std::string errorMessage; /**< Error message if route is invalid */
     };
-    
+
     /**
      * @brief Finds an environmentally-friendly route combining driving and walking
      * @param graph The transportation graph
@@ -174,8 +174,8 @@ public:
         const std::string &destCode,
         double maxWalkingTime,
         const std::vector<int> &avoidNodes = {},
-        const std::vector<std::pair<int, int>> &avoidSegments = {});
-        
+        const std::vector<std::pair<int, int> > &avoidSegments = {});
+
     /**
      * @brief Outputs an eco-route to a file
      * @param filename The output file name
@@ -189,7 +189,7 @@ public:
         int sourceId,
         int destId,
         const EcoRoute &route);
-        
+
     /**
      * @brief Processes an eco-route from an input file
      * @param inputFilename The input file name
@@ -203,6 +203,17 @@ public:
         const std::string &inputFilename,
         const std::string &outputFilename,
         const Graph<LocationInfo> &graph);
+
+    /**
+     * @brief Displays the results of an environmentally-friendly route
+     * @param route The eco-route to display
+     * @param sourceCode Source location code
+     * @param destCode Destination location code
+     * @complexity O(N) where N is the length of the route
+     */
+    static void displayEcoRouteResults(const EcoRoute &route,
+                                       const std::string &sourceCode,
+                                       const std::string &destCode);
 
 private:
     /**
@@ -236,7 +247,7 @@ private:
     static Graph<LocationInfo> createGraphWithoutPath(
         const Graph<LocationInfo> &originalGraph,
         const std::vector<LocationInfo> &pathToRemove);
-        
+
     /**
      * @brief Creates a filter for eco-routing based on constraints
      * @param avoidNodes Nodes to avoid
@@ -248,9 +259,9 @@ private:
      */
     static EdgeFilter createEcoRouteFilter(
         const std::vector<int> &avoidNodes,
-        const std::vector<std::pair<int, int>> &avoidSegments,
+        const std::vector<std::pair<int, int> > &avoidSegments,
         Edge<LocationInfo>::EdgeType transportMode);
-        
+
     /**
      * @brief Checks if two nodes are adjacent in the graph
      * @param graph The transportation graph

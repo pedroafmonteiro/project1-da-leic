@@ -14,10 +14,10 @@
  * including identification, naming, and parking availability.
  */
 struct LocationInfo {
-    std::string name;      /**< Location name */
-    int id;                /**< Unique numeric identifier */
-    std::string code;      /**< Location code (used as primary identifier) */
-    bool hasParking;       /**< Whether parking is available at this location */
+    std::string name; /**< Location name */
+    int id; /**< Unique numeric identifier */
+    std::string code; /**< Location code (used as primary identifier) */
+    bool hasParking; /**< Whether parking is available at this location */
 
     /**
      * @brief Full constructor with all fields

@@ -14,14 +14,13 @@
  * The Menu class provides a command-line interface for users to interact with the routing system.
  * It presents various options for route planning, handles user input, and displays results.
  */
-class Menu
-{
+class Menu {
     /** @brief Singleton data manager instance */
     DataManager *dataManager;
-    
+
     /** @brief Graph representing the transportation network */
     Graph<LocationInfo> transportGraph;
-    
+
     /** @brief Flag indicating if the graph has been successfully built */
     bool graphBuilt;
 
@@ -61,19 +60,8 @@ class Menu
                    std::string &sourceCode,
                    std::string &destCode,
                    std::vector<int> &avoidNodes,
-                   std::vector<std::pair<int, int>> &avoidSegments,
+                   std::vector<std::pair<int, int> > &avoidSegments,
                    int &includeNode);
-                   
-    /**
-     * @brief Displays the results of an environmentally-friendly route
-     * @param route The eco-route to display
-     * @param sourceCode Source location code
-     * @param destCode Destination location code
-     * @complexity O(N) where N is the length of the route
-     */
-    void displayEcoRouteResults(const Routing::EcoRoute &route, 
-                               const std::string &sourceCode, 
-                               const std::string &destCode);
 
 public:
     /**
@@ -111,7 +99,7 @@ public:
      * @complexity O(E log V) due to Dijkstra's algorithm with added filters
      */
     void restrictedRoute();
-    
+
     /**
      * @brief Handles the environmentally-friendly route planning functionality
      * @complexity O(P * E log V) where P is the number of parking nodes and E, V are edges and vertices

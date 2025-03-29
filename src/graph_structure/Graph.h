@@ -234,9 +234,9 @@ public:
      * @brief Enumeration of edge types
      */
     enum class EdgeType {
-        DEFAULT,   /**< Default edge type */
-        DRIVING,   /**< Edge representing a driving connection */
-        WALKING    /**< Edge representing a walking connection */
+        DEFAULT, /**< Default edge type */
+        DRIVING, /**< Edge representing a driving connection */
+        WALKING /**< Edge representing a walking connection */
     };
 
     /**

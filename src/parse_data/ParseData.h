@@ -12,10 +12,10 @@
  * transportation modes (driving and walking).
  */
 struct DistanceData {
-    std::string location1;  /**< First location name */
-    std::string location2;  /**< Second location name */
-    int driving;            /**< Driving time in minutes between locations */
-    int walking;            /**< Walking time in minutes between locations */
+    std::string location1; /**< First location name */
+    std::string location2; /**< Second location name */
+    int driving; /**< Driving time in minutes between locations */
+    int walking; /**< Walking time in minutes between locations */
 };
 
 /**
@@ -26,10 +26,10 @@ struct DistanceData {
  * code, and parking availability.
  */
 struct LocationData {
-    std::string location;   /**< Location name */
-    int id;                 /**< Unique numeric identifier */
-    std::string code;       /**< Location code (abbreviation) */
-    int parking;            /**< Parking availability (1 = available, 0 = unavailable) */
+    std::string location; /**< Location name */
+    int id; /**< Unique numeric identifier */
+    std::string code; /**< Location code (abbreviation) */
+    int parking; /**< Parking availability (1 = available, 0 = unavailable) */
 };
 
 /**
