@@ -1,0 +1,91 @@
+\doxysection{Routing\+::Eco\+Route Struct Reference}
+\hypertarget{structRouting_1_1EcoRoute}{}\label{structRouting_1_1EcoRoute}\index{Routing::EcoRoute@{Routing::EcoRoute}}
+
+
+Structure to store environmentally-\/friendly route information.  
+
+
+
+
+{\ttfamily \#include $<$Routing.\+h$>$}
+
+
+
+Collaboration diagram for Routing\+::Eco\+Route\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{d1/de7/structRouting_1_1EcoRoute__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \mbox{\hyperlink{structRouting_1_1EcoRoute_abfad8c70a1a92c30678831bcc8268b00}{driving\+Route}}
+\item 
+std\+::string \mbox{\hyperlink{structRouting_1_1EcoRoute_a9782bfbd1d2e33960ad1a405349a1052}{error\+Message}}
+\item 
+bool \mbox{\hyperlink{structRouting_1_1EcoRoute_a4baa14af8c1176b2ad696d08f343152b}{is\+Valid}}
+\item 
+\mbox{\hyperlink{structLocationInfo}{Location\+Info}} \mbox{\hyperlink{structRouting_1_1EcoRoute_a78f4cdddfca0d551ac3a21767b2fe5dc}{parking\+Node}}
+\item 
+double \mbox{\hyperlink{structRouting_1_1EcoRoute_ae20ee0569d2996e4431a54232a7b1d02}{total\+Time}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \mbox{\hyperlink{structRouting_1_1EcoRoute_a4369edab928a5a0ed119d45a78d7e963}{walking\+Route}}
+\item 
+double \mbox{\hyperlink{structRouting_1_1EcoRoute_a311c275fa0d6668d251467fce20c087e}{walking\+Time}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure to store environmentally-\/friendly route information. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structRouting_1_1EcoRoute_abfad8c70a1a92c30678831bcc8268b00}\index{Routing::EcoRoute@{Routing::EcoRoute}!drivingRoute@{drivingRoute}}
+\index{drivingRoute@{drivingRoute}!Routing::EcoRoute@{Routing::EcoRoute}}
+\doxysubsubsection{\texorpdfstring{drivingRoute}{drivingRoute}}
+{\footnotesize\ttfamily \label{structRouting_1_1EcoRoute_abfad8c70a1a92c30678831bcc8268b00} 
+std\+::vector$<$\mbox{\hyperlink{structLocationInfo}{Location\+Info}}$>$ Routing\+::\+Eco\+Route\+::driving\+Route}
+
+The driving segment of the route \Hypertarget{structRouting_1_1EcoRoute_a9782bfbd1d2e33960ad1a405349a1052}\index{Routing::EcoRoute@{Routing::EcoRoute}!errorMessage@{errorMessage}}
+\index{errorMessage@{errorMessage}!Routing::EcoRoute@{Routing::EcoRoute}}
+\doxysubsubsection{\texorpdfstring{errorMessage}{errorMessage}}
+{\footnotesize\ttfamily \label{structRouting_1_1EcoRoute_a9782bfbd1d2e33960ad1a405349a1052} 
+std\+::string Routing\+::\+Eco\+Route\+::error\+Message}
+
+Error message if route is invalid \Hypertarget{structRouting_1_1EcoRoute_a4baa14af8c1176b2ad696d08f343152b}\index{Routing::EcoRoute@{Routing::EcoRoute}!isValid@{isValid}}
+\index{isValid@{isValid}!Routing::EcoRoute@{Routing::EcoRoute}}
+\doxysubsubsection{\texorpdfstring{isValid}{isValid}}
+{\footnotesize\ttfamily \label{structRouting_1_1EcoRoute_a4baa14af8c1176b2ad696d08f343152b} 
+bool Routing\+::\+Eco\+Route\+::is\+Valid}
+
+Flag indicating if the route is valid \Hypertarget{structRouting_1_1EcoRoute_a78f4cdddfca0d551ac3a21767b2fe5dc}\index{Routing::EcoRoute@{Routing::EcoRoute}!parkingNode@{parkingNode}}
+\index{parkingNode@{parkingNode}!Routing::EcoRoute@{Routing::EcoRoute}}
+\doxysubsubsection{\texorpdfstring{parkingNode}{parkingNode}}
+{\footnotesize\ttfamily \label{structRouting_1_1EcoRoute_a78f4cdddfca0d551ac3a21767b2fe5dc} 
+\mbox{\hyperlink{structLocationInfo}{Location\+Info}} Routing\+::\+Eco\+Route\+::parking\+Node}
+
+The parking location \Hypertarget{structRouting_1_1EcoRoute_ae20ee0569d2996e4431a54232a7b1d02}\index{Routing::EcoRoute@{Routing::EcoRoute}!totalTime@{totalTime}}
+\index{totalTime@{totalTime}!Routing::EcoRoute@{Routing::EcoRoute}}
+\doxysubsubsection{\texorpdfstring{totalTime}{totalTime}}
+{\footnotesize\ttfamily \label{structRouting_1_1EcoRoute_ae20ee0569d2996e4431a54232a7b1d02} 
+double Routing\+::\+Eco\+Route\+::total\+Time}
+
+Total travel time in minutes \Hypertarget{structRouting_1_1EcoRoute_a4369edab928a5a0ed119d45a78d7e963}\index{Routing::EcoRoute@{Routing::EcoRoute}!walkingRoute@{walkingRoute}}
+\index{walkingRoute@{walkingRoute}!Routing::EcoRoute@{Routing::EcoRoute}}
+\doxysubsubsection{\texorpdfstring{walkingRoute}{walkingRoute}}
+{\footnotesize\ttfamily \label{structRouting_1_1EcoRoute_a4369edab928a5a0ed119d45a78d7e963} 
+std\+::vector$<$\mbox{\hyperlink{structLocationInfo}{Location\+Info}}$>$ Routing\+::\+Eco\+Route\+::walking\+Route}
+
+The walking segment of the route \Hypertarget{structRouting_1_1EcoRoute_a311c275fa0d6668d251467fce20c087e}\index{Routing::EcoRoute@{Routing::EcoRoute}!walkingTime@{walkingTime}}
+\index{walkingTime@{walkingTime}!Routing::EcoRoute@{Routing::EcoRoute}}
+\doxysubsubsection{\texorpdfstring{walkingTime}{walkingTime}}
+{\footnotesize\ttfamily \label{structRouting_1_1EcoRoute_a311c275fa0d6668d251467fce20c087e} 
+double Routing\+::\+Eco\+Route\+::walking\+Time}
+
+Walking time in minutes 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+routing/\mbox{\hyperlink{Routing_8h}{Routing.\+h}}\end{DoxyCompactItemize}

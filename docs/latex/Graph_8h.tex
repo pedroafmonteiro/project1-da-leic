@@ -1,0 +1,91 @@
+\doxysection{graph\+\_\+structure/\+Graph.h File Reference}
+\hypertarget{Graph_8h}{}\label{Graph_8h}\index{graph\_structure/Graph.h@{graph\_structure/Graph.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include "{}./\+Mutable\+Priority\+Queue.\+h"{}}\newline
+Include dependency graph for Graph.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Graph_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Graph_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classEdge}{Edge$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Represents an edge in a graph. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classGraph}{Graph$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Represents a graph data structure. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classVertex}{Vertex$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Represents a vertex in a graph data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{Graph_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}{INF}}~std\+::numeric\+\_\+limits$<$double$>$\+::max()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{Graph_8h_af077bc8682a1a1d97e30b08eb1131b19}{delete\+Matrix}} (double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}m, int n)
+\begin{DoxyCompactList}\small\item\em Deletes a matrix of doubles. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Graph_8h_ad56527992afe31a371065e795da57d25}{delete\+Matrix}} (int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}m, int n)
+\begin{DoxyCompactList}\small\item\em Deletes a matrix of integers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{Graph_8h_a12c2040f25d8e3a7b9e1c2024c618cb6}\index{Graph.h@{Graph.h}!INF@{INF}}
+\index{INF@{INF}!Graph.h@{Graph.h}}
+\doxysubsubsection{\texorpdfstring{INF}{INF}}
+{\footnotesize\ttfamily \label{Graph_8h_a12c2040f25d8e3a7b9e1c2024c618cb6} 
+\#define INF~std\+::numeric\+\_\+limits$<$double$>$\+::max()}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Graph_8h_af077bc8682a1a1d97e30b08eb1131b19}\index{Graph.h@{Graph.h}!deleteMatrix@{deleteMatrix}}
+\index{deleteMatrix@{deleteMatrix}!Graph.h@{Graph.h}}
+\doxysubsubsection{\texorpdfstring{deleteMatrix()}{deleteMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{Graph_8h_af077bc8682a1a1d97e30b08eb1131b19} 
+void delete\+Matrix (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{m}{, }\item[{int}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Deletes a matrix of doubles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to delete \\
+\hline
+{\em n} & The number of rows in the matrix @complexity O(n) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Graph_8h_ad56527992afe31a371065e795da57d25}\index{Graph.h@{Graph.h}!deleteMatrix@{deleteMatrix}}
+\index{deleteMatrix@{deleteMatrix}!Graph.h@{Graph.h}}
+\doxysubsubsection{\texorpdfstring{deleteMatrix()}{deleteMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{Graph_8h_ad56527992afe31a371065e795da57d25} 
+void delete\+Matrix (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{m}{, }\item[{int}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Deletes a matrix of integers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to delete \\
+\hline
+{\em n} & The number of rows in the matrix @complexity O(n) \\
+\hline
+\end{DoxyParams}

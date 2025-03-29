@@ -1,0 +1,286 @@
+\doxysection{Graph\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_graph}{}\label{class_graph}\index{Graph$<$ T $>$@{Graph$<$ T $>$}}
+
+
+Represents a graph data structure.  
+
+
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
+
+
+Collaboration diagram for Graph\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{class_graph__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graph_a43eab1460b5c8ceaa526b40e56a0fb0c}{\texorpdfstring{$\sim$}{\string~}\+Graph}} ()
+\begin{DoxyCompactList}\small\item\em Destructor @complexity O(V + E) where V is the number of vertices and E is the number of edges. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_aeb94a42983b1612ddbeade1a2a0132ea}{add\+Bidirectional\+Edge}} (const T \&sourc, const T \&dest, double w)
+\begin{DoxyCompactList}\small\item\em Adds a bidirectional edge between two vertices. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_ac61af3aafe6277215f5a3b3cc7d58ce2}{add\+Edge}} (const T \&sourc, const T \&dest, double w)
+\begin{DoxyCompactList}\small\item\em Adds an edge between two vertices. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a00be284ea2be3b3d0f0d2e493b70245b}{add\+Vertex}} (const T \&in)
+\begin{DoxyCompactList}\small\item\em Adds a vertex with the given information. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_graph_a8b7b7465fbfd562e2a469f90a437ab75}{find\+Vertex}} (const T \&in) const
+\begin{DoxyCompactList}\small\item\em Finds a vertex with the given information. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_graph_a0853eac15cdf0f06d63f4b8a7820ec71}{get\+Num\+Vertex}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of vertices in the graph. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_graph_a41624b03fcb6bd29e4df574a1ec58541}{get\+Vertex\+Set}} () const
+\begin{DoxyCompactList}\small\item\em Gets all vertices in the graph. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a8949d071d45bf93e171e275462e1007a}{remove\+Edge}} (const T \&source, const T \&dest)
+\begin{DoxyCompactList}\small\item\em Removes an edge between two vertices. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_af9c903104ad69a7782979fa9caedf163}{remove\+Vertex}} (const T \&in)
+\begin{DoxyCompactList}\small\item\em Removes a vertex with the given information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_graph_a676cdfb976eccfa82b631d2094c1cdac}{find\+Vertex\+Idx}} (const T \&in) const
+\begin{DoxyCompactList}\small\item\em Finds the index of a vertex with the given information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_graph_a4517f4351bc7f0348369b25b7c0b44fe}{dist\+Matrix}} = nullptr
+\item 
+int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_graph_afb9524726f8f3cda3115a0d03e3f6e09}{path\+Matrix}} = nullptr
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_graph_a26b3a6b9c61f02f5b2cd38ad4c6a4953}{vertex\+Set}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Graph$<$ T $>$}
+Represents a graph data structure. 
+
+This class implements a graph using an adjacency list representation, with operations to add/remove vertices and edges.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of information stored in vertices \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_graph_a43eab1460b5c8ceaa526b40e56a0fb0c}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!````~Graph@{\texorpdfstring{$\sim$}{\string~}Graph}}
+\index{````~Graph@{\texorpdfstring{$\sim$}{\string~}Graph}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Graph()}{\string~Graph()}}
+{\footnotesize\ttfamily \label{class_graph_a43eab1460b5c8ceaa526b40e56a0fb0c} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{class_graph}{Graph}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destructor @complexity O(V + E) where V is the number of vertices and E is the number of edges. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_graph_aeb94a42983b1612ddbeade1a2a0132ea}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!addBidirectionalEdge@{addBidirectionalEdge}}
+\index{addBidirectionalEdge@{addBidirectionalEdge}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addBidirectionalEdge()}{addBidirectionalEdge()}}
+{\footnotesize\ttfamily \label{class_graph_aeb94a42983b1612ddbeade1a2a0132ea} 
+template$<$class T$>$ \\
+bool \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::add\+Bidirectional\+Edge (\begin{DoxyParamCaption}\item[{const T \&}]{sourc}{, }\item[{const T \&}]{dest}{, }\item[{double}]{w}{}\end{DoxyParamCaption})}
+
+
+
+Adds a bidirectional edge between two vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sourc} & The information of the first vertex \\
+\hline
+{\em dest} & The information of the second vertex \\
+\hline
+{\em w} & The edge weight \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if successful, false if either vertex doesn\textquotesingle{}t exist @complexity O(\+V) where V is the number of vertices 
+\end{DoxyReturn}
+\Hypertarget{class_graph_ac61af3aafe6277215f5a3b3cc7d58ce2}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily \label{class_graph_ac61af3aafe6277215f5a3b3cc7d58ce2} 
+template$<$class T$>$ \\
+bool \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::add\+Edge (\begin{DoxyParamCaption}\item[{const T \&}]{sourc}{, }\item[{const T \&}]{dest}{, }\item[{double}]{w}{}\end{DoxyParamCaption})}
+
+
+
+Adds an edge between two vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sourc} & The information of the source vertex \\
+\hline
+{\em dest} & The information of the destination vertex \\
+\hline
+{\em w} & The edge weight \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if successful, false if either vertex doesn\textquotesingle{}t exist @complexity O(\+V) where V is the number of vertices 
+\end{DoxyReturn}
+\Hypertarget{class_graph_a00be284ea2be3b3d0f0d2e493b70245b}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!addVertex@{addVertex}}
+\index{addVertex@{addVertex}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addVertex()}{addVertex()}}
+{\footnotesize\ttfamily \label{class_graph_a00be284ea2be3b3d0f0d2e493b70245b} 
+template$<$class T$>$ \\
+bool \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::add\+Vertex (\begin{DoxyParamCaption}\item[{const T \&}]{in}{}\end{DoxyParamCaption})}
+
+
+
+Adds a vertex with the given information. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & The information for the new vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if successful, false if a vertex with that information already exists @complexity O(\+V) where V is the number of vertices 
+\end{DoxyReturn}
+\Hypertarget{class_graph_a8b7b7465fbfd562e2a469f90a437ab75}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!findVertex@{findVertex}}
+\index{findVertex@{findVertex}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{findVertex()}{findVertex()}}
+{\footnotesize\ttfamily \label{class_graph_a8b7b7465fbfd562e2a469f90a437ab75} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::find\+Vertex (\begin{DoxyParamCaption}\item[{const T \&}]{in}{}\end{DoxyParamCaption}) const}
+
+
+
+Finds a vertex with the given information. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & The information to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the vertex if found, nullptr otherwise @complexity O(\+V) where V is the number of vertices 
+\end{DoxyReturn}
+\Hypertarget{class_graph_a676cdfb976eccfa82b631d2094c1cdac}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!findVertexIdx@{findVertexIdx}}
+\index{findVertexIdx@{findVertexIdx}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{findVertexIdx()}{findVertexIdx()}}
+{\footnotesize\ttfamily \label{class_graph_a676cdfb976eccfa82b631d2094c1cdac} 
+template$<$class T$>$ \\
+int \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::find\+Vertex\+Idx (\begin{DoxyParamCaption}\item[{const T \&}]{in}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Finds the index of a vertex with the given information. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & The information to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the vertex if found, -\/1 otherwise @complexity O(\+V) where V is the number of vertices 
+\end{DoxyReturn}
+\Hypertarget{class_graph_a0853eac15cdf0f06d63f4b8a7820ec71}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!getNumVertex@{getNumVertex}}
+\index{getNumVertex@{getNumVertex}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getNumVertex()}{getNumVertex()}}
+{\footnotesize\ttfamily \label{class_graph_a0853eac15cdf0f06d63f4b8a7820ec71} 
+template$<$class T$>$ \\
+int \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::get\+Num\+Vertex (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the number of vertices in the graph. 
+
+\begin{DoxyReturn}{Returns}
+The number of vertices @complexity O(1) 
+\end{DoxyReturn}
+\Hypertarget{class_graph_a41624b03fcb6bd29e4df574a1ec58541}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!getVertexSet@{getVertexSet}}
+\index{getVertexSet@{getVertexSet}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getVertexSet()}{getVertexSet()}}
+{\footnotesize\ttfamily \label{class_graph_a41624b03fcb6bd29e4df574a1ec58541} 
+template$<$class T$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::get\+Vertex\+Set (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets all vertices in the graph. 
+
+\begin{DoxyReturn}{Returns}
+Vector of pointers to all vertices @complexity O(1) 
+\end{DoxyReturn}
+\Hypertarget{class_graph_a8949d071d45bf93e171e275462e1007a}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!removeEdge@{removeEdge}}
+\index{removeEdge@{removeEdge}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{removeEdge()}{removeEdge()}}
+{\footnotesize\ttfamily \label{class_graph_a8949d071d45bf93e171e275462e1007a} 
+template$<$class T$>$ \\
+bool \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::remove\+Edge (\begin{DoxyParamCaption}\item[{const T \&}]{source}{, }\item[{const T \&}]{dest}{}\end{DoxyParamCaption})}
+
+
+
+Removes an edge between two vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & The information of the source vertex \\
+\hline
+{\em dest} & The information of the destination vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if successful, false if the edge doesn\textquotesingle{}t exist @complexity O(V + E) where V is the number of vertices and E is the number of edges 
+\end{DoxyReturn}
+\Hypertarget{class_graph_af9c903104ad69a7782979fa9caedf163}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!removeVertex@{removeVertex}}
+\index{removeVertex@{removeVertex}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{removeVertex()}{removeVertex()}}
+{\footnotesize\ttfamily \label{class_graph_af9c903104ad69a7782979fa9caedf163} 
+template$<$class T$>$ \\
+bool \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::remove\+Vertex (\begin{DoxyParamCaption}\item[{const T \&}]{in}{}\end{DoxyParamCaption})}
+
+
+
+Removes a vertex with the given information. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & The information of the vertex to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if successful, false if the vertex doesn\textquotesingle{}t exist @complexity O(V + E) where V is the number of vertices and E is the number of edges 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_graph_a4517f4351bc7f0348369b25b7c0b44fe}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!distMatrix@{distMatrix}}
+\index{distMatrix@{distMatrix}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{distMatrix}{distMatrix}}
+{\footnotesize\ttfamily \label{class_graph_a4517f4351bc7f0348369b25b7c0b44fe} 
+template$<$class T$>$ \\
+double\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::dist\+Matrix = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_graph_afb9524726f8f3cda3115a0d03e3f6e09}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!pathMatrix@{pathMatrix}}
+\index{pathMatrix@{pathMatrix}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pathMatrix}{pathMatrix}}
+{\footnotesize\ttfamily \label{class_graph_afb9524726f8f3cda3115a0d03e3f6e09} 
+template$<$class T$>$ \\
+int\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::path\+Matrix = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_graph_a26b3a6b9c61f02f5b2cd38ad4c6a4953}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!vertexSet@{vertexSet}}
+\index{vertexSet@{vertexSet}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{vertexSet}{vertexSet}}
+{\footnotesize\ttfamily \label{class_graph_a26b3a6b9c61f02f5b2cd38ad4c6a4953} 
+template$<$class T$>$ \\
+std\+::vector$<$\mbox{\hyperlink{class_vertex}{Vertex}}$<$T$>$ \texorpdfstring{$\ast$}{*}$>$ \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::vertex\+Set\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+graph\+\_\+structure/\mbox{\hyperlink{_graph_8h}{Graph.\+h}}\end{DoxyCompactItemize}

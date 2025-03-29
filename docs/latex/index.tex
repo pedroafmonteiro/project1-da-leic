@@ -1,0 +1,38 @@
+\chapter{Design of Algorithms Project 1 -\/ Spring 2025}
+\hypertarget{index}{}\label{index}\index{Design of Algorithms Project 1 -\/ Spring 2025@{Design of Algorithms Project 1 -\/ Spring 2025}}
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+
+
+\begin{quote}
+Developed by Group 2 -\/ Class 15 \end{quote}
+\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Project Overview}{Project Overview}}\label{index_autotoc_md1}
+A path-\/planning tool to assist with urban navigation.\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Features}{Features}}\label{index_autotoc_md2}
+
+\begin{DoxyItemize}
+\item {\bfseries{Independent \doxylink{classRouting}{Routing}}}\+: Finds the fastest route between two locations.
+\item {\bfseries{Restricted \doxylink{classRouting}{Routing}}}\+: FInds the fastest route between two locations with specific routing constraints.
+\item {\bfseries{Environmentally-\/\+Friendly \doxylink{classRouting}{Routing}}}\+: Finds the best (shortest overall) route for driving and walking.
+\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Core Components}{Core Components}}\label{index_autotoc_md3}
+
+\begin{DoxyItemize}
+\item {\bfseries{\doxylink{classGraph}{Graph} Structure}}\+: Template-\/based graph implementation with vertices and edges. Modified to support walking or driving edges.
+\item {\bfseries{\doxylink{classRouting}{Routing} Algorithms}}\+: Implementations of Dijkstra\textquotesingle{}s algorithm for the routing features.
+\item {\bfseries{\doxylink{classMenu}{Menu} System}}\+: User interface handling for all routing operations.
+\item {\bfseries{Data Management}}\+: Handles the loading and parsing of location and distance data from CSV files.
+\item {\bfseries{\doxylink{classGraph}{Graph} Builder}}\+: Construction of the routing graph from location and distance data.
+\end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysection{\texorpdfstring{Time Complexity}{Time Complexity}}\label{index_autotoc_md4}
+
+\begin{DoxyItemize}
+\item {\bfseries{Dijkstra\textquotesingle{}s Algorithm}}\+: O(\+E log V) where E is the number of edges and V is the number of vertices
+\item {\bfseries{Environmentally-\/\+Friendly \doxylink{classRouting}{Routing}}}\+: O(\+P \texorpdfstring{$\ast$}{*} E log V) where P is the number of potential parking locations
+\item {\bfseries{\doxylink{classGraph}{Graph} Building}}\+: O(V + E) for constructing the graph from data
+\end{DoxyItemize}\hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{index_autotoc_md5}
+
+\begin{DoxyEnumerate}
+\item Build the project using your preferred C++ compiler
+\item Run the executable
+\item Follow the on-\/screen menu to select your desired routing option
+\item Enter source and destination locations, along with any constraints
+\item View the results showing the optimal route and timing information 
+\end{DoxyEnumerate}

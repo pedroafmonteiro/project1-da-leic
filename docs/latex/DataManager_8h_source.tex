@@ -1,0 +1,37 @@
+\doxysection{Data\+Manager.\+h}
+\hypertarget{DataManager_8h_source}{}\label{DataManager_8h_source}\index{parse\_data/DataManager.h@{parse\_data/DataManager.h}}
+\mbox{\hyperlink{DataManager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DATAMANAGER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DATAMANAGER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ParseData_8h}{../parse\_data/ParseData.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDataManager}{DataManager}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classDataManager}{DataManager}}\ *instance;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00021\ \ \ \ \ std::vector<DistanceData>\ distanceData;}
+\DoxyCodeLine{00022\ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ std::vector<LocationData>\ locationData;}
+\DoxyCodeLine{00025\ \ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ dataLoaded;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{classDataManager}{DataManager}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classDataManager}{DataManager}}\ *\mbox{\hyperlink{classDataManager_a3d07ec9018cc744e9335a2b2fe94ed95}{getInstance}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classDataManager_a00f92a0980fc06a6449ff493123a28e3}{loadData}}(\textcolor{keyword}{const}\ std::string\ \&locationsFilePath,\ \textcolor{keyword}{const}\ std::string\ \&distancesFilePath);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classDataManager_a1e173c4359070d56941e22f170265e61}{isDataLoaded}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00064\ \ \ \ \ std::vector<DistanceData>\ \mbox{\hyperlink{classDataManager_a560e676b9a495a7e537f00cc742ee7f5}{getDistanceData}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00071\ \ \ \ \ std::vector<LocationData>\ \mbox{\hyperlink{classDataManager_ab942c4c867eec529293c46b87ae6a7bb}{getLocationData}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00072\ \};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DATAMANAGER\_H}}
+
+\end{DoxyCode}

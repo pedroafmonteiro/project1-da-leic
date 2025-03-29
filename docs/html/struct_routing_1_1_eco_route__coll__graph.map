@@ -1,0 +1,5 @@
+<map id="Routing::EcoRoute" name="Routing::EcoRoute">
+<area shape="rect" id="Node000001" title="Structure to store environmentally&#45;friendly route information." alt="" coords="5,236,127,404"/>
+<area shape="rect" id="Node000002" href="$struct_location_info.html" title="Structure to store location information for graph vertices." alt="" coords="15,5,118,173"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="69,173,69,219,64,219,64,173"/>
+</map>

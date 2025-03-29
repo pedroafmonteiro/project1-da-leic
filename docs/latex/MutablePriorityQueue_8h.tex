@@ -1,0 +1,56 @@
+\doxysection{graph\+\_\+structure/\+Mutable\+Priority\+Queue.h File Reference}
+\hypertarget{MutablePriorityQueue_8h}{}\label{MutablePriorityQueue_8h}\index{graph\_structure/MutablePriorityQueue.h@{graph\_structure/MutablePriorityQueue.h}}
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for Mutable\+Priority\+Queue.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{MutablePriorityQueue_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{MutablePriorityQueue_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classMutablePriorityQueue}{Mutable\+Priority\+Queue$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em A mutable priority queue implementation used primarily by Dijkstra\textquotesingle{}s algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{MutablePriorityQueue_8h_ac84ef3998ba958fd8abf03d08cc5ffcb}{left\+Child}}(i)
+\item 
+\#define \mbox{\hyperlink{MutablePriorityQueue_8h_a915a9564b15f2c25e828da2e9a05769c}{parent}}(i)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{MutablePriorityQueue_8h_ac84ef3998ba958fd8abf03d08cc5ffcb}\index{MutablePriorityQueue.h@{MutablePriorityQueue.h}!leftChild@{leftChild}}
+\index{leftChild@{leftChild}!MutablePriorityQueue.h@{MutablePriorityQueue.h}}
+\doxysubsubsection{\texorpdfstring{leftChild}{leftChild}}
+{\footnotesize\ttfamily \label{MutablePriorityQueue_8h_ac84ef3998ba958fd8abf03d08cc5ffcb} 
+\#define left\+Child(\begin{DoxyParamCaption}\item[{}]{i}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((i)\ *\ 2)}
+
+\end{DoxyCode}
+\Hypertarget{MutablePriorityQueue_8h_a915a9564b15f2c25e828da2e9a05769c}\index{MutablePriorityQueue.h@{MutablePriorityQueue.h}!parent@{parent}}
+\index{parent@{parent}!MutablePriorityQueue.h@{MutablePriorityQueue.h}}
+\doxysubsubsection{\texorpdfstring{parent}{parent}}
+{\footnotesize\ttfamily \label{MutablePriorityQueue_8h_a915a9564b15f2c25e828da2e9a05769c} 
+\#define parent(\begin{DoxyParamCaption}\item[{}]{i}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((i)\ /\ 2)}
+
+\end{DoxyCode}

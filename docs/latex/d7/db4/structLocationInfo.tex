@@ -1,0 +1,161 @@
+\doxysection{Location\+Info Struct Reference}
+\hypertarget{structLocationInfo}{}\label{structLocationInfo}\index{LocationInfo@{LocationInfo}}
+
+
+Structure to store location information for graph vertices.  
+
+
+
+
+{\ttfamily \#include $<$Graph\+Builder.\+h$>$}
+
+
+
+Collaboration diagram for Location\+Info\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{d0/d2e/structLocationInfo__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structLocationInfo_a5c76b8f6805ea9c2115d342b5032a89b}{Location\+Info}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor @complexity O(1) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structLocationInfo_a360455673beabe0ec3e6ece3d7c0d4ca}{Location\+Info}} (const std\+::string \&n, int i, const std\+::string \&c, bool p)
+\begin{DoxyCompactList}\small\item\em Full constructor with all fields. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structLocationInfo_ab2ca35167fbf90cb892d5f43a89b8aea}{operator==}} (const \mbox{\hyperlink{structLocationInfo}{Location\+Info}} \&other) const
+\begin{DoxyCompactList}\small\item\em Equality operator for comparing locations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{structLocationInfo_a895200e44a50e3b6596989b90feec859}{code}}
+\item 
+bool \mbox{\hyperlink{structLocationInfo_a052dd7c790b4d3e9847d35df55aa851b}{has\+Parking}}
+\item 
+int \mbox{\hyperlink{structLocationInfo_aee8b757eb333dd5e6d40c304114d3331}{id}}
+\item 
+std\+::string \mbox{\hyperlink{structLocationInfo_a024db9ececfd3004f9975cf667f31bd8}{name}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{structLocationInfo_a0965a184e9d1d1af35f45839d7d0acfc}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{structLocationInfo}{Location\+Info}} \&info)
+\begin{DoxyCompactList}\small\item\em Output stream operator for printing location information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure to store location information for graph vertices. 
+
+This structure contains essential data about locations in the transportation network, including identification, naming, and parking availability. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structLocationInfo_a360455673beabe0ec3e6ece3d7c0d4ca}\index{LocationInfo@{LocationInfo}!LocationInfo@{LocationInfo}}
+\index{LocationInfo@{LocationInfo}!LocationInfo@{LocationInfo}}
+\doxysubsubsection{\texorpdfstring{LocationInfo()}{LocationInfo()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{structLocationInfo_a360455673beabe0ec3e6ece3d7c0d4ca} 
+Location\+Info\+::\+Location\+Info (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{n}{, }\item[{int}]{i}{, }\item[{const std\+::string \&}]{c}{, }\item[{bool}]{p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Full constructor with all fields. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Location name \\
+\hline
+{\em i} & Location ID \\
+\hline
+{\em c} & Location code \\
+\hline
+{\em p} & Parking availability flag @complexity O(1) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{structLocationInfo_a5c76b8f6805ea9c2115d342b5032a89b}\index{LocationInfo@{LocationInfo}!LocationInfo@{LocationInfo}}
+\index{LocationInfo@{LocationInfo}!LocationInfo@{LocationInfo}}
+\doxysubsubsection{\texorpdfstring{LocationInfo()}{LocationInfo()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{structLocationInfo_a5c76b8f6805ea9c2115d342b5032a89b} 
+Location\+Info\+::\+Location\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor @complexity O(1) 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structLocationInfo_ab2ca35167fbf90cb892d5f43a89b8aea}\index{LocationInfo@{LocationInfo}!operator==@{operator==}}
+\index{operator==@{operator==}!LocationInfo@{LocationInfo}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{structLocationInfo_ab2ca35167fbf90cb892d5f43a89b8aea} 
+bool Location\+Info\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structLocationInfo}{Location\+Info}} \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Equality operator for comparing locations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The location to compare with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if both locations have the same code @complexity O(1) 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{structLocationInfo_a0965a184e9d1d1af35f45839d7d0acfc}\index{LocationInfo@{LocationInfo}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!LocationInfo@{LocationInfo}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily \label{structLocationInfo_a0965a184e9d1d1af35f45839d7d0acfc} 
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os}{, }\item[{const \mbox{\hyperlink{structLocationInfo}{Location\+Info}} \&}]{info}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Output stream operator for printing location information. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream \\
+\hline
+{\em info} & The location information to print \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output stream after printing @complexity O(1) 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structLocationInfo_a895200e44a50e3b6596989b90feec859}\index{LocationInfo@{LocationInfo}!code@{code}}
+\index{code@{code}!LocationInfo@{LocationInfo}}
+\doxysubsubsection{\texorpdfstring{code}{code}}
+{\footnotesize\ttfamily \label{structLocationInfo_a895200e44a50e3b6596989b90feec859} 
+std\+::string Location\+Info\+::code}
+
+Location code (used as primary identifier) \Hypertarget{structLocationInfo_a052dd7c790b4d3e9847d35df55aa851b}\index{LocationInfo@{LocationInfo}!hasParking@{hasParking}}
+\index{hasParking@{hasParking}!LocationInfo@{LocationInfo}}
+\doxysubsubsection{\texorpdfstring{hasParking}{hasParking}}
+{\footnotesize\ttfamily \label{structLocationInfo_a052dd7c790b4d3e9847d35df55aa851b} 
+bool Location\+Info\+::has\+Parking}
+
+Whether parking is available at this location \Hypertarget{structLocationInfo_aee8b757eb333dd5e6d40c304114d3331}\index{LocationInfo@{LocationInfo}!id@{id}}
+\index{id@{id}!LocationInfo@{LocationInfo}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{structLocationInfo_aee8b757eb333dd5e6d40c304114d3331} 
+int Location\+Info\+::id}
+
+Unique numeric identifier \Hypertarget{structLocationInfo_a024db9ececfd3004f9975cf667f31bd8}\index{LocationInfo@{LocationInfo}!name@{name}}
+\index{name@{name}!LocationInfo@{LocationInfo}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily \label{structLocationInfo_a024db9ececfd3004f9975cf667f31bd8} 
+std\+::string Location\+Info\+::name}
+
+Location name 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+graph\+\_\+builder/\mbox{\hyperlink{GraphBuilder_8h}{Graph\+Builder.\+h}}\end{DoxyCompactItemize}

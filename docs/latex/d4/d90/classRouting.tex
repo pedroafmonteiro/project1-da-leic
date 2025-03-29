@@ -1,0 +1,414 @@
+\doxysection{Routing Class Reference}
+\hypertarget{classRouting}{}\label{classRouting}\index{Routing@{Routing}}
+
+
+Provides algorithms and utilities for route planning and path finding.  
+
+
+
+
+{\ttfamily \#include $<$Routing.\+h$>$}
+
+
+
+Collaboration diagram for Routing\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{d0/d9b/classRouting__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structRouting_1_1EcoRoute}{Eco\+Route}}
+\begin{DoxyCompactList}\small\item\em Structure to store environmentally-\/friendly route information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classRouting_a40078f3585157c2f9314b6881c759c45}{Edge\+Filter}} = std\+::function$<$bool(\mbox{\hyperlink{classEdge}{Edge}}$<$\mbox{\hyperlink{structLocationInfo}{Location\+Info}}$>$ \texorpdfstring{$\ast$}{*})$>$
+\begin{DoxyCompactList}\small\item\em Type definition for edge filter functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \mbox{\hyperlink{classRouting_a65d76b9f046be6a3f9950bf3c8fc731c}{calculate\+Route\+Time}} (const std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&path, const \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&graph)
+\begin{DoxyCompactList}\small\item\em Calculates the total time for a route using default transport mode. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classRouting_a919d9de690e58362dbac90f384911a19}{calculate\+Route\+Time}} (const std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&path, const \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&graph, \mbox{\hyperlink{classEdge}{Edge}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$\+::\+Edge\+Type transport\+Mode)
+\begin{DoxyCompactList}\small\item\em Calculates the total time for a route with specific transport mode. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classRouting_aaeca0964e20b7fa33dab816ffb19e860}{dijkstra}} (\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&graph, const \mbox{\hyperlink{structLocationInfo}{Location\+Info}} \&source, \mbox{\hyperlink{classRouting_a40078f3585157c2f9314b6881c759c45}{Edge\+Filter}} filter=nullptr)
+\begin{DoxyCompactList}\small\item\em Implements Dijkstra\textquotesingle{}s shortest path algorithm. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classRouting_a5943e3078cfa99e57f0d25e26c8a330f}{display\+Route}} (const std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&path, const \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&graph)
+\begin{DoxyCompactList}\small\item\em Displays a route to the console. \end{DoxyCompactList}\item 
+static std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \mbox{\hyperlink{classRouting_a31b7c4a334ae2ca50ea84f255a17f098}{find\+Alternative\+Route}} (const \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&original\+Graph, const std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&fastest\+Path, const std\+::string \&source\+Code, const std\+::string \&dest\+Code, \mbox{\hyperlink{classEdge}{Edge}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$\+::\+Edge\+Type transport\+Mode=\mbox{\hyperlink{classEdge}{Edge}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$\+::\+Edge\+Type\+::\+DEFAULT)
+\begin{DoxyCompactList}\small\item\em Finds an alternative route that avoids the fastest path. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structRouting_1_1EcoRoute}{Eco\+Route}} \mbox{\hyperlink{classRouting_ab5d4694482ba9db54435b7940052db8e}{find\+Environmentally\+Friendly\+Route}} (const \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&graph, const std\+::string \&source\+Code, const std\+::string \&dest\+Code, double max\+Walking\+Time, const std\+::vector$<$ int $>$ \&avoid\+Nodes=\{\}, const std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ \&avoid\+Segments=\{\})
+\begin{DoxyCompactList}\small\item\em Finds an environmentally-\/friendly route combining driving and walking. \end{DoxyCompactList}\item 
+static std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \mbox{\hyperlink{classRouting_a7e0953101de9ba843cf52865ff9f004d}{find\+Fastest\+Route}} (const \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&graph, const std\+::string \&source\+Code, const std\+::string \&dest\+Code, \mbox{\hyperlink{classEdge}{Edge}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$\+::\+Edge\+Type transport\+Mode=\mbox{\hyperlink{classEdge}{Edge}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$\+::\+Edge\+Type\+::\+DEFAULT)
+\begin{DoxyCompactList}\small\item\em Finds the fastest route between two locations. \end{DoxyCompactList}\item 
+static std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \mbox{\hyperlink{classRouting_a551d7b0be324be82759b103c18f34405}{find\+Route\+With\+Filter}} (const \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&graph, const std\+::string \&source\+Code, const std\+::string \&dest\+Code, \mbox{\hyperlink{classRouting_a40078f3585157c2f9314b6881c759c45}{Edge\+Filter}} filter)
+\begin{DoxyCompactList}\small\item\em Finds a route with specific filtering constraints. \end{DoxyCompactList}\item 
+static std\+::string \mbox{\hyperlink{classRouting_a372d470bb22736a8ce6eac6d80d17780}{format\+Route\+For\+Output}} (const std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&route, double total\+Time)
+\begin{DoxyCompactList}\small\item\em Formats a route for output. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classRouting_aaefb6d614b0601af4d0b607f70d759d3}{output\+Eco\+Route\+To\+File}} (const std\+::string \&filename, int source\+Id, int dest\+Id, const \mbox{\hyperlink{structRouting_1_1EcoRoute}{Eco\+Route}} \&route)
+\begin{DoxyCompactList}\small\item\em Outputs an eco-\/route to a file. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classRouting_ac334b488ccd2d712a555258b3e2f7dc4}{output\+Routes\+To\+File}} (const std\+::string \&filename, int source\+Id, int dest\+Id, const std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&best\+Route, const std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&alternative\+Route, const \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&graph)
+\begin{DoxyCompactList}\small\item\em Outputs routes to a file. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classRouting_ae488d05223b08815b8eae4e26ddac861}{process\+Eco\+Route\+From\+File}} (const std\+::string \&input\+Filename, const std\+::string \&output\+Filename, const \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&graph)
+\begin{DoxyCompactList}\small\item\em Processes an eco-\/route from an input file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides algorithms and utilities for route planning and path finding. 
+
+This class implements various routing algorithms including Dijkstra\textquotesingle{}s shortest path, alternative route finding, and environmentally-\/friendly routes that combine driving and walking segments. 
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classRouting_a40078f3585157c2f9314b6881c759c45}\index{Routing@{Routing}!EdgeFilter@{EdgeFilter}}
+\index{EdgeFilter@{EdgeFilter}!Routing@{Routing}}
+\doxysubsubsection{\texorpdfstring{EdgeFilter}{EdgeFilter}}
+{\footnotesize\ttfamily \label{classRouting_a40078f3585157c2f9314b6881c759c45} 
+using \mbox{\hyperlink{classRouting_a40078f3585157c2f9314b6881c759c45}{Routing\+::\+Edge\+Filter}} = std\+::function$<$bool(\mbox{\hyperlink{classEdge}{Edge}}$<$\mbox{\hyperlink{structLocationInfo}{Location\+Info}}$>$ \texorpdfstring{$\ast$}{*})$>$}
+
+
+
+Type definition for edge filter functions. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRouting_a65d76b9f046be6a3f9950bf3c8fc731c}\index{Routing@{Routing}!calculateRouteTime@{calculateRouteTime}}
+\index{calculateRouteTime@{calculateRouteTime}!Routing@{Routing}}
+\doxysubsubsection{\texorpdfstring{calculateRouteTime()}{calculateRouteTime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classRouting_a65d76b9f046be6a3f9950bf3c8fc731c} 
+double Routing\+::calculate\+Route\+Time (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&}]{path}{, }\item[{const \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&}]{graph}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculates the total time for a route using default transport mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Vector of locations representing the path \\
+\hline
+{\em graph} & The transportation graph \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Total time in minutes @complexity O(\+N) where N is the length of the path 
+\end{DoxyReturn}
+\Hypertarget{classRouting_a919d9de690e58362dbac90f384911a19}\index{Routing@{Routing}!calculateRouteTime@{calculateRouteTime}}
+\index{calculateRouteTime@{calculateRouteTime}!Routing@{Routing}}
+\doxysubsubsection{\texorpdfstring{calculateRouteTime()}{calculateRouteTime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classRouting_a919d9de690e58362dbac90f384911a19} 
+double Routing\+::calculate\+Route\+Time (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&}]{path}{, }\item[{const \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&}]{graph}{, }\item[{\mbox{\hyperlink{classEdge}{Edge}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$\+::\+Edge\+Type}]{transport\+Mode}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculates the total time for a route with specific transport mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Vector of locations representing the path \\
+\hline
+{\em graph} & The transportation graph \\
+\hline
+{\em transport\+Mode} & The mode of transport to use \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Total time in minutes @complexity O(\+N) where N is the length of the path
+\end{DoxyReturn}
+Sums the weights of edges along the path, considering only edges of the specified transport mode.
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Vector of locations representing the path \\
+\hline
+{\em graph} & The transportation graph \\
+\hline
+{\em transport\+Mode} & The mode of transport to use \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Total time in minutes 
+\end{DoxyReturn}
+\Hypertarget{classRouting_aaeca0964e20b7fa33dab816ffb19e860}\index{Routing@{Routing}!dijkstra@{dijkstra}}
+\index{dijkstra@{dijkstra}!Routing@{Routing}}
+\doxysubsubsection{\texorpdfstring{dijkstra()}{dijkstra()}}
+{\footnotesize\ttfamily \label{classRouting_aaeca0964e20b7fa33dab816ffb19e860} 
+void Routing\+::dijkstra (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&}]{graph}{, }\item[{const \mbox{\hyperlink{structLocationInfo}{Location\+Info}} \&}]{source}{, }\item[{\mbox{\hyperlink{classRouting_a40078f3585157c2f9314b6881c759c45}{Edge\+Filter}}}]{filter}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Implements Dijkstra\textquotesingle{}s shortest path algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & The graph to run the algorithm on \\
+\hline
+{\em source} & The source vertex \\
+\hline
+{\em filter} & Optional filter to exclude certain edges @complexity O(\+E log V) where E is the number of edges and V is the number of vertices\\
+\hline
+\end{DoxyParams}
+Finds the shortest path from the source vertex to all other vertices in the graph. Uses a mutable priority queue for efficient node extraction.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & The graph to run the algorithm on \\
+\hline
+{\em source} & The source vertex \\
+\hline
+{\em filter} & Optional filter to exclude certain edges \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classRouting_a5943e3078cfa99e57f0d25e26c8a330f}\index{Routing@{Routing}!displayRoute@{displayRoute}}
+\index{displayRoute@{displayRoute}!Routing@{Routing}}
+\doxysubsubsection{\texorpdfstring{displayRoute()}{displayRoute()}}
+{\footnotesize\ttfamily \label{classRouting_a5943e3078cfa99e57f0d25e26c8a330f} 
+void Routing\+::display\+Route (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&}]{path}{, }\item[{const \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&}]{graph}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Displays a route to the console. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Vector of locations representing the path \\
+\hline
+{\em graph} & The transportation graph @complexity O(\+N) where N is the length of the path \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classRouting_a31b7c4a334ae2ca50ea84f255a17f098}\index{Routing@{Routing}!findAlternativeRoute@{findAlternativeRoute}}
+\index{findAlternativeRoute@{findAlternativeRoute}!Routing@{Routing}}
+\doxysubsubsection{\texorpdfstring{findAlternativeRoute()}{findAlternativeRoute()}}
+{\footnotesize\ttfamily \label{classRouting_a31b7c4a334ae2ca50ea84f255a17f098} 
+std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ Routing\+::find\+Alternative\+Route (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&}]{original\+Graph}{, }\item[{const std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&}]{fastest\+Path}{, }\item[{const std\+::string \&}]{source\+Code}{, }\item[{const std\+::string \&}]{dest\+Code}{, }\item[{\mbox{\hyperlink{classEdge}{Edge}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$\+::\+Edge\+Type}]{transport\+Mode}{ = {\ttfamily \mbox{\hyperlink{classEdge}{Edge}}$<$\mbox{\hyperlink{structLocationInfo}{Location\+Info}}$>$\+:\+:EdgeType\+:\+:DEFAULT}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Finds an alternative route that avoids the fastest path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em original\+Graph} & The transportation graph \\
+\hline
+{\em fastest\+Path} & The fastest path to avoid \\
+\hline
+{\em source\+Code} & Source location code \\
+\hline
+{\em dest\+Code} & Destination location code \\
+\hline
+{\em transport\+Mode} & The mode of transport to use \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of locations representing the alternative path @complexity O(\+E log V) where E is the number of edges and V is the number of vertices 
+\end{DoxyReturn}
+\Hypertarget{classRouting_ab5d4694482ba9db54435b7940052db8e}\index{Routing@{Routing}!findEnvironmentallyFriendlyRoute@{findEnvironmentallyFriendlyRoute}}
+\index{findEnvironmentallyFriendlyRoute@{findEnvironmentallyFriendlyRoute}!Routing@{Routing}}
+\doxysubsubsection{\texorpdfstring{findEnvironmentallyFriendlyRoute()}{findEnvironmentallyFriendlyRoute()}}
+{\footnotesize\ttfamily \label{classRouting_ab5d4694482ba9db54435b7940052db8e} 
+\mbox{\hyperlink{structRouting_1_1EcoRoute}{Routing\+::\+Eco\+Route}} Routing\+::find\+Environmentally\+Friendly\+Route (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&}]{graph}{, }\item[{const std\+::string \&}]{source\+Code}{, }\item[{const std\+::string \&}]{dest\+Code}{, }\item[{double}]{max\+Walking\+Time}{, }\item[{const std\+::vector$<$ int $>$ \&}]{avoid\+Nodes}{ = {\ttfamily \{\}}, }\item[{const std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ \&}]{avoid\+Segments}{ = {\ttfamily \{\}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Finds an environmentally-\/friendly route combining driving and walking. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & The transportation graph \\
+\hline
+{\em source\+Code} & Source location code \\
+\hline
+{\em dest\+Code} & Destination location code \\
+\hline
+{\em max\+Walking\+Time} & Maximum allowed walking time \\
+\hline
+{\em avoid\+Nodes} & Optional list of nodes to avoid \\
+\hline
+{\em avoid\+Segments} & Optional list of segments to avoid \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{structRouting_1_1EcoRoute}{Eco\+Route} structure with route information @complexity O(\+P \texorpdfstring{$\ast$}{*} E log V) where P is the number of parking nodes, E is the number of edges, and V is the number of vertices
+\end{DoxyReturn}
+This algorithm finds a route from source to destination that combines driving and walking segments, optimizing for total travel time while respecting a maximum walking time constraint. It searches for potential parking nodes and evaluates routes through each one.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & The transportation graph \\
+\hline
+{\em source\+Code} & Source location code \\
+\hline
+{\em dest\+Code} & Destination location code \\
+\hline
+{\em max\+Walking\+Time} & Maximum allowed walking time \\
+\hline
+{\em avoid\+Nodes} & Optional list of nodes to avoid \\
+\hline
+{\em avoid\+Segments} & Optional list of segments to avoid \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{structRouting_1_1EcoRoute}{Eco\+Route} structure with route information 
+\end{DoxyReturn}
+\Hypertarget{classRouting_a7e0953101de9ba843cf52865ff9f004d}\index{Routing@{Routing}!findFastestRoute@{findFastestRoute}}
+\index{findFastestRoute@{findFastestRoute}!Routing@{Routing}}
+\doxysubsubsection{\texorpdfstring{findFastestRoute()}{findFastestRoute()}}
+{\footnotesize\ttfamily \label{classRouting_a7e0953101de9ba843cf52865ff9f004d} 
+std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ Routing\+::find\+Fastest\+Route (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&}]{graph}{, }\item[{const std\+::string \&}]{source\+Code}{, }\item[{const std\+::string \&}]{dest\+Code}{, }\item[{\mbox{\hyperlink{classEdge}{Edge}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$\+::\+Edge\+Type}]{transport\+Mode}{ = {\ttfamily \mbox{\hyperlink{classEdge}{Edge}}$<$\mbox{\hyperlink{structLocationInfo}{Location\+Info}}$>$\+:\+:EdgeType\+:\+:DEFAULT}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Finds the fastest route between two locations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & The transportation graph \\
+\hline
+{\em source\+Code} & Source location code \\
+\hline
+{\em dest\+Code} & Destination location code \\
+\hline
+{\em transport\+Mode} & The mode of transport to use (driving or walking) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of locations representing the path @complexity O(\+E log V) where E is the number of edges and V is the number of vertices
+\end{DoxyReturn}
+Uses Dijkstra\textquotesingle{}s algorithm to find the shortest path between source and destination. Can filter edges based on the transport mode.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & The transportation graph \\
+\hline
+{\em source\+Code} & Source location code \\
+\hline
+{\em dest\+Code} & Destination location code \\
+\hline
+{\em transport\+Mode} & The mode of transport to use (driving or walking) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of locations representing the path 
+\end{DoxyReturn}
+\Hypertarget{classRouting_a551d7b0be324be82759b103c18f34405}\index{Routing@{Routing}!findRouteWithFilter@{findRouteWithFilter}}
+\index{findRouteWithFilter@{findRouteWithFilter}!Routing@{Routing}}
+\doxysubsubsection{\texorpdfstring{findRouteWithFilter()}{findRouteWithFilter()}}
+{\footnotesize\ttfamily \label{classRouting_a551d7b0be324be82759b103c18f34405} 
+std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ Routing\+::find\+Route\+With\+Filter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&}]{graph}{, }\item[{const std\+::string \&}]{source\+Code}{, }\item[{const std\+::string \&}]{dest\+Code}{, }\item[{\mbox{\hyperlink{classRouting_a40078f3585157c2f9314b6881c759c45}{Edge\+Filter}}}]{filter}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Finds a route with specific filtering constraints. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & The transportation graph \\
+\hline
+{\em source\+Code} & Source location code \\
+\hline
+{\em dest\+Code} & Destination location code \\
+\hline
+{\em filter} & Function to filter edges \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of locations representing the path @complexity O(\+E log V) where E is the number of edges and V is the number of vertices 
+\end{DoxyReturn}
+\Hypertarget{classRouting_a372d470bb22736a8ce6eac6d80d17780}\index{Routing@{Routing}!formatRouteForOutput@{formatRouteForOutput}}
+\index{formatRouteForOutput@{formatRouteForOutput}!Routing@{Routing}}
+\doxysubsubsection{\texorpdfstring{formatRouteForOutput()}{formatRouteForOutput()}}
+{\footnotesize\ttfamily \label{classRouting_a372d470bb22736a8ce6eac6d80d17780} 
+std\+::string Routing\+::format\+Route\+For\+Output (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&}]{route}{, }\item[{double}]{total\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Formats a route for output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em route} & The route to format \\
+\hline
+{\em total\+Time} & The total time for the route \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Formatted string representation of the route @complexity O(\+N) where N is the length of the route 
+\end{DoxyReturn}
+\Hypertarget{classRouting_aaefb6d614b0601af4d0b607f70d759d3}\index{Routing@{Routing}!outputEcoRouteToFile@{outputEcoRouteToFile}}
+\index{outputEcoRouteToFile@{outputEcoRouteToFile}!Routing@{Routing}}
+\doxysubsubsection{\texorpdfstring{outputEcoRouteToFile()}{outputEcoRouteToFile()}}
+{\footnotesize\ttfamily \label{classRouting_aaefb6d614b0601af4d0b607f70d759d3} 
+void Routing\+::output\+Eco\+Route\+To\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{, }\item[{int}]{source\+Id}{, }\item[{int}]{dest\+Id}{, }\item[{const \mbox{\hyperlink{structRouting_1_1EcoRoute}{Eco\+Route}} \&}]{route}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Outputs an eco-\/route to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The output file name \\
+\hline
+{\em source\+Id} & Source location ID \\
+\hline
+{\em dest\+Id} & Destination location ID \\
+\hline
+{\em route} & The eco-\/route to output @complexity O(\+N) where N is the length of the route \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classRouting_ac334b488ccd2d712a555258b3e2f7dc4}\index{Routing@{Routing}!outputRoutesToFile@{outputRoutesToFile}}
+\index{outputRoutesToFile@{outputRoutesToFile}!Routing@{Routing}}
+\doxysubsubsection{\texorpdfstring{outputRoutesToFile()}{outputRoutesToFile()}}
+{\footnotesize\ttfamily \label{classRouting_ac334b488ccd2d712a555258b3e2f7dc4} 
+void Routing\+::output\+Routes\+To\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{, }\item[{int}]{source\+Id}{, }\item[{int}]{dest\+Id}{, }\item[{const std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&}]{best\+Route}{, }\item[{const std\+::vector$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&}]{alternative\+Route}{, }\item[{const \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&}]{graph}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Outputs routes to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The output file name \\
+\hline
+{\em source\+Id} & Source location ID \\
+\hline
+{\em dest\+Id} & Destination location ID \\
+\hline
+{\em best\+Route} & The best route found \\
+\hline
+{\em alternative\+Route} & An alternative route \\
+\hline
+{\em graph} & The transportation graph @complexity O(\+N) where N is the length of the routes \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classRouting_ae488d05223b08815b8eae4e26ddac861}\index{Routing@{Routing}!processEcoRouteFromFile@{processEcoRouteFromFile}}
+\index{processEcoRouteFromFile@{processEcoRouteFromFile}!Routing@{Routing}}
+\doxysubsubsection{\texorpdfstring{processEcoRouteFromFile()}{processEcoRouteFromFile()}}
+{\footnotesize\ttfamily \label{classRouting_ae488d05223b08815b8eae4e26ddac861} 
+bool Routing\+::process\+Eco\+Route\+From\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input\+Filename}{, }\item[{const std\+::string \&}]{output\+Filename}{, }\item[{const \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&}]{graph}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Processes an eco-\/route from an input file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+Filename} & The input file name \\
+\hline
+{\em output\+Filename} & The output file name \\
+\hline
+{\em graph} & The transportation graph \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if processing was successful, false otherwise @complexity O(\+P \texorpdfstring{$\ast$}{*} E log V) where P is the number of parking nodes, E is the number of edges, and V is the number of vertices 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+routing/\mbox{\hyperlink{Routing_8h}{Routing.\+h}}\item 
+routing/\mbox{\hyperlink{Routing_8cpp}{Routing.\+cpp}}\end{DoxyCompactItemize}

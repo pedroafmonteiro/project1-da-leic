@@ -1,0 +1,49 @@
+\doxysection{Graph\+Builder.\+h}
+\hypertarget{_graph_builder_8h_source}{}\label{_graph_builder_8h_source}\index{graph\_builder/GraphBuilder.h@{graph\_builder/GraphBuilder.h}}
+\mbox{\hyperlink{_graph_builder_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GRAPHBUILDER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GRAPHBUILDER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_parse_data_8h}{../parse\_data/ParseData.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_data_manager_8h}{../parse\_data/DataManager.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_graph_8h}{../graph\_structure/Graph.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_location_info_a360455673beabe0ec3e6ece3d7c0d4ca}{LocationInfo}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ std::string\ \mbox{\hyperlink{struct_location_info_a024db9ececfd3004f9975cf667f31bd8}{name}};\ \ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_location_info_aee8b757eb333dd5e6d40c304114d3331}{id}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00019\ \ \ \ \ std::string\ \mbox{\hyperlink{struct_location_info_a895200e44a50e3b6596989b90feec859}{code}};\ \ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_location_info_a052dd7c790b4d3e9847d35df55aa851b}{hasParking}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{struct_location_info_a360455673beabe0ec3e6ece3d7c0d4ca}{LocationInfo}}(\textcolor{keyword}{const}\ std::string\ \&n,\ \textcolor{keywordtype}{int}\ i,\ \textcolor{keyword}{const}\ std::string\ \&c,\ \textcolor{keywordtype}{bool}\ p)}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{struct_location_info_a024db9ececfd3004f9975cf667f31bd8}{name}}(n),\ \mbox{\hyperlink{struct_location_info_aee8b757eb333dd5e6d40c304114d3331}{id}}(i),\ \mbox{\hyperlink{struct_location_info_a895200e44a50e3b6596989b90feec859}{code}}(c),\ \mbox{\hyperlink{struct_location_info_a052dd7c790b4d3e9847d35df55aa851b}{hasParking}}(p)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{struct_location_info_a5c76b8f6805ea9c2115d342b5032a89b}{LocationInfo}}()\ :\ \mbox{\hyperlink{struct_location_info_a024db9ececfd3004f9975cf667f31bd8}{name}}(\textcolor{stringliteral}{"{}"{}}),\ \mbox{\hyperlink{struct_location_info_aee8b757eb333dd5e6d40c304114d3331}{id}}(0),\ \mbox{\hyperlink{struct_location_info_a895200e44a50e3b6596989b90feec859}{code}}(\textcolor{stringliteral}{"{}"{}}),\ \mbox{\hyperlink{struct_location_info_a052dd7c790b4d3e9847d35df55aa851b}{hasParking}}(false)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_location_info_ab2ca35167fbf90cb892d5f43a89b8aea}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_location_info_a360455673beabe0ec3e6ece3d7c0d4ca}{LocationInfo}}\ \&other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_location_info_a895200e44a50e3b6596989b90feec859}{code}}\ ==\ other.\mbox{\hyperlink{struct_location_info_a895200e44a50e3b6596989b90feec859}{code}};}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\ \&\mbox{\hyperlink{struct_location_info_a0965a184e9d1d1af35f45839d7d0acfc}{operator<<}}(std::ostream\ \&os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_location_info_a360455673beabe0ec3e6ece3d7c0d4ca}{LocationInfo}}\ \&info)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}Code:"{}}\ <<\ info.\mbox{\hyperlink{struct_location_info_a895200e44a50e3b6596989b90feec859}{code}}\ <<\ \textcolor{stringliteral}{"{}\ (ID:"{}}\ <<\ info.\mbox{\hyperlink{struct_location_info_aee8b757eb333dd5e6d40c304114d3331}{id}}\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ info.\mbox{\hyperlink{struct_location_info_a024db9ececfd3004f9975cf667f31bd8}{name}}\ <<\ \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_graph_builder}{GraphBuilder}}\ \{}
+\DoxyCodeLine{00072\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_graph}{Graph<LocationInfo>}}\ \mbox{\hyperlink{class_graph_builder_a0083ed6d422fa17d944f7653e3b5a5c5}{buildIntegratedGraph}}(}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<LocationData>\ \&locationData,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<DistanceData>\ \&distanceData);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_graph}{Graph<LocationInfo>}}\ \mbox{\hyperlink{class_graph_builder_a721f93a3917dfba87029643bdb5653c6}{buildGraphFromDataManager}}();}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_graph_builder_ad5481c2dc837f7831f5625606951a7b2}{printGraph}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_graph}{Graph<LocationInfo>}}\ \&graph);}
+\DoxyCodeLine{00097\ \};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GRAPHBUILDER\_H}}
+
+\end{DoxyCode}
