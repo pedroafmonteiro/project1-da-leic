@@ -10,7 +10,7 @@
 /**
  * @class Menu
  * @brief Main user interface class that handles user interaction and routing operations
- * 
+ *
  * The Menu class provides a command-line interface for users to interact with the routing system.
  * It presents various options for route planning, handles user input, and displays results.
  */
@@ -18,10 +18,10 @@ class Menu
 {
     /** @brief Singleton data manager instance */
     DataManager *dataManager;
-    
+
     /** @brief Graph representing the transportation network */
     Graph<LocationInfo> transportGraph;
-    
+
     /** @brief Flag indicating if the graph has been successfully built */
     bool graphBuilt;
 
@@ -63,7 +63,7 @@ class Menu
                    std::vector<int> &avoidNodes,
                    std::vector<std::pair<int, int>> &avoidSegments,
                    int &includeNode);
-                   
+
     /**
      * @brief Displays the results of an environmentally-friendly route
      * @param route The eco-route to display
@@ -71,9 +71,20 @@ class Menu
      * @param destCode Destination location code
      * @complexity O(N) where N is the length of the route
      */
-    void displayEcoRouteResults(const Routing::EcoRoute &route, 
-                               const std::string &sourceCode, 
-                               const std::string &destCode);
+    void displayEcoRouteResults(const Routing::EcoRoute &route,
+                                const std::string &sourceCode,
+                                const std::string &destCode);
+
+    /**
+     * @brief Displays the results of multiple environmentally-friendly routes
+     * @param routes Vector of eco-routes to display
+     * @param sourceCode Source location code
+     * @param destCode Destination location code
+     * @complexity O(M * N) where M is the number of routes and N is the average length of a route
+     */
+    void displayMultipleEcoRouteResults(const std::vector<Routing::EcoRoute> &routes,
+                                        const std::string &sourceCode,
+                                        const std::string &destCode);
 
 public:
     /**
@@ -111,7 +122,7 @@ public:
      * @complexity O(E log V) due to Dijkstra's algorithm with added filters
      */
     void restrictedRoute();
-    
+
     /**
      * @brief Handles the environmentally-friendly route planning functionality
      * @complexity O(P * E log V) where P is the number of parking nodes and E, V are edges and vertices

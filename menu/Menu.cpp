@@ -6,6 +6,8 @@
 #include <fstream>
 #include <sstream>
 #include <unordered_map>
+#include <limits>
+#include <string>
 
 #include "../parse_data/DataManager.h"
 #include "../graph_builder/GraphBuilder.h"
@@ -380,7 +382,7 @@ void Menu::independentRoute()
     std::cout << "1. Manual input" << std::endl;
     std::cout << "2. File input (input.txt)" << std::endl;
     std::cout << "Enter choice (1/2): ";
-    
+
     int choice;
     std::cin >> choice;
 
@@ -446,32 +448,42 @@ void Menu::independentRoute()
 
         // Try to detect if inputs are IDs or codes
         bool isSourceId = true;
-        try {
+        try
+        {
             sourceId = std::stoi(sourceInput);
-        } catch (const std::exception &) {
+        }
+        catch (const std::exception &)
+        {
             isSourceId = false;
             sourceCode = sourceInput;
         }
 
         bool isDestId = true;
-        try {
+        try
+        {
             destId = std::stoi(destInput);
-        } catch (const std::exception &) {
+        }
+        catch (const std::exception &)
+        {
             isDestId = false;
             destCode = destInput;
         }
 
         // Convert IDs to codes if needed
-        if (isSourceId) {
+        if (isSourceId)
+        {
             bool found = false;
-            for (const auto &loc : dataManager->getLocationData()) {
-                if (loc.id == sourceId) {
+            for (const auto &loc : dataManager->getLocationData())
+            {
+                if (loc.id == sourceId)
+                {
                     sourceCode = loc.code;
                     found = true;
                     break;
                 }
             }
-            if (!found) {
+            if (!found)
+            {
                 std::cout << "Error: No location found with ID " << sourceId << std::endl;
                 std::cout << "\nPress Enter to return to the main menu...";
                 std::cin.get();
@@ -480,26 +492,34 @@ void Menu::independentRoute()
             }
         }
 
-        if (isDestId) {
+        if (isDestId)
+        {
             bool found = false;
-            for (const auto &loc : dataManager->getLocationData()) {
-                if (loc.id == destId) {
+            for (const auto &loc : dataManager->getLocationData())
+            {
+                if (loc.id == destId)
+                {
                     destCode = loc.code;
                     found = true;
                     break;
                 }
             }
-            if (!found) {
+            if (!found)
+            {
                 std::cout << "Error: No location found with ID " << destId << std::endl;
                 std::cout << "\nPress Enter to return to the main menu...";
                 std::cin.get();
                 mainMenu();
                 return;
             }
-        } else {
+        }
+        else
+        {
             // If dest is not an ID, we need to find the ID for output purposes
-            for (const auto &loc : dataManager->getLocationData()) {
-                if (loc.code == destCode) {
+            for (const auto &loc : dataManager->getLocationData())
+            {
+                if (loc.code == destCode)
+                {
                     destId = loc.id;
                     break;
                 }
@@ -507,9 +527,12 @@ void Menu::independentRoute()
         }
 
         // If source is not an ID, find the ID for output purposes
-        if (!isSourceId) {
-            for (const auto &loc : dataManager->getLocationData()) {
-                if (loc.code == sourceCode) {
+        if (!isSourceId)
+        {
+            for (const auto &loc : dataManager->getLocationData())
+            {
+                if (loc.code == sourceCode)
+                {
                     sourceId = loc.id;
                     break;
                 }
@@ -520,13 +543,14 @@ void Menu::independentRoute()
         std::cout << "1. Driving" << std::endl;
         std::cout << "2. Walking" << std::endl;
         std::cout << "Enter choice (1/2): ";
-        
+
         int modeChoice;
         std::cin >> modeChoice;
 
         transportMode = (modeChoice == 2) ? Edge<LocationInfo>::EdgeType::WALKING : Edge<LocationInfo>::EdgeType::DRIVING;
     }
-    else {
+    else
+    {
         std::cout << "\nInvalid option. Returning to main menu." << std::endl;
         std::cout << "\nPress Enter to return to the main menu...";
         std::cin.get();
@@ -554,25 +578,35 @@ void Menu::independentRoute()
     std::cout << "From: " << sourceCode << " (ID: " << sourceId << ")" << std::endl;
     std::cout << "To: " << destCode << " (ID: " << destId << ")" << std::endl;
     std::cout << "Transport mode: " << (transportMode == Edge<LocationInfo>::EdgeType::DRIVING ? "Driving" : "Walking") << std::endl;
-    
+
     std::cout << "\nBest route: ";
-    if (fastestRoute.empty()) {
+    if (fastestRoute.empty())
+    {
         std::cout << "No route found." << std::endl;
-    } else {
-        for (size_t i = 0; i < fastestRoute.size(); i++) {
+    }
+    else
+    {
+        for (size_t i = 0; i < fastestRoute.size(); i++)
+        {
             std::cout << fastestRoute[i].id;
-            if (i < fastestRoute.size() - 1) std::cout << " → ";
+            if (i < fastestRoute.size() - 1)
+                std::cout << " → ";
         }
         std::cout << " (" << fastestTime << " minutes)" << std::endl;
     }
-    
+
     std::cout << "Alternative route: ";
-    if (alternativeRoute.empty()) {
+    if (alternativeRoute.empty())
+    {
         std::cout << "No alternative route found." << std::endl;
-    } else {
-        for (size_t i = 0; i < alternativeRoute.size(); i++) {
+    }
+    else
+    {
+        for (size_t i = 0; i < alternativeRoute.size(); i++)
+        {
             std::cout << alternativeRoute[i].id;
-            if (i < alternativeRoute.size() - 1) std::cout << " → ";
+            if (i < alternativeRoute.size() - 1)
+                std::cout << " → ";
         }
         std::cout << " (" << alternativeTime << " minutes)" << std::endl;
     }
@@ -597,7 +631,7 @@ void Menu::restrictedRoute()
     std::cout << "1. Manual input" << std::endl;
     std::cout << "2. File input (input.txt)" << std::endl;
     std::cout << "Enter choice (1/2): ";
-    
+
     int choice;
     std::cin >> choice;
 
@@ -684,32 +718,42 @@ void Menu::restrictedRoute()
 
         // Try to detect if inputs are IDs or codes
         bool isSourceId = true;
-        try {
+        try
+        {
             sourceId = std::stoi(sourceInput);
-        } catch (const std::exception &) {
+        }
+        catch (const std::exception &)
+        {
             isSourceId = false;
             sourceCode = sourceInput;
         }
 
         bool isDestId = true;
-        try {
+        try
+        {
             destId = std::stoi(destInput);
-        } catch (const std::exception &) {
+        }
+        catch (const std::exception &)
+        {
             isDestId = false;
             destCode = destInput;
         }
 
         // Convert IDs to codes if needed
-        if (isSourceId) {
+        if (isSourceId)
+        {
             bool found = false;
-            for (const auto &loc : dataManager->getLocationData()) {
-                if (loc.id == sourceId) {
+            for (const auto &loc : dataManager->getLocationData())
+            {
+                if (loc.id == sourceId)
+                {
                     sourceCode = loc.code;
                     found = true;
                     break;
                 }
             }
-            if (!found) {
+            if (!found)
+            {
                 std::cout << "Error: No location found with ID " << sourceId << std::endl;
                 std::cout << "\nPress Enter to return to the main menu...";
                 std::cin.get();
@@ -718,26 +762,34 @@ void Menu::restrictedRoute()
             }
         }
 
-        if (isDestId) {
+        if (isDestId)
+        {
             bool found = false;
-            for (const auto &loc : dataManager->getLocationData()) {
-                if (loc.id == destId) {
+            for (const auto &loc : dataManager->getLocationData())
+            {
+                if (loc.id == destId)
+                {
                     destCode = loc.code;
                     found = true;
                     break;
                 }
             }
-            if (!found) {
+            if (!found)
+            {
                 std::cout << "Error: No location found with ID " << destId << std::endl;
                 std::cout << "\nPress Enter to return to the main menu...";
                 std::cin.get();
                 mainMenu();
                 return;
             }
-        } else {
+        }
+        else
+        {
             // If dest is not an ID, we need to find the ID for output purposes
-            for (const auto &loc : dataManager->getLocationData()) {
-                if (loc.code == destCode) {
+            for (const auto &loc : dataManager->getLocationData())
+            {
+                if (loc.code == destCode)
+                {
                     destId = loc.id;
                     break;
                 }
@@ -745,9 +797,12 @@ void Menu::restrictedRoute()
         }
 
         // If source is not an ID, find the ID for output purposes
-        if (!isSourceId) {
-            for (const auto &loc : dataManager->getLocationData()) {
-                if (loc.code == sourceCode) {
+        if (!isSourceId)
+        {
+            for (const auto &loc : dataManager->getLocationData())
+            {
+                if (loc.code == sourceCode)
+                {
                     sourceId = loc.id;
                     break;
                 }
@@ -768,68 +823,82 @@ void Menu::restrictedRoute()
         std::cout << "\nDo you want to avoid specific nodes? (y/n): ";
         char avoidNodesOption;
         std::cin >> avoidNodesOption;
-        
-        if (avoidNodesOption == 'y' || avoidNodesOption == 'Y') {
+
+        if (avoidNodesOption == 'y' || avoidNodesOption == 'Y')
+        {
             std::cout << "Enter IDs of nodes to avoid (comma-separated): ";
             std::string avoidNodesInput;
             std::cin.ignore();
             std::getline(std::cin, avoidNodesInput);
-            
+
             std::stringstream ss(avoidNodesInput);
             std::string nodeId;
-            while (std::getline(ss, nodeId, ',')) {
-                try {
+            while (std::getline(ss, nodeId, ','))
+            {
+                try
+                {
                     avoidNodes.push_back(std::stoi(nodeId));
-                } catch (const std::exception &e) {
+                }
+                catch (const std::exception &e)
+                {
                     std::cerr << "Error parsing node ID: " << e.what() << std::endl;
                 }
             }
         }
-        
+
         // Ask about avoiding segments
         std::cout << "Do you want to avoid specific segments? (y/n): ";
         char avoidSegmentsOption;
         std::cin >> avoidSegmentsOption;
-        
-        if (avoidSegmentsOption == 'y' || avoidSegmentsOption == 'Y') {
+
+        if (avoidSegmentsOption == 'y' || avoidSegmentsOption == 'Y')
+        {
             std::cout << "Enter segments to avoid in format (id1,id2),(id3,id4): ";
             std::string avoidSegmentsInput;
             std::cin.ignore();
             std::getline(std::cin, avoidSegmentsInput);
-            
+
             // Parse segments
             size_t pos = 0;
-            while ((pos = avoidSegmentsInput.find("(", pos)) != std::string::npos) {
+            while ((pos = avoidSegmentsInput.find("(", pos)) != std::string::npos)
+            {
                 size_t endPos = avoidSegmentsInput.find(")", pos);
-                if (endPos == std::string::npos) break;
-                
+                if (endPos == std::string::npos)
+                    break;
+
                 std::string segmentStr = avoidSegmentsInput.substr(pos + 1, endPos - pos - 1);
                 std::stringstream ss(segmentStr);
                 std::string node1Str, node2Str;
-                
-                if (std::getline(ss, node1Str, ',') && std::getline(ss, node2Str)) {
-                    try {
+
+                if (std::getline(ss, node1Str, ',') && std::getline(ss, node2Str))
+                {
+                    try
+                    {
                         avoidSegments.push_back({std::stoi(node1Str), std::stoi(node2Str)});
-                    } catch (const std::exception &e) {
+                    }
+                    catch (const std::exception &e)
+                    {
                         std::cerr << "Error parsing segment: " << e.what() << std::endl;
                     }
                 }
-                
+
                 pos = endPos + 1;
             }
         }
-        
+
         // Ask about including a specific node
         std::cout << "Do you want to include a specific intermediate node? (y/n): ";
         char includeNodeOption;
         std::cin >> includeNodeOption;
-        
-        if (includeNodeOption == 'y' || includeNodeOption == 'Y') {
+
+        if (includeNodeOption == 'y' || includeNodeOption == 'Y')
+        {
             std::cout << "Enter ID of node to include: ";
             std::cin >> includeNode;
         }
     }
-    else {
+    else
+    {
         std::cout << "\nInvalid option. Returning to main menu." << std::endl;
         std::cout << "\nPress Enter to return to the main menu...";
         std::cin.get();
@@ -983,15 +1052,15 @@ void Menu::environmentallyFriendlyRoute()
     std::cout << "1. Manual input" << std::endl;
     std::cout << "2. File input (input.txt)" << std::endl;
     std::cout << "Enter choice (1/2): ";
-    
+
     int choice;
     std::cin >> choice;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear input buffer
 
     if (choice == 2)
     {
         std::cout << "\nEnter the path to the input file (default: input.txt): ";
         std::string filePath;
-        std::cin.ignore();
         std::getline(std::cin, filePath);
 
         if (filePath.empty())
@@ -1001,12 +1070,15 @@ void Menu::environmentallyFriendlyRoute()
 
         std::cout << "\nProcessing input file..." << std::endl;
         std::string outputFilename = "output.txt";
-        
+
         bool success = Routing::processEcoRouteFromFile(filePath, outputFilename, transportGraph);
-        
-        if (success) {
+
+        if (success)
+        {
             std::cout << "Route processed successfully and saved to " << outputFilename << std::endl;
-        } else {
+        }
+        else
+        {
             std::cout << "Failed to process route from input file." << std::endl;
         }
     }
@@ -1017,10 +1089,9 @@ void Menu::environmentallyFriendlyRoute()
         double maxWalkingTime;
         std::vector<int> avoidNodes;
         std::vector<std::pair<int, int>> avoidSegments;
-        
+
         // Get source location
         std::cout << "\nEnter source location (code or ID): ";
-        std::cin.ignore();
         std::string sourceInput;
         std::getline(std::cin, sourceInput);
 
@@ -1032,33 +1103,43 @@ void Menu::environmentallyFriendlyRoute()
         // Try to detect if inputs are IDs or codes
         bool isSourceId = true;
         int sourceId = -1;
-        try {
+        try
+        {
             sourceId = std::stoi(sourceInput);
-        } catch (const std::exception &) {
+        }
+        catch (const std::exception &)
+        {
             isSourceId = false;
             sourceCode = sourceInput;
         }
 
         bool isDestId = true;
         int destId = -1;
-        try {
+        try
+        {
             destId = std::stoi(destInput);
-        } catch (const std::exception &) {
+        }
+        catch (const std::exception &)
+        {
             isDestId = false;
             destCode = destInput;
         }
 
         // Convert IDs to codes if needed
-        if (isSourceId) {
+        if (isSourceId)
+        {
             bool found = false;
-            for (const auto &loc : dataManager->getLocationData()) {
-                if (loc.id == sourceId) {
+            for (const auto &loc : dataManager->getLocationData())
+            {
+                if (loc.id == sourceId)
+                {
                     sourceCode = loc.code;
                     found = true;
                     break;
                 }
             }
-            if (!found) {
+            if (!found)
+            {
                 std::cout << "Error: No location found with ID " << sourceId << std::endl;
                 std::cout << "\nPress Enter to return to the main menu...";
                 std::cin.get();
@@ -1067,16 +1148,20 @@ void Menu::environmentallyFriendlyRoute()
             }
         }
 
-        if (isDestId) {
+        if (isDestId)
+        {
             bool found = false;
-            for (const auto &loc : dataManager->getLocationData()) {
-                if (loc.id == destId) {
+            for (const auto &loc : dataManager->getLocationData())
+            {
+                if (loc.id == destId)
+                {
                     destCode = loc.code;
                     found = true;
                     break;
                 }
             }
-            if (!found) {
+            if (!found)
+            {
                 std::cout << "Error: No location found with ID " << destId << std::endl;
                 std::cout << "\nPress Enter to return to the main menu...";
                 std::cin.get();
@@ -1086,18 +1171,24 @@ void Menu::environmentallyFriendlyRoute()
         }
 
         // Find source and destination IDs for output
-        if (!isSourceId) {
-            for (const auto &loc : dataManager->getLocationData()) {
-                if (loc.code == sourceCode) {
+        if (!isSourceId)
+        {
+            for (const auto &loc : dataManager->getLocationData())
+            {
+                if (loc.code == sourceCode)
+                {
                     sourceId = loc.id;
                     break;
                 }
             }
         }
 
-        if (!isDestId) {
-            for (const auto &loc : dataManager->getLocationData()) {
-                if (loc.code == destCode) {
+        if (!isDestId)
+        {
+            for (const auto &loc : dataManager->getLocationData())
+            {
+                if (loc.code == destCode)
+                {
                     destId = loc.id;
                     break;
                 }
@@ -1107,81 +1198,148 @@ void Menu::environmentallyFriendlyRoute()
         // Get maximum walking time
         std::cout << "Enter maximum walking time (minutes): ";
         std::cin >> maxWalkingTime;
-        
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear input buffer
+
         // Ask about avoiding nodes
         std::cout << "\nDo you want to avoid specific nodes? (y/n): ";
         char avoidNodesOption;
         std::cin >> avoidNodesOption;
-        
-        if (avoidNodesOption == 'y' || avoidNodesOption == 'Y') {
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear input buffer
+
+        if (avoidNodesOption == 'y' || avoidNodesOption == 'Y')
+        {
             std::cout << "Enter IDs of nodes to avoid (comma-separated): ";
             std::string avoidNodesInput;
-            std::cin.ignore();
             std::getline(std::cin, avoidNodesInput);
-            
+
             std::stringstream ss(avoidNodesInput);
             std::string nodeId;
-            while (std::getline(ss, nodeId, ',')) {
-                try {
+            while (std::getline(ss, nodeId, ','))
+            {
+                try
+                {
                     avoidNodes.push_back(std::stoi(nodeId));
-                } catch (const std::exception &e) {
+                }
+                catch (const std::exception &e)
+                {
                     std::cerr << "Error parsing node ID: " << e.what() << std::endl;
                 }
             }
         }
-        
+
         // Ask about avoiding segments
         std::cout << "Do you want to avoid specific segments? (y/n): ";
         char avoidSegmentsOption;
         std::cin >> avoidSegmentsOption;
-        
-        if (avoidSegmentsOption == 'y' || avoidSegmentsOption == 'Y') {
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear input buffer
+
+        if (avoidSegmentsOption == 'y' || avoidSegmentsOption == 'Y')
+        {
             std::cout << "Enter segments to avoid in format (id1,id2),(id3,id4): ";
             std::string avoidSegmentsInput;
-            std::cin.ignore();
             std::getline(std::cin, avoidSegmentsInput);
-            
+
             // Parse segments
             size_t pos = 0;
-            while ((pos = avoidSegmentsInput.find("(", pos)) != std::string::npos) {
+            while ((pos = avoidSegmentsInput.find("(", pos)) != std::string::npos)
+            {
                 size_t endPos = avoidSegmentsInput.find(")", pos);
-                if (endPos == std::string::npos) break;
-                
+                if (endPos == std::string::npos)
+                    break;
+
                 std::string segmentStr = avoidSegmentsInput.substr(pos + 1, endPos - pos - 1);
                 std::stringstream ss(segmentStr);
                 std::string node1Str, node2Str;
-                
-                if (std::getline(ss, node1Str, ',') && std::getline(ss, node2Str)) {
-                    try {
+
+                if (std::getline(ss, node1Str, ',') && std::getline(ss, node2Str))
+                {
+                    try
+                    {
                         avoidSegments.push_back({std::stoi(node1Str), std::stoi(node2Str)});
-                    } catch (const std::exception &e) {
+                    }
+                    catch (const std::exception &e)
+                    {
                         std::cerr << "Error parsing segment: " << e.what() << std::endl;
                     }
                 }
-                
+
                 pos = endPos + 1;
             }
         }
-        
+
         // Find eco-friendly route
         Routing::EcoRoute ecoRoute = Routing::findEnvironmentallyFriendlyRoute(
             transportGraph, sourceCode, destCode, maxWalkingTime, avoidNodes, avoidSegments);
-        
-        // Display results
-        displayEcoRouteResults(ecoRoute, sourceCode, destCode);
-        
-        // Automatically save to output.txt without asking
+
         std::string outputFilename = "output.txt";
-        Routing::outputEcoRouteToFile(outputFilename, sourceId, destId, ecoRoute);
-        std::cout << "\nResults saved to " << outputFilename << std::endl;
+
+        // Check if a valid route was found
+        if (!ecoRoute.isValid)
+        {
+            std::cout << "No route found within walking time constraints." << std::endl;
+            std::cout << "Would you like to see alternative routes that exceed the walking time limit? (y/n): ";
+
+            char showAlternatives;
+            std::cin >> showAlternatives;
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear input buffer
+
+            if (showAlternatives == 'y' || showAlternatives == 'Y')
+            {
+                std::cout << "Finding approximate solutions..." << std::endl;
+
+                // Try to find approximate routes
+                std::vector<Routing::EcoRoute> approximateRoutes = Routing::findApproximateEcoRoutes(
+                    transportGraph, sourceCode, destCode, maxWalkingTime, avoidNodes, avoidSegments);
+
+                if (!approximateRoutes.empty())
+                {
+                    // Display the approximate routes
+                    displayMultipleEcoRouteResults(approximateRoutes, sourceCode, destCode);
+
+                    // Save to output file
+                    Routing::outputMultipleEcoRoutesToFile(outputFilename, sourceId, destId, approximateRoutes);
+                    std::cout << "\nResults saved to " << outputFilename << std::endl;
+                }
+                else
+                {
+                    // No approximate routes found either
+                    std::cout << "No alternative routes found." << std::endl;
+                    displayEcoRouteResults(ecoRoute, sourceCode, destCode);
+                    Routing::outputEcoRouteToFile(outputFilename, sourceId, destId, ecoRoute);
+                    std::cout << "\nResults saved to " << outputFilename << std::endl;
+                }
+            }
+            else
+            {
+                // User does not want alternative routes
+                displayEcoRouteResults(ecoRoute, sourceCode, destCode);
+
+                // Update error message to be more specific
+                ecoRoute.errorMessage = "No possible route with max. walking time of " +
+                                        std::to_string(static_cast<int>(maxWalkingTime)) + " minutes.";
+
+                // Save to output file with no route information
+                Routing::outputEcoRouteToFile(outputFilename, sourceId, destId, ecoRoute);
+                std::cout << "\nResults saved to " << outputFilename << std::endl;
+            }
+        }
+        else
+        {
+            // Display the valid route
+            displayEcoRouteResults(ecoRoute, sourceCode, destCode);
+
+            // Save to output file
+            Routing::outputEcoRouteToFile(outputFilename, sourceId, destId, ecoRoute);
+            std::cout << "\nResults saved to " << outputFilename << std::endl;
+        }
     }
-    else {
+    else
+    {
         std::cout << "\nInvalid option. Returning to main menu." << std::endl;
     }
-    
+
     // Return to the main menu
     std::cout << "\nPress Enter to return to the main menu...";
-    std::cin.get();
     std::cin.get();
     mainMenu();
 }
@@ -1191,82 +1349,213 @@ void Menu::displayEcoRouteResults(const Routing::EcoRoute &route, const std::str
     std::cout << std::endl;
     std::cout << "Eco-Friendly Route Results" << std::endl;
     std::cout << "--------------------------" << std::endl;
-    
+
     // Display source and destination
     std::string sourceName = "Unknown", destName = "Unknown";
-    for (const auto &location : dataManager->getLocationData()) {
-        if (location.code == sourceCode) {
+    for (const auto &location : dataManager->getLocationData())
+    {
+        if (location.code == sourceCode)
+        {
             sourceName = location.location;
         }
-        if (location.code == destCode) {
+        if (location.code == destCode)
+        {
             destName = location.location;
         }
     }
-    
+
     std::cout << "From: " << sourceName << " (" << sourceCode << ")" << std::endl;
     std::cout << "To: " << destName << " (" << destCode << ")" << std::endl;
     std::cout << std::endl;
-    
-    if (!route.isValid) {
+
+    if (!route.isValid)
+    {
         std::cout << "No suitable route found!" << std::endl;
         std::cout << "Reason: " << route.errorMessage << std::endl;
         return;
     }
-    
+
     // Display driving route
     std::cout << "Driving Route:" << std::endl;
     std::cout << "--------------" << std::endl;
-    for (size_t i = 0; i < route.drivingRoute.size(); i++) {
-        std::cout << i + 1 << ". " << route.drivingRoute[i].name 
-                 << " (" << route.drivingRoute[i].code << ")";
-                 
-        if (i < route.drivingRoute.size() - 1) {
-            
+    for (size_t i = 0; i < route.drivingRoute.size(); i++)
+    {
+        std::cout << i + 1 << ". " << route.drivingRoute[i].name
+                  << " (" << route.drivingRoute[i].code << ")";
+
+        if (i < route.drivingRoute.size() - 1)
+        {
+
             Vertex<LocationInfo> *current = transportGraph.findVertex(route.drivingRoute[i]);
-            
-            for (Edge<LocationInfo> *edge : current->getAdj()) {
-                if (edge->getDest()->getInfo().code == route.drivingRoute[i+1].code && 
-                    edge->getType() == Edge<LocationInfo>::EdgeType::DRIVING) {
+
+            for (Edge<LocationInfo> *edge : current->getAdj())
+            {
+                if (edge->getDest()->getInfo().code == route.drivingRoute[i + 1].code &&
+                    edge->getType() == Edge<LocationInfo>::EdgeType::DRIVING)
+                {
                     std::cout << " -> " << edge->getWeight() << " minutes (driving)";
                     break;
                 }
             }
         }
-        
+
         std::cout << std::endl;
     }
     std::cout << "Total driving time: " << route.totalTime - route.walkingTime << " minutes" << std::endl;
-    
+
     // Display parking location
-    std::cout << std::endl << "Parking at: " << route.parkingNode.name 
-             << " (" << route.parkingNode.code << ")" << std::endl;
-    
+    std::cout << std::endl
+              << "Parking at: " << route.parkingNode.name
+              << " (" << route.parkingNode.code << ")" << std::endl;
+
     // Display walking route
-    std::cout << std::endl << "Walking Route:" << std::endl;
+    std::cout << std::endl
+              << "Walking Route:" << std::endl;
     std::cout << "--------------" << std::endl;
-    for (size_t i = 0; i < route.walkingRoute.size(); i++) {
-        std::cout << i + 1 << ". " << route.walkingRoute[i].name 
-                 << " (" << route.walkingRoute[i].code << ")";
-                 
-        if (i < route.walkingRoute.size() - 1) {
-            
+    for (size_t i = 0; i < route.walkingRoute.size(); i++)
+    {
+        std::cout << i + 1 << ". " << route.walkingRoute[i].name
+                  << " (" << route.walkingRoute[i].code << ")";
+
+        if (i < route.walkingRoute.size() - 1)
+        {
+
             Vertex<LocationInfo> *current = transportGraph.findVertex(route.walkingRoute[i]);
-            
-            for (Edge<LocationInfo> *edge : current->getAdj()) {
-                if (edge->getDest()->getInfo().code == route.walkingRoute[i+1].code && 
-                    edge->getType() == Edge<LocationInfo>::EdgeType::WALKING) {
+
+            for (Edge<LocationInfo> *edge : current->getAdj())
+            {
+                if (edge->getDest()->getInfo().code == route.walkingRoute[i + 1].code &&
+                    edge->getType() == Edge<LocationInfo>::EdgeType::WALKING)
+                {
                     std::cout << " -> " << edge->getWeight() << " minutes (walking)";
                     break;
                 }
             }
         }
-        
+
         std::cout << std::endl;
     }
     std::cout << "Total walking time: " << route.walkingTime << " minutes" << std::endl;
-    
+
     // Display total time
-    std::cout << std::endl << "Total travel time: " << route.totalTime << " minutes" << std::endl;
+    std::cout << std::endl
+              << "Total travel time: " << route.totalTime << " minutes" << std::endl;
+}
+
+void Menu::displayMultipleEcoRouteResults(const std::vector<Routing::EcoRoute> &routes, const std::string &sourceCode, const std::string &destCode)
+{
+    std::cout << std::endl;
+    std::cout << "Eco-Friendly Route Results (Approximate Solutions)" << std::endl;
+    std::cout << "------------------------------------------------" << std::endl;
+
+    // Display source and destination
+    std::string sourceName = "Unknown", destName = "Unknown";
+    for (const auto &location : dataManager->getLocationData())
+    {
+        if (location.code == sourceCode)
+        {
+            sourceName = location.location;
+        }
+        if (location.code == destCode)
+        {
+            destName = location.location;
+        }
+    }
+
+    std::cout << "From: " << sourceName << " (" << sourceCode << ")" << std::endl;
+    std::cout << "To: " << destName << " (" << destCode << ")" << std::endl;
+    std::cout << std::endl;
+
+    if (routes.empty())
+    {
+        std::cout << "No approximate routes found!" << std::endl;
+        return;
+    }
+
+    // Display each route
+    for (size_t routeIndex = 0; routeIndex < routes.size(); routeIndex++)
+    {
+        const auto &route = routes[routeIndex];
+
+        std::cout << "ROUTE OPTION " << (routeIndex + 1) << ":" << std::endl;
+        std::cout << "-----------------" << std::endl;
+
+        // Display driving route
+        std::cout << "Driving Route:" << std::endl;
+        std::cout << "--------------" << std::endl;
+        for (size_t i = 0; i < route.drivingRoute.size(); i++)
+        {
+            std::cout << i + 1 << ". " << route.drivingRoute[i].name
+                      << " (" << route.drivingRoute[i].code << ")";
+
+            if (i < route.drivingRoute.size() - 1)
+            {
+
+                Vertex<LocationInfo> *current = transportGraph.findVertex(route.drivingRoute[i]);
+
+                for (Edge<LocationInfo> *edge : current->getAdj())
+                {
+                    if (edge->getDest()->getInfo().code == route.drivingRoute[i + 1].code &&
+                        edge->getType() == Edge<LocationInfo>::EdgeType::DRIVING)
+                    {
+                        std::cout << " -> " << edge->getWeight() << " minutes (driving)";
+                        break;
+                    }
+                }
+            }
+
+            std::cout << std::endl;
+        }
+        std::cout << "Total driving time: " << route.totalTime - route.walkingTime << " minutes" << std::endl;
+
+        // Display parking location
+        std::cout << std::endl
+                  << "Parking at: " << route.parkingNode.name
+                  << " (" << route.parkingNode.code << ")" << std::endl;
+
+        // Display walking route
+        std::cout << std::endl
+                  << "Walking Route:" << std::endl;
+        std::cout << "--------------" << std::endl;
+        for (size_t i = 0; i < route.walkingRoute.size(); i++)
+        {
+            std::cout << i + 1 << ". " << route.walkingRoute[i].name
+                      << " (" << route.walkingRoute[i].code << ")";
+
+            if (i < route.walkingRoute.size() - 1)
+            {
+
+                Vertex<LocationInfo> *current = transportGraph.findVertex(route.walkingRoute[i]);
+
+                for (Edge<LocationInfo> *edge : current->getAdj())
+                {
+                    if (edge->getDest()->getInfo().code == route.walkingRoute[i + 1].code &&
+                        edge->getType() == Edge<LocationInfo>::EdgeType::WALKING)
+                    {
+                        std::cout << " -> " << edge->getWeight() << " minutes (walking)";
+                        break;
+                    }
+                }
+            }
+
+            std::cout << std::endl;
+        }
+        std::cout << "Total walking time: " << route.walkingTime << " minutes" << std::endl;
+
+        // Display total time
+        std::cout << std::endl
+                  << "Total travel time: " << route.totalTime << " minutes" << std::endl;
+
+        // Add separator between routes
+        if (routeIndex < routes.size() - 1)
+        {
+            std::cout << "\n================================================\n"
+                      << std::endl;
+        }
+    }
+
+    std::cout << "\nNote: These are approximate solutions that exceed the maximum walking time constraint." << std::endl;
+    std::cout << "      They are sorted by total travel time." << std::endl;
 }
 
 void Menu::credits()
