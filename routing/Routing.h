@@ -40,6 +40,11 @@ public:
         const std::vector<LocationInfo> &path,
         const Graph<LocationInfo> &graph);
 
+    static double calculateRouteTime(
+        const std::vector<LocationInfo> &path,
+        const Graph<LocationInfo> &graph,
+        Edge<LocationInfo>::EdgeType transportMode);
+
     static void displayRoute(
         const std::vector<LocationInfo> &path,
         const Graph<LocationInfo> &graph);
