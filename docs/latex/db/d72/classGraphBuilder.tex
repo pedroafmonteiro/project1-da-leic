@@ -1,0 +1,92 @@
+\doxysection{Graph\+Builder Class Reference}
+\hypertarget{classGraphBuilder}{}\label{classGraphBuilder}\index{GraphBuilder@{GraphBuilder}}
+
+
+Constructs transportation graphs from location and distance data.  
+
+
+
+
+{\ttfamily \#include $<$Graph\+Builder.\+h$>$}
+
+
+
+Collaboration diagram for Graph\+Builder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{d8/d76/classGraphBuilder__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \mbox{\hyperlink{classGraphBuilder_a721f93a3917dfba87029643bdb5653c6}{build\+Graph\+From\+Data\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Builds a graph directly from the \doxylink{classDataManager}{Data\+Manager} singleton. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \mbox{\hyperlink{classGraphBuilder_a0083ed6d422fa17d944f7653e3b5a5c5}{build\+Integrated\+Graph}} (const std\+::vector$<$ \mbox{\hyperlink{structLocationData}{Location\+Data}} $>$ \&location\+Data, const std\+::vector$<$ \mbox{\hyperlink{structDistanceData}{Distance\+Data}} $>$ \&distance\+Data)
+\begin{DoxyCompactList}\small\item\em Builds an integrated transportation graph with both driving and walking edges. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classGraphBuilder_ad5481c2dc837f7831f5625606951a7b2}{print\+Graph}} (const \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&graph)
+\begin{DoxyCompactList}\small\item\em Prints detailed information about the graph for debugging purposes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Constructs transportation graphs from location and distance data. 
+
+This class provides static methods to build transportation graphs from various data sources, with support for integrated driving and walking networks. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGraphBuilder_a721f93a3917dfba87029643bdb5653c6}\index{GraphBuilder@{GraphBuilder}!buildGraphFromDataManager@{buildGraphFromDataManager}}
+\index{buildGraphFromDataManager@{buildGraphFromDataManager}!GraphBuilder@{GraphBuilder}}
+\doxysubsubsection{\texorpdfstring{buildGraphFromDataManager()}{buildGraphFromDataManager()}}
+{\footnotesize\ttfamily \label{classGraphBuilder_a721f93a3917dfba87029643bdb5653c6} 
+\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ Graph\+Builder\+::build\+Graph\+From\+Data\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Builds a graph directly from the \doxylink{classDataManager}{Data\+Manager} singleton. 
+
+\begin{DoxyReturn}{Returns}
+A complete graph with data from the current \doxylink{classDataManager}{Data\+Manager} instance @complexity O(L + D) where L is the number of locations and D is the number of distances 
+\end{DoxyReturn}
+\Hypertarget{classGraphBuilder_a0083ed6d422fa17d944f7653e3b5a5c5}\index{GraphBuilder@{GraphBuilder}!buildIntegratedGraph@{buildIntegratedGraph}}
+\index{buildIntegratedGraph@{buildIntegratedGraph}!GraphBuilder@{GraphBuilder}}
+\doxysubsubsection{\texorpdfstring{buildIntegratedGraph()}{buildIntegratedGraph()}}
+{\footnotesize\ttfamily \label{classGraphBuilder_a0083ed6d422fa17d944f7653e3b5a5c5} 
+\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ Graph\+Builder\+::build\+Integrated\+Graph (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structLocationData}{Location\+Data}} $>$ \&}]{location\+Data}{, }\item[{const std\+::vector$<$ \mbox{\hyperlink{structDistanceData}{Distance\+Data}} $>$ \&}]{distance\+Data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Builds an integrated transportation graph with both driving and walking edges. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location\+Data} & Vector of location data from the dataset \\
+\hline
+{\em distance\+Data} & Vector of distance data representing edges between locations \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A complete graph with all vertices and edges @complexity O(L + D) where L is the number of locations and D is the number of distances 
+\end{DoxyReturn}
+\Hypertarget{classGraphBuilder_ad5481c2dc837f7831f5625606951a7b2}\index{GraphBuilder@{GraphBuilder}!printGraph@{printGraph}}
+\index{printGraph@{printGraph}!GraphBuilder@{GraphBuilder}}
+\doxysubsubsection{\texorpdfstring{printGraph()}{printGraph()}}
+{\footnotesize\ttfamily \label{classGraphBuilder_ad5481c2dc837f7831f5625606951a7b2} 
+void Graph\+Builder\+::print\+Graph (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \&}]{graph}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Prints detailed information about the graph for debugging purposes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & The graph to print @complexity O(V + E) where V is the number of vertices and E is the number of edges \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+graph\+\_\+builder/\mbox{\hyperlink{GraphBuilder_8h}{Graph\+Builder.\+h}}\item 
+graph\+\_\+builder/\mbox{\hyperlink{GraphBuilder_8cpp}{Graph\+Builder.\+cpp}}\end{DoxyCompactItemize}

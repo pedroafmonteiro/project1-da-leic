@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['system_0',['Routing System',['../index.html',1,'']]]
+  ['2025_0',['Design of Algorithms Project 1 - Spring 2025',['../index.html',1,'']]]
 ];

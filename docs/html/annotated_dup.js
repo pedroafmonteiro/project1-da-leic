@@ -1,14 +1,14 @@
 var annotated_dup =
 [
-    [ "DataManager", "class_data_manager.html", "class_data_manager" ],
-    [ "DistanceData", "struct_distance_data.html", "struct_distance_data" ],
-    [ "Edge", "class_edge.html", "class_edge" ],
-    [ "Graph", "class_graph.html", "class_graph" ],
-    [ "GraphBuilder", "class_graph_builder.html", null ],
-    [ "LocationData", "struct_location_data.html", "struct_location_data" ],
-    [ "LocationInfo", "struct_location_info.html", "struct_location_info" ],
-    [ "Menu", "class_menu.html", "class_menu" ],
-    [ "MutablePriorityQueue", "class_mutable_priority_queue.html", "class_mutable_priority_queue" ],
-    [ "Routing", "class_routing.html", "class_routing" ],
-    [ "Vertex", "class_vertex.html", "class_vertex" ]
+    [ "DataManager", "da/dcb/classDataManager.html", "da/dcb/classDataManager" ],
+    [ "DistanceData", "d8/da5/structDistanceData.html", "d8/da5/structDistanceData" ],
+    [ "Edge", "d8/d8c/classEdge.html", "d8/d8c/classEdge" ],
+    [ "Graph", "d2/d62/classGraph.html", "d2/d62/classGraph" ],
+    [ "GraphBuilder", "db/d72/classGraphBuilder.html", null ],
+    [ "LocationData", "de/d67/structLocationData.html", "de/d67/structLocationData" ],
+    [ "LocationInfo", "d7/db4/structLocationInfo.html", "d7/db4/structLocationInfo" ],
+    [ "Menu", "d8/ddb/classMenu.html", "d8/ddb/classMenu" ],
+    [ "MutablePriorityQueue", "dd/d3a/classMutablePriorityQueue.html", "dd/d3a/classMutablePriorityQueue" ],
+    [ "Routing", "d4/d90/classRouting.html", "d4/d90/classRouting" ],
+    [ "Vertex", "d2/da0/classVertex.html", "d2/da0/classVertex" ]
 ];

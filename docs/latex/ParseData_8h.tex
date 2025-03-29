@@ -1,0 +1,73 @@
+\doxysection{parse\+\_\+data/\+Parse\+Data.h File Reference}
+\hypertarget{ParseData_8h}{}\label{ParseData_8h}\index{parse\_data/ParseData.h@{parse\_data/ParseData.h}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Include dependency graph for Parse\+Data.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{ParseData_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ParseData_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structDistanceData}{Distance\+Data}}
+\begin{DoxyCompactList}\small\item\em Structure to store distance information between two locations. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structLocationData}{Location\+Data}}
+\begin{DoxyCompactList}\small\item\em Structure to store location information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structDistanceData}{Distance\+Data}} $>$ \mbox{\hyperlink{ParseData_8h_a096662b913f6d41800cf97e168bb9231}{read\+Distances\+CSV}} (const std\+::string \&file\+Path)
+\begin{DoxyCompactList}\small\item\em Reads distance data from a CSV file. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structLocationData}{Location\+Data}} $>$ \mbox{\hyperlink{ParseData_8h_a746daebb80b828a19f333d80e9c6adb4}{read\+Locations\+CSV}} (const std\+::string \&file\+Path)
+\begin{DoxyCompactList}\small\item\em Reads location data from a CSV file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{ParseData_8h_a096662b913f6d41800cf97e168bb9231}\index{ParseData.h@{ParseData.h}!readDistancesCSV@{readDistancesCSV}}
+\index{readDistancesCSV@{readDistancesCSV}!ParseData.h@{ParseData.h}}
+\doxysubsubsection{\texorpdfstring{readDistancesCSV()}{readDistancesCSV()}}
+{\footnotesize\ttfamily \label{ParseData_8h_a096662b913f6d41800cf97e168bb9231} 
+std\+::vector$<$ \mbox{\hyperlink{structDistanceData}{Distance\+Data}} $>$ read\+Distances\+CSV (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path}{}\end{DoxyParamCaption})}
+
+
+
+Reads distance data from a CSV file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & Path to the CSV file containing distance data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of \doxylink{structDistanceData}{Distance\+Data} objects @complexity O(\+N) where N is the number of rows in the CSV file 
+\end{DoxyReturn}
+\Hypertarget{ParseData_8h_a746daebb80b828a19f333d80e9c6adb4}\index{ParseData.h@{ParseData.h}!readLocationsCSV@{readLocationsCSV}}
+\index{readLocationsCSV@{readLocationsCSV}!ParseData.h@{ParseData.h}}
+\doxysubsubsection{\texorpdfstring{readLocationsCSV()}{readLocationsCSV()}}
+{\footnotesize\ttfamily \label{ParseData_8h_a746daebb80b828a19f333d80e9c6adb4} 
+std\+::vector$<$ \mbox{\hyperlink{structLocationData}{Location\+Data}} $>$ read\+Locations\+CSV (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path}{}\end{DoxyParamCaption})}
+
+
+
+Reads location data from a CSV file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & Path to the CSV file containing location data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of \doxylink{structLocationData}{Location\+Data} objects @complexity O(\+N) where N is the number of rows in the CSV file 
+\end{DoxyReturn}

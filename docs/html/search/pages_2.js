@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['project1_20da_20leic_0',['project1-da-leic',['../index.html',1,'']]]
+  ['algorithms_20project_201_20spring_202025_0',['Design of Algorithms Project 1 - Spring 2025',['../index.html',1,'']]]
 ];

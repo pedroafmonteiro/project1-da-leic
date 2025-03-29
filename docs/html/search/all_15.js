@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['_7eedge_0',['~Edge',['../class_edge.html#a376443d6f6407d954c04a0738f941e67',1,'Edge']]],
-  ['_7egraph_1',['~Graph',['../class_graph.html#a43eab1460b5c8ceaa526b40e56a0fb0c',1,'Graph']]]
+  ['vertex_0',['Vertex',['../d2/da0/classVertex.html',1,'Vertex&lt; T &gt;'],['../d2/da0/classVertex.html#afcbdd4d4198b672356559cb8fa088408',1,'Vertex::Vertex()']]],
+  ['vertexset_1',['vertexSet',['../d2/d62/classGraph.html#a26b3a6b9c61f02f5b2cd38ad4c6a4953',1,'Graph']]],
+  ['visited_2',['visited',['../d2/da0/classVertex.html#a187a2fe4ff50261cf3c15b8cda7dfc56',1,'Vertex']]]
 ];

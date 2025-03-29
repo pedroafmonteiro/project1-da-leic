@@ -24,14 +24,12 @@
 */
 var NAVTREE =
 [
-  [ "Routing System", "index.html", [
+  [ "Design of Algorithms Project 1 - Spring 2025", "index.html", [
     [ "Project Overview", "index.html#autotoc_md1", null ],
     [ "Features", "index.html#autotoc_md2", null ],
     [ "Core Components", "index.html#autotoc_md3", null ],
     [ "Time Complexity", "index.html#autotoc_md4", null ],
     [ "Usage", "index.html#autotoc_md5", null ],
-    [ "Technical Implementation", "index.html#autotoc_md6", null ],
-    [ "Contributors", "index.html#autotoc_md7", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -57,8 +55,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_data_manager_8cpp.html"
+"annotated.html"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronization';
-var SYNCOFFMSG = 'click to enable panel synchronization';
+var SYNCONMSG = 'click to disable panel synchronisation';
+var SYNCOFFMSG = 'click to enable panel synchronisation';

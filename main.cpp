@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @brief Entry point for the routing application
+ * @brief Entry point for the project application
  * 
  * This file contains the main function which initializes the application
  * and displays the main menu to the user.
@@ -10,11 +10,9 @@
 
 /**
  * @brief Application entry point
- * @param argc Number of command-line arguments
- * @param argv Array of command-line argument strings
  * @return 0 on successful execution
  */
-int main(int argc, char *argv[]) {
+int main() {
     Menu menu;
     menu.credits();
     menu.mainMenu();

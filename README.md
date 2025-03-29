@@ -1,24 +1,23 @@
-# Routing System
+# Design of Algorithms Project 1 - Spring 2025
+> Developed by Group 2 - Class 15
 
 ## Project Overview
 
-A comprehensive transportation routing system implementing multiple routing algorithms with a focus on environmental friendliness. This application allows users to find optimal routes between locations using various transport modes, including a specialized "driving-walking" mode for eco-friendly routing.
+A path-planning tool to assist with urban navigation.
 
 ## Features
 
-- **Standard Routing**: Find the fastest route between two locations using Dijkstra's algorithm
-- **Restricted Routing**: Calculate routes that avoid specific nodes or segments
-- **Environmentally-Friendly Routing**: Find optimal routes that combine driving and walking to reduce emissions
-- **Interactive Menu Interface**: Easy-to-use terminal interface for accessing all functionality
-- **File Input/Output Support**: Process routing requests from files and save results
+- **Independent Routing**: Finds the fastest route between two locations.
+- **Restricted Routing**: FInds the fastest route between two locations with specific routing constraints.
+- **Environmentally-Friendly Routing**: Finds the best (shortest overall) route for driving and walking.
 
 ## Core Components
 
-- **Graph Structure**: Template-based graph implementation with vertices and edges
-- **Routing Algorithms**: Implementations of Dijkstra's algorithm and specialized routing functions
-- **Menu System**: User interface handling for all routing operations
-- **Parser**: Data loading and processing from various file formats
-- **Graph Builder**: Construction of the routing graph from location and distance data
+- **Graph Structure**: Template-based graph implementation with vertices and edges. Modified to support walking or driving edges.
+- **Routing Algorithms**: Implementations of Dijkstra's algorithm for the routing features.
+- **Menu System**: User interface handling for all routing operations.
+- **Data Management**: Handles the loading and parsing of location and distance data from CSV files.
+- **Graph Builder**: Construction of the routing graph from location and distance data.
 
 ## Time Complexity
 
@@ -33,16 +32,3 @@ A comprehensive transportation routing system implementing multiple routing algo
 3. Follow the on-screen menu to select your desired routing option
 4. Enter source and destination locations, along with any constraints
 5. View the results showing the optimal route and timing information
-
-## Technical Implementation
-
-The project uses modern C++ techniques including:
-
-- Template metaprogramming for flexible graph structures
-- Priority queues for efficient path finding
-- Smart pointers for memory management
-- Object-oriented design patterns
-
-## Contributors
-
-Design and implementation by the project team for the Algorithms and Data Structures course at FEUP.

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['ecoroute_0',['EcoRoute',['../struct_routing_1_1_eco_route.html',1,'Routing']]],
-  ['edge_1',['Edge',['../class_edge.html',1,'']]]
+  ['ecoroute_0',['EcoRoute',['../d0/d58/structRouting_1_1EcoRoute.html',1,'Routing']]],
+  ['edge_1',['Edge',['../d8/d8c/classEdge.html',1,'']]]
 ];

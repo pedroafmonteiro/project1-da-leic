@@ -1,11 +1,9 @@
 var searchData=
 [
-  ['ecoroute_0',['EcoRoute',['../struct_routing_1_1_eco_route.html',1,'Routing']]],
-  ['edge_1',['Edge',['../class_edge.html',1,'Edge&lt; T &gt;'],['../class_edge.html#ab976213419283ed754f42f57b195a288',1,'Edge::Edge()']]],
-  ['edgefilter_2',['EdgeFilter',['../class_routing.html#a40078f3585157c2f9314b6881c759c45',1,'Routing']]],
-  ['edgetype_3',['EdgeType',['../class_edge.html#aa5a6e4523109a035b3b1f93477542090',1,'Edge']]],
-  ['empty_4',['empty',['../class_mutable_priority_queue.html#a2edbb1f4a6fa3ff735700dfcebebe8d4',1,'MutablePriorityQueue']]],
-  ['environmentallyfriendlyroute_5',['environmentallyFriendlyRoute',['../class_menu.html#a69e3eff6c62959a8128b2cbeacbaf451',1,'Menu']]],
-  ['errormessage_6',['errorMessage',['../struct_routing_1_1_eco_route.html#a9782bfbd1d2e33960ad1a405349a1052',1,'Routing::EcoRoute']]],
-  ['extractmin_7',['extractMin',['../class_mutable_priority_queue.html#a3880874d7364279ac0d6d31302b28853',1,'MutablePriorityQueue']]]
+  ['calculateroutetime_0',['calculateRouteTime',['../d4/d90/classRouting.html#a65d76b9f046be6a3f9950bf3c8fc731c',1,'Routing::calculateRouteTime(const std::vector&lt; LocationInfo &gt; &amp;path, const Graph&lt; LocationInfo &gt; &amp;graph)'],['../d4/d90/classRouting.html#a919d9de690e58362dbac90f384911a19',1,'Routing::calculateRouteTime(const std::vector&lt; LocationInfo &gt; &amp;path, const Graph&lt; LocationInfo &gt; &amp;graph, Edge&lt; LocationInfo &gt;::EdgeType transportMode)']]],
+  ['code_1',['code',['../d7/db4/structLocationInfo.html#a895200e44a50e3b6596989b90feec859',1,'LocationInfo::code'],['../de/d67/structLocationData.html#ac33e7f11e56d59cbf145b723157f2bfd',1,'LocationData::code']]],
+  ['complexity_2',['Time Complexity',['../index.html#autotoc_md4',1,'']]],
+  ['components_3',['Core Components',['../index.html#autotoc_md3',1,'']]],
+  ['core_20components_4',['Core Components',['../index.html#autotoc_md3',1,'']]],
+  ['credits_5',['credits',['../d8/ddb/classMenu.html#ad038639f1dbf6e0d16ce7986d141155d',1,'Menu']]]
 ];
