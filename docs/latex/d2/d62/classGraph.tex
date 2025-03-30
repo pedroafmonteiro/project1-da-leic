@@ -11,8 +11,7 @@ Represents a graph data structure.
 
 
 
-Collaboration diagram for Graph\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:
-\nopagebreak
+Collaboration diagram for Graph\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -23,7 +22,7 @@ Collaboration diagram for Graph\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classGraph_a43eab1460b5c8ceaa526b40e56a0fb0c}{\texorpdfstring{$\sim$}{\string~}\+Graph}} ()
-\begin{DoxyCompactList}\small\item\em Destructor @complexity O(V + E) where V is the number of vertices and E is the number of edges. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classGraph_aeb94a42983b1612ddbeade1a2a0132ea}{add\+Bidirectional\+Edge}} (const T \&sourc, const T \&dest, double w)
 \begin{DoxyCompactList}\small\item\em Adds a bidirectional edge between two vertices. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classGraph_ac61af3aafe6277215f5a3b3cc7d58ce2}{add\+Edge}} (const T \&sourc, const T \&dest, double w)
@@ -80,9 +79,9 @@ template$<$class T $>$ \\
 
 
 
-Destructor @complexity O(V + E) where V is the number of vertices and E is the number of edges. 
+Destructor. 
 
-
+O(V + E) where V is the number of vertices and E is the number of edges 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classGraph_aeb94a42983b1612ddbeade1a2a0132ea}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!addBidirectionalEdge@{addBidirectionalEdge}}
@@ -106,9 +105,9 @@ Adds a bidirectional edge between two vertices.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-True if successful, false if either vertex doesn\textquotesingle{}t exist @complexity O(\+V) where V is the number of vertices 
+True if successful, false if either vertex doesn\textquotesingle{}t exist
 \end{DoxyReturn}
-\Hypertarget{classGraph_ac61af3aafe6277215f5a3b3cc7d58ce2}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!addEdge@{addEdge}}
+O(\+V) where V is the number of vertices \Hypertarget{classGraph_ac61af3aafe6277215f5a3b3cc7d58ce2}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!addEdge@{addEdge}}
 \index{addEdge@{addEdge}!Graph$<$ T $>$@{Graph$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
 {\footnotesize\ttfamily \label{classGraph_ac61af3aafe6277215f5a3b3cc7d58ce2} 
@@ -129,9 +128,9 @@ Adds an edge between two vertices.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-True if successful, false if either vertex doesn\textquotesingle{}t exist @complexity O(\+V) where V is the number of vertices 
+True if successful, false if either vertex doesn\textquotesingle{}t exist
 \end{DoxyReturn}
-\Hypertarget{classGraph_a00be284ea2be3b3d0f0d2e493b70245b}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!addVertex@{addVertex}}
+O(\+V) where V is the number of vertices \Hypertarget{classGraph_a00be284ea2be3b3d0f0d2e493b70245b}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!addVertex@{addVertex}}
 \index{addVertex@{addVertex}!Graph$<$ T $>$@{Graph$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{addVertex()}{addVertex()}}
 {\footnotesize\ttfamily \label{classGraph_a00be284ea2be3b3d0f0d2e493b70245b} 
@@ -148,9 +147,9 @@ Adds a vertex with the given information.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-True if successful, false if a vertex with that information already exists @complexity O(\+V) where V is the number of vertices 
+True if successful, false if a vertex with that information already exists
 \end{DoxyReturn}
-\Hypertarget{classGraph_a8b7b7465fbfd562e2a469f90a437ab75}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!findVertex@{findVertex}}
+O(\+V) where V is the number of vertices \Hypertarget{classGraph_a8b7b7465fbfd562e2a469f90a437ab75}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!findVertex@{findVertex}}
 \index{findVertex@{findVertex}!Graph$<$ T $>$@{Graph$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{findVertex()}{findVertex()}}
 {\footnotesize\ttfamily \label{classGraph_a8b7b7465fbfd562e2a469f90a437ab75} 
@@ -167,9 +166,9 @@ Finds a vertex with the given information.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Pointer to the vertex if found, nullptr otherwise @complexity O(\+V) where V is the number of vertices 
+Pointer to the vertex if found, nullptr otherwise
 \end{DoxyReturn}
-\Hypertarget{classGraph_a676cdfb976eccfa82b631d2094c1cdac}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!findVertexIdx@{findVertexIdx}}
+O(\+V) where V is the number of vertices \Hypertarget{classGraph_a676cdfb976eccfa82b631d2094c1cdac}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!findVertexIdx@{findVertexIdx}}
 \index{findVertexIdx@{findVertexIdx}!Graph$<$ T $>$@{Graph$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{findVertexIdx()}{findVertexIdx()}}
 {\footnotesize\ttfamily \label{classGraph_a676cdfb976eccfa82b631d2094c1cdac} 
@@ -186,9 +185,9 @@ Finds the index of a vertex with the given information.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The index of the vertex if found, -\/1 otherwise @complexity O(\+V) where V is the number of vertices 
+The index of the vertex if found, -\/1 otherwise
 \end{DoxyReturn}
-\Hypertarget{classGraph_a0853eac15cdf0f06d63f4b8a7820ec71}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!getNumVertex@{getNumVertex}}
+O(\+V) where V is the number of vertices \Hypertarget{classGraph_a0853eac15cdf0f06d63f4b8a7820ec71}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!getNumVertex@{getNumVertex}}
 \index{getNumVertex@{getNumVertex}!Graph$<$ T $>$@{Graph$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{getNumVertex()}{getNumVertex()}}
 {\footnotesize\ttfamily \label{classGraph_a0853eac15cdf0f06d63f4b8a7820ec71} 
@@ -200,9 +199,9 @@ int \mbox{\hyperlink{classGraph}{Graph}}$<$ T $>$\+::get\+Num\+Vertex (\begin{Do
 Gets the number of vertices in the graph. 
 
 \begin{DoxyReturn}{Returns}
-The number of vertices @complexity O(1) 
+The number of vertices
 \end{DoxyReturn}
-\Hypertarget{classGraph_a41624b03fcb6bd29e4df574a1ec58541}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!getVertexSet@{getVertexSet}}
+O(1) \Hypertarget{classGraph_a41624b03fcb6bd29e4df574a1ec58541}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!getVertexSet@{getVertexSet}}
 \index{getVertexSet@{getVertexSet}!Graph$<$ T $>$@{Graph$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{getVertexSet()}{getVertexSet()}}
 {\footnotesize\ttfamily \label{classGraph_a41624b03fcb6bd29e4df574a1ec58541} 
@@ -214,9 +213,9 @@ std\+::vector$<$ \mbox{\hyperlink{classVertex}{Vertex}}$<$ T $>$ \texorpdfstring
 Gets all vertices in the graph. 
 
 \begin{DoxyReturn}{Returns}
-Vector of pointers to all vertices @complexity O(1) 
+Vector of pointers to all vertices
 \end{DoxyReturn}
-\Hypertarget{classGraph_a8949d071d45bf93e171e275462e1007a}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!removeEdge@{removeEdge}}
+O(1) \Hypertarget{classGraph_a8949d071d45bf93e171e275462e1007a}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!removeEdge@{removeEdge}}
 \index{removeEdge@{removeEdge}!Graph$<$ T $>$@{Graph$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{removeEdge()}{removeEdge()}}
 {\footnotesize\ttfamily \label{classGraph_a8949d071d45bf93e171e275462e1007a} 
@@ -235,9 +234,9 @@ Removes an edge between two vertices.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-True if successful, false if the edge doesn\textquotesingle{}t exist @complexity O(V + E) where V is the number of vertices and E is the number of edges 
+True if successful, false if the edge doesn\textquotesingle{}t exist
 \end{DoxyReturn}
-\Hypertarget{classGraph_af9c903104ad69a7782979fa9caedf163}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!removeVertex@{removeVertex}}
+O(V + E) where V is the number of vertices and E is the number of edges \Hypertarget{classGraph_af9c903104ad69a7782979fa9caedf163}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!removeVertex@{removeVertex}}
 \index{removeVertex@{removeVertex}!Graph$<$ T $>$@{Graph$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{removeVertex()}{removeVertex()}}
 {\footnotesize\ttfamily \label{classGraph_af9c903104ad69a7782979fa9caedf163} 
@@ -254,9 +253,9 @@ Removes a vertex with the given information.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-True if successful, false if the vertex doesn\textquotesingle{}t exist @complexity O(V + E) where V is the number of vertices and E is the number of edges 
+True if successful, false if the vertex doesn\textquotesingle{}t exist
 \end{DoxyReturn}
-
+O(V + E) where V is the number of vertices and E is the number of edges 
 
 \doxysubsection{Member Data Documentation}
 \Hypertarget{classGraph_a4517f4351bc7f0348369b25b7c0b44fe}\index{Graph$<$ T $>$@{Graph$<$ T $>$}!distMatrix@{distMatrix}}

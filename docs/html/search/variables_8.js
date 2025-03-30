@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['name_0',['name',['../d7/db4/structLocationInfo.html#a024db9ececfd3004f9975cf667f31bd8',1,'LocationInfo']]],
-  ['num_1',['num',['../d2/da0/classVertex.html#aeb941bcd51ef71c6101e02eaed1cae12',1,'Vertex']]]
+  ['location_0',['location',['../de/d67/structLocationData.html#a29b87c859c258106b7b5869d3f14bde7',1,'LocationData']]],
+  ['location1_1',['location1',['../d8/da5/structDistanceData.html#a7ec100f297548a6508cd974059ad6541',1,'DistanceData']]],
+  ['location2_2',['location2',['../d8/da5/structDistanceData.html#a7a1173e368e3145d1489e6641685800d',1,'DistanceData']]],
+  ['locationdata_3',['locationData',['../da/dcb/classDataManager.html#ad9ff4e20ceaf21519f5f35903c6b991d',1,'DataManager']]],
+  ['low_4',['low',['../d2/da0/classVertex.html#a35d937c418952520cfa26b098e86b755',1,'Vertex']]]
 ];

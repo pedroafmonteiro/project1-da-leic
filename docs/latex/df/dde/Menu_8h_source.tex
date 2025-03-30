@@ -11,48 +11,51 @@
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{GraphBuilder_8h}{../graph\_builder/GraphBuilder.h}}"{}}}
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Routing_8h}{../routing/Routing.h}}"{}}}
 \DoxyCodeLine{00009\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMenu}{Menu}}}
-\DoxyCodeLine{00018\ \{}
-\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{classDataManager}{DataManager}}\ *dataManager;}
-\DoxyCodeLine{00021\ \ \ \ \ }
-\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classGraph}{Graph<LocationInfo>}}\ transportGraph;}
-\DoxyCodeLine{00024\ \ \ \ \ }
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{bool}\ graphBuilt;}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ optionPicker();}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{bool}\ checkDataLoaded()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ buildGraph();}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{bool}\ readInput(\textcolor{keyword}{const}\ std::string\ \&filename,}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classEdge_aa5a6e4523109a035b3b1f93477542090}{Edge<LocationInfo>::EdgeType}}\ \&transportMode,}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \&sourceCode,}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \&destCode,}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\ \&avoidNodes,}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::pair<int,\ int>>\ \&avoidSegments,}
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \&includeNode);}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ displayEcoRouteResults(\textcolor{keyword}{const}\ \mbox{\hyperlink{structRouting_1_1EcoRoute}{Routing::EcoRoute}}\ \&route,\ }
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&sourceCode,\ }
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&destCode);}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{classMenu_ad466dd83355124a6ed958430450bfe94}{Menu}}();}
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_aef9edee86d2ea460606361c92e061583}{mainMenu}}();}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_ad038639f1dbf6e0d16ce7986d141155d}{credits}}();}
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_abd8a18583a4d2bfde309aa5d84544103}{datasetMenu}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_a9ed91693201da62d46c882cbeaedfcd5}{independentRoute}}();}
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_a30cf0a74f8ae010c98a107140cec958e}{restrictedRoute}}();}
-\DoxyCodeLine{00114\ \ \ \ \ }
-\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_a69e3eff6c62959a8128b2cbeacbaf451}{environmentallyFriendlyRoute}}();}
-\DoxyCodeLine{00120\ \};}
-\DoxyCodeLine{00121\ }
-\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MENU\_H}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMenu}{Menu}}\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classDataManager}{DataManager}}\ *\mbox{\hyperlink{classMenu_ad49e64748f342558c8857387a045f5d1}{dataManager}};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{classGraph}{Graph<LocationInfo>}}\ \mbox{\hyperlink{classMenu_aeb7851cbc3e752e6ed0d26e14511a3bd}{transportGraph}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMenu_a0608cb48d09f59eed836e2a9cd767433}{graphBuilt}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_a5c621f78496e2ad77ad91d185dc7c639}{optionPicker}}();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMenu_af00ede1434fbf2da4e6afc3596f401da}{checkDataLoaded}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_ac29614b51139c9c642c76e0c1a1f8c35}{buildGraph}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMenu_aeb8f762203b2b512a828267259b4bc6e}{readInput}}(\textcolor{keyword}{const}\ std::string\ \&filename,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classEdge_aa5a6e4523109a035b3b1f93477542090}{Edge<LocationInfo>::EdgeType}}\ \&transportMode,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \&sourceCode,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \&destCode,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<int>\ \&avoidNodes,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::pair<int,\ int>\ >\ \&avoidSegments,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \&includeNode);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_a800bbe860882f9bee42cb06a969bda2c}{displayEcoRouteResults}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structRouting_1_1EcoRoute}{Routing::EcoRoute}}\ \&route,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&sourceCode,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&destCode);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_a14598044a1d6877eff9c1a263ca410d8}{displayMultipleEcoRouteResults}}(\textcolor{keyword}{const}\ std::vector<Routing::EcoRoute>\ \&routes,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&sourceCode,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&destCode);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{classMenu_ad466dd83355124a6ed958430450bfe94}{Menu}}();}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_aef9edee86d2ea460606361c92e061583}{mainMenu}}();}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_ad038639f1dbf6e0d16ce7986d141155d}{credits}}();}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_abd8a18583a4d2bfde309aa5d84544103}{datasetMenu}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_a9ed91693201da62d46c882cbeaedfcd5}{independentRoute}}();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_a30cf0a74f8ae010c98a107140cec958e}{restrictedRoute}}();}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMenu_a69e3eff6c62959a8128b2cbeacbaf451}{environmentallyFriendlyRoute}}();}
+\DoxyCodeLine{00130\ \};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MENU\_H}}
 
 \end{DoxyCode}

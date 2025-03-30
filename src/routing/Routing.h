@@ -4,7 +4,6 @@
 #include <string>
 #include <vector>
 #include <functional>
-#include <fstream>
 #include "../graph_structure/Graph.h"
 #include "../graph_builder/GraphBuilder.h"
 
@@ -16,8 +15,7 @@
  * alternative route finding, and environmentally-friendly routes that combine driving
  * and walking segments.
  */
-class Routing
-{
+class Routing {
 public:
     /** @brief Type definition for edge filter functions */
     using EdgeFilter = std::function<bool(Edge<LocationInfo> *)>;
@@ -27,7 +25,7 @@ public:
      * @param graph The graph to run the algorithm on
      * @param source The source vertex
      * @param filter Optional filter to exclude certain edges
-     * @complexity O(E log V) where E is the number of edges and V is the number of vertices
+     * @details O(E log V) where E is the number of edges and V is the number of vertices
      */
     static void dijkstra(
         Graph<LocationInfo> &graph,
@@ -41,7 +39,7 @@ public:
      * @param destCode Destination location code
      * @param transportMode The mode of transport to use (driving or walking)
      * @return Vector of locations representing the path
-     * @complexity O(E log V) where E is the number of edges and V is the number of vertices
+     * @details O(E log V) where E is the number of edges and V is the number of vertices
      */
     static std::vector<LocationInfo> findFastestRoute(
         const Graph<LocationInfo> &graph,
@@ -57,7 +55,7 @@ public:
      * @param destCode Destination location code
      * @param transportMode The mode of transport to use
      * @return Vector of locations representing the alternative path
-     * @complexity O(E log V) where E is the number of edges and V is the number of vertices
+     * @details O(E log V) where E is the number of edges and V is the number of vertices
      */
     static std::vector<LocationInfo> findAlternativeRoute(
         const Graph<LocationInfo> &originalGraph,
@@ -73,7 +71,7 @@ public:
      * @param destCode Destination location code
      * @param filter Function to filter edges
      * @return Vector of locations representing the path
-     * @complexity O(E log V) where E is the number of edges and V is the number of vertices
+     * @details O(E log V) where E is the number of edges and V is the number of vertices
      */
     static std::vector<LocationInfo> findRouteWithFilter(
         const Graph<LocationInfo> &graph,
@@ -86,7 +84,7 @@ public:
      * @param path Vector of locations representing the path
      * @param graph The transportation graph
      * @return Total time in minutes
-     * @complexity O(N) where N is the length of the path
+     * @details O(N) where N is the length of the path
      */
     static double calculateRouteTime(
         const std::vector<LocationInfo> &path,
@@ -98,7 +96,7 @@ public:
      * @param graph The transportation graph
      * @param transportMode The mode of transport to use
      * @return Total time in minutes
-     * @complexity O(N) where N is the length of the path
+     * @details O(N) where N is the length of the path
      */
     static double calculateRouteTime(
         const std::vector<LocationInfo> &path,
@@ -109,7 +107,7 @@ public:
      * @brief Displays a route to the console
      * @param path Vector of locations representing the path
      * @param graph The transportation graph
-     * @complexity O(N) where N is the length of the path
+     * @details O(N) where N is the length of the path
      */
     static void displayRoute(
         const std::vector<LocationInfo> &path,
@@ -123,7 +121,7 @@ public:
      * @param bestRoute The best route found
      * @param alternativeRoute An alternative route
      * @param graph The transportation graph
-     * @complexity O(N) where N is the length of the routes
+     * @details O(N) where N is the length of the routes
      */
     static void outputRoutesToFile(
         const std::string &filename,
@@ -138,7 +136,7 @@ public:
      * @param route The route to format
      * @param totalTime The total time for the route
      * @return Formatted string representation of the route
-     * @complexity O(N) where N is the length of the route
+     * @details O(N) where N is the length of the route
      */
     static std::string formatRouteForOutput(
         const std::vector<LocationInfo> &route,
@@ -147,15 +145,14 @@ public:
     /**
      * @brief Structure to store environmentally-friendly route information
      */
-    struct EcoRoute
-    {
+    struct EcoRoute {
         std::vector<LocationInfo> drivingRoute; /**< The driving segment of the route */
-        LocationInfo parkingNode;               /**< The parking location */
+        LocationInfo parkingNode; /**< The parking location */
         std::vector<LocationInfo> walkingRoute; /**< The walking segment of the route */
-        double totalTime;                       /**< Total travel time in minutes */
-        double walkingTime;                     /**< Walking time in minutes */
-        bool isValid;                           /**< Flag indicating if the route is valid */
-        std::string errorMessage;               /**< Error message if route is invalid */
+        double totalTime; /**< Total travel time in minutes */
+        double walkingTime; /**< Walking time in minutes */
+        bool isValid; /**< Flag indicating if the route is valid */
+        std::string errorMessage; /**< Error message if route is invalid */
     };
 
     /**
@@ -167,7 +164,7 @@ public:
      * @param avoidNodes Optional list of nodes to avoid
      * @param avoidSegments Optional list of segments to avoid
      * @return EcoRoute structure with route information
-     * @complexity O(P * E log V) where P is the number of parking nodes, E is the number of edges,
+     * @details O(P * E log V) where P is the number of parking nodes, E is the number of edges,
      *             and V is the number of vertices
      */
     static EcoRoute findEnvironmentallyFriendlyRoute(
@@ -176,25 +173,23 @@ public:
         const std::string &destCode,
         double maxWalkingTime,
         const std::vector<int> &avoidNodes = {},
-        const std::vector<std::pair<int, int>> &avoidSegments = {});
+        const std::vector<std::pair<int, int> > &avoidSegments = {});
 
     /**
      * @brief Finds approximate environmentally-friendly routes when strict constraints can't be met
      * @param graph The transportation graph
      * @param sourceCode Source location code
      * @param destCode Destination location code
-     * @param maxWalkingTime Maximum preferred walking time
      * @param avoidNodes Optional list of nodes to avoid
      * @param avoidSegments Optional list of segments to avoid
      * @return Vector of EcoRoute structures with approximate solutions
-     * @complexity O(P * E log V) where P is the number of parking nodes, E is the number of edges,
+     * @details O(P * E log V) where P is the number of parking nodes, E is the number of edges,
      *             and V is the number of vertices
      */
     static std::vector<EcoRoute> findApproximateEcoRoutes(
         const Graph<LocationInfo> &graph,
         const std::string &sourceCode,
         const std::string &destCode,
-        double maxWalkingTime,
         const std::vector<int> &avoidNodes = {},
         const std::vector<std::pair<int, int>> &avoidSegments = {});
 
@@ -204,7 +199,7 @@ public:
      * @param sourceId Source location ID
      * @param destId Destination location ID
      * @param route The eco-route to output
-     * @complexity O(N) where N is the length of the route
+     * @details O(N) where N is the length of the route
      */
     static void outputEcoRouteToFile(
         const std::string &filename,
@@ -218,7 +213,7 @@ public:
      * @param sourceId Source location ID
      * @param destId Destination location ID
      * @param routes The eco-routes to output
-     * @complexity O(M * N) where M is the number of routes and N is the average length of a route
+     * @details O(M * N) where M is the number of routes and N is the average length of a route
      */
     static void outputMultipleEcoRoutesToFile(
         const std::string &filename,
@@ -232,7 +227,7 @@ public:
      * @param outputFilename The output file name
      * @param graph The transportation graph
      * @return True if processing was successful, false otherwise
-     * @complexity O(P * E log V) where P is the number of parking nodes, E is the number of edges,
+     * @details O(P * E log V) where P is the number of parking nodes, E is the number of edges,
      *             and V is the number of vertices
      */
     static bool processEcoRouteFromFile(
@@ -245,7 +240,7 @@ private:
      * @brief Relaxes an edge in Dijkstra's algorithm
      * @param edge The edge to relax
      * @return True if the edge was relaxed, false otherwise
-     * @complexity O(1)
+     * @details O(1)
      */
     static bool relax(Edge<LocationInfo> *edge);
 
@@ -255,7 +250,7 @@ private:
      * @param source The source vertex
      * @param dest The destination vertex
      * @return Vector of locations representing the path
-     * @complexity O(N) where N is the length of the path
+     * @details O(N) where N is the length of the path
      */
     static std::vector<LocationInfo> getPath(
         const Graph<LocationInfo> &graph,
@@ -267,7 +262,7 @@ private:
      * @param originalGraph The original graph
      * @param pathToRemove The path to remove from the graph
      * @return A new graph without the specified path
-     * @complexity O(V + E) where V is the number of vertices and E is the number of edges
+     * @details O(V + E) where V is the number of vertices and E is the number of edges
      */
     static Graph<LocationInfo> createGraphWithoutPath(
         const Graph<LocationInfo> &originalGraph,
@@ -279,12 +274,12 @@ private:
      * @param avoidSegments Segments to avoid
      * @param transportMode Transport mode to filter for
      * @return A filter function
-     * @complexity O(1) for filter creation, O(A+S) per edge evaluation where A is the number of
+     * @details O(1) for filter creation, O(A+S) per edge evaluation where A is the number of
      *             avoid nodes and S is the number of avoid segments
      */
     static EdgeFilter createEcoRouteFilter(
         const std::vector<int> &avoidNodes,
-        const std::vector<std::pair<int, int>> &avoidSegments,
+        const std::vector<std::pair<int, int> > &avoidSegments,
         Edge<LocationInfo>::EdgeType transportMode);
 
     /**
@@ -293,7 +288,7 @@ private:
      * @param node1 The first node
      * @param node2 The second node
      * @return True if the nodes are adjacent, false otherwise
-     * @complexity O(E) where E is the number of edges from node1
+     * @details O(E) where E is the number of edges from node1
      */
     static bool areNodesAdjacent(
         const Graph<LocationInfo> &graph,

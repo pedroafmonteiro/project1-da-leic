@@ -11,8 +11,7 @@ A mutable priority queue implementation used primarily by Dijkstra\textquotesing
 
 
 
-Collaboration diagram for Mutable\+Priority\+Queue\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:
-\nopagebreak
+Collaboration diagram for Mutable\+Priority\+Queue\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -23,7 +22,7 @@ Collaboration diagram for Mutable\+Priority\+Queue\texorpdfstring{$<$}{<} T \tex
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classMutablePriorityQueue_aba8ebedcbe659f2680bac229cfaca526}{Mutable\+Priority\+Queue}} ()
-\begin{DoxyCompactList}\small\item\em Constructor @complexity O(1) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMutablePriorityQueue_a0878839cc1d2dba2b8ab2e589ecc6405}{decrease\+Key}} (T \texorpdfstring{$\ast$}{*}x)
 \begin{DoxyCompactList}\small\item\em Updates the position of an element whose priority has decreased. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classMutablePriorityQueue_a2edbb1f4a6fa3ff735700dfcebebe8d4}{empty}} ()
@@ -32,6 +31,20 @@ T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classMutablePriorityQueue_a3880874
 \begin{DoxyCompactList}\small\item\em Extracts and returns the minimum element from the queue. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMutablePriorityQueue_a058fc182052af82e10cc3719e448b62d}{insert}} (T \texorpdfstring{$\ast$}{*}x)
 \begin{DoxyCompactList}\small\item\em Inserts a new element into the queue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMutablePriorityQueue_a699bfb6d976cabb01edead4c24284a08}{heapify\+Down}} (unsigned i)
+\begin{DoxyCompactList}\small\item\em Moves an element down the heap to restore heap property. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMutablePriorityQueue_ae2518c7a1be2bd1e7c633d82dede5450}{heapify\+Up}} (unsigned i)
+\begin{DoxyCompactList}\small\item\em Moves an element up the heap to restore heap property. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMutablePriorityQueue_afbe461c0a2ea2f16006ed7e1bf9c105d}{set}} (unsigned i, T \texorpdfstring{$\ast$}{*}x)
+\begin{DoxyCompactList}\small\item\em Sets an element at a specific position in the heap. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ T \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classMutablePriorityQueue_a28cece6545bdc0df529e7878ad2c3ad4}{H}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -58,9 +71,11 @@ template$<$class T $>$ \\
 
 
 
-Constructor @complexity O(1) 
+Constructor. 
 
-Constructor initializes the queue with a null element at index 0 @complexity O(1) 
+Constructor initializes the queue with a null element at index 0.
+
+O(1) 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classMutablePriorityQueue_a0878839cc1d2dba2b8ab2e589ecc6405}\index{MutablePriorityQueue$<$ T $>$@{MutablePriorityQueue$<$ T $>$}!decreaseKey@{decreaseKey}}
@@ -76,10 +91,10 @@ Updates the position of an element whose priority has decreased.
 
 
 \begin{DoxyParams}{Parameters}
-{\em x} & Pointer to the element whose priority changed @complexity O(log n) where n is the number of elements in the queue \\
+{\em x} & Pointer to the element whose priority changed\\
 \hline
 \end{DoxyParams}
-\Hypertarget{classMutablePriorityQueue_a2edbb1f4a6fa3ff735700dfcebebe8d4}\index{MutablePriorityQueue$<$ T $>$@{MutablePriorityQueue$<$ T $>$}!empty@{empty}}
+O(log n) where n is the number of elements in the queue \Hypertarget{classMutablePriorityQueue_a2edbb1f4a6fa3ff735700dfcebebe8d4}\index{MutablePriorityQueue$<$ T $>$@{MutablePriorityQueue$<$ T $>$}!empty@{empty}}
 \index{empty@{empty}!MutablePriorityQueue$<$ T $>$@{MutablePriorityQueue$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{empty()}{empty()}}
 {\footnotesize\ttfamily \label{classMutablePriorityQueue_a2edbb1f4a6fa3ff735700dfcebebe8d4} 
@@ -91,9 +106,9 @@ bool \mbox{\hyperlink{classMutablePriorityQueue}{Mutable\+Priority\+Queue}}$<$ T
 Checks if the queue is empty. 
 
 \begin{DoxyReturn}{Returns}
-True if the queue is empty, false otherwise @complexity O(1) 
+True if the queue is empty, false otherwise
 \end{DoxyReturn}
-\Hypertarget{classMutablePriorityQueue_a3880874d7364279ac0d6d31302b28853}\index{MutablePriorityQueue$<$ T $>$@{MutablePriorityQueue$<$ T $>$}!extractMin@{extractMin}}
+O(1) \Hypertarget{classMutablePriorityQueue_a3880874d7364279ac0d6d31302b28853}\index{MutablePriorityQueue$<$ T $>$@{MutablePriorityQueue$<$ T $>$}!extractMin@{extractMin}}
 \index{extractMin@{extractMin}!MutablePriorityQueue$<$ T $>$@{MutablePriorityQueue$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{extractMin()}{extractMin()}}
 {\footnotesize\ttfamily \label{classMutablePriorityQueue_a3880874d7364279ac0d6d31302b28853} 
@@ -105,9 +120,59 @@ T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classMutablePriorityQueue}{Mutable
 Extracts and returns the minimum element from the queue. 
 
 \begin{DoxyReturn}{Returns}
-Pointer to the minimum element @complexity O(log n) where n is the number of elements in the queue 
+Pointer to the minimum element
 \end{DoxyReturn}
-\Hypertarget{classMutablePriorityQueue_a058fc182052af82e10cc3719e448b62d}\index{MutablePriorityQueue$<$ T $>$@{MutablePriorityQueue$<$ T $>$}!insert@{insert}}
+O(log n) where n is the number of elements in the queue \Hypertarget{classMutablePriorityQueue_a699bfb6d976cabb01edead4c24284a08}\index{MutablePriorityQueue$<$ T $>$@{MutablePriorityQueue$<$ T $>$}!heapifyDown@{heapifyDown}}
+\index{heapifyDown@{heapifyDown}!MutablePriorityQueue$<$ T $>$@{MutablePriorityQueue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{heapifyDown()}{heapifyDown()}}
+{\footnotesize\ttfamily \label{classMutablePriorityQueue_a699bfb6d976cabb01edead4c24284a08} 
+template$<$class T $>$ \\
+void \mbox{\hyperlink{classMutablePriorityQueue}{Mutable\+Priority\+Queue}}$<$ T $>$\+::heapify\+Down (\begin{DoxyParamCaption}\item[{unsigned}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Moves an element down the heap to restore heap property. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index of the element to move down\\
+\hline
+\end{DoxyParams}
+O(log n) where n is the number of elements in the queue
+
+If the element has a higher priority than its children, swap it with the child of lowest priority and continue moving down the heap.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index of the element to move down\\
+\hline
+\end{DoxyParams}
+O(log n) where n is the number of elements in the queue \Hypertarget{classMutablePriorityQueue_ae2518c7a1be2bd1e7c633d82dede5450}\index{MutablePriorityQueue$<$ T $>$@{MutablePriorityQueue$<$ T $>$}!heapifyUp@{heapifyUp}}
+\index{heapifyUp@{heapifyUp}!MutablePriorityQueue$<$ T $>$@{MutablePriorityQueue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{heapifyUp()}{heapifyUp()}}
+{\footnotesize\ttfamily \label{classMutablePriorityQueue_ae2518c7a1be2bd1e7c633d82dede5450} 
+template$<$class T $>$ \\
+void \mbox{\hyperlink{classMutablePriorityQueue}{Mutable\+Priority\+Queue}}$<$ T $>$\+::heapify\+Up (\begin{DoxyParamCaption}\item[{unsigned}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Moves an element up the heap to restore heap property. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index of the element to move up\\
+\hline
+\end{DoxyParams}
+O(log n) where n is the number of elements in the queue
+
+If the element has a lower priority than its parent, swap them and continue moving up the heap.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index of the element to move up\\
+\hline
+\end{DoxyParams}
+O(log n) where n is the number of elements in the queue \Hypertarget{classMutablePriorityQueue_a058fc182052af82e10cc3719e448b62d}\index{MutablePriorityQueue$<$ T $>$@{MutablePriorityQueue$<$ T $>$}!insert@{insert}}
 \index{insert@{insert}!MutablePriorityQueue$<$ T $>$@{MutablePriorityQueue$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{insert()}{insert()}}
 {\footnotesize\ttfamily \label{classMutablePriorityQueue_a058fc182052af82e10cc3719e448b62d} 
@@ -120,10 +185,49 @@ Inserts a new element into the queue.
 
 
 \begin{DoxyParams}{Parameters}
-{\em x} & Pointer to the element to insert @complexity O(log n) where n is the number of elements in the queue \\
+{\em x} & Pointer to the element to insert\\
 \hline
 \end{DoxyParams}
+O(log n) where n is the number of elements in the queue \Hypertarget{classMutablePriorityQueue_afbe461c0a2ea2f16006ed7e1bf9c105d}\index{MutablePriorityQueue$<$ T $>$@{MutablePriorityQueue$<$ T $>$}!set@{set}}
+\index{set@{set}!MutablePriorityQueue$<$ T $>$@{MutablePriorityQueue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily \label{classMutablePriorityQueue_afbe461c0a2ea2f16006ed7e1bf9c105d} 
+template$<$class T $>$ \\
+void \mbox{\hyperlink{classMutablePriorityQueue}{Mutable\+Priority\+Queue}}$<$ T $>$\+::set (\begin{DoxyParamCaption}\item[{unsigned}]{i}{, }\item[{T \texorpdfstring{$\ast$}{*}}]{x}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
 
+
+
+Sets an element at a specific position in the heap. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index where to place the element \\
+\hline
+{\em x} & Pointer to the element\\
+\hline
+\end{DoxyParams}
+O(1)
+
+Updates both the heap array and the queue\+Index of the element.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index where to place the element \\
+\hline
+{\em x} & Pointer to the element\\
+\hline
+\end{DoxyParams}
+O(1) 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classMutablePriorityQueue_a28cece6545bdc0df529e7878ad2c3ad4}\index{MutablePriorityQueue$<$ T $>$@{MutablePriorityQueue$<$ T $>$}!H@{H}}
+\index{H@{H}!MutablePriorityQueue$<$ T $>$@{MutablePriorityQueue$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{H}{H}}
+{\footnotesize\ttfamily \label{classMutablePriorityQueue_a28cece6545bdc0df529e7878ad2c3ad4} 
+template$<$class T $>$ \\
+std\+::vector$<$T \texorpdfstring{$\ast$}{*}$>$ \mbox{\hyperlink{classMutablePriorityQueue}{Mutable\+Priority\+Queue}}$<$ T $>$\+::H\hspace{0.3cm}{\ttfamily [private]}}
+
+Heap array (1-\/indexed for easier parent/child calculations) 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

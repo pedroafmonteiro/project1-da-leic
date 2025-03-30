@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['reverse_0',['reverse',['../d8/d8c/classEdge.html#a6c1e5191f85afbd20cf6198815c9b079',1,'Edge']]]
+  ['queueindex_0',['queueIndex',['../d2/da0/classVertex.html#a721ab622207a73c5fae7b9abad6c07cc',1,'Vertex']]]
 ];
