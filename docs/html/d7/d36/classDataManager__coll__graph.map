@@ -1,3 +1,4 @@
 <map id="DataManager" name="DataManager">
-<area shape="rect" id="Node000001" title="Singleton class for managing transportation network data." alt="" coords="5,5,135,160"/>
+<area shape="rect" id="Node000001" title="Singleton class for managing transportation network data." alt="" coords="5,5,135,224"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="136,72,146,77,154,86,159,99,161,115,159,134,151,147,146,144,153,132,156,115,154,100,150,89,143,82,133,77"/>
 </map>

@@ -29,14 +29,14 @@ class MutablePriorityQueue {
     /**
      * @brief Moves an element up the heap to restore heap property
      * @param i Index of the element to move up
-     * @complexity O(log n) where n is the number of elements in the queue
+     * @details O(log n) where n is the number of elements in the queue
      */
     void heapifyUp(unsigned i);
 
     /**
      * @brief Moves an element down the heap to restore heap property
      * @param i Index of the element to move down
-     * @complexity O(log n) where n is the number of elements in the queue
+     * @details O(log n) where n is the number of elements in the queue
      */
     void heapifyDown(unsigned i);
 
@@ -44,42 +44,42 @@ class MutablePriorityQueue {
      * @brief Sets an element at a specific position in the heap
      * @param i Index where to place the element
      * @param x Pointer to the element
-     * @complexity O(1)
+     * @details O(1)
      */
     inline void set(unsigned i, T *x);
 
 public:
     /**
      * @brief Constructor
-     * @complexity O(1)
+     * @details O(1)
      */
     MutablePriorityQueue();
 
     /**
      * @brief Inserts a new element into the queue
      * @param x Pointer to the element to insert
-     * @complexity O(log n) where n is the number of elements in the queue
+     * @details O(log n) where n is the number of elements in the queue
      */
     void insert(T *x);
 
     /**
      * @brief Extracts and returns the minimum element from the queue
      * @return Pointer to the minimum element
-     * @complexity O(log n) where n is the number of elements in the queue
+     * @details O(log n) where n is the number of elements in the queue
      */
     T *extractMin();
 
     /**
      * @brief Updates the position of an element whose priority has decreased
      * @param x Pointer to the element whose priority changed
-     * @complexity O(log n) where n is the number of elements in the queue
+     * @details O(log n) where n is the number of elements in the queue
      */
     void decreaseKey(T *x);
 
     /**
      * @brief Checks if the queue is empty
      * @return True if the queue is empty, false otherwise
-     * @complexity O(1)
+     * @details O(1)
      */
     bool empty();
 };
@@ -90,7 +90,7 @@ public:
 
 /**
  * @brief Constructor initializes the queue with a null element at index 0
- * @complexity O(1)
+ * @details O(1)
  */
 template<class T>
 MutablePriorityQueue<T>::MutablePriorityQueue() {
@@ -102,7 +102,7 @@ MutablePriorityQueue<T>::MutablePriorityQueue() {
 /**
  * @brief Checks if the queue is empty
  * @return True if the queue is empty, false otherwise
- * @complexity O(1)
+ * @details O(1)
  */
 template<class T>
 bool MutablePriorityQueue<T>::empty() {
@@ -112,7 +112,7 @@ bool MutablePriorityQueue<T>::empty() {
 /**
  * @brief Extracts and returns the minimum element from the queue
  * @return Pointer to the minimum element
- * @complexity O(log n) where n is the number of elements in the queue
+ * @details O(log n) where n is the number of elements in the queue
  */
 template<class T>
 T *MutablePriorityQueue<T>::extractMin() {
@@ -127,7 +127,7 @@ T *MutablePriorityQueue<T>::extractMin() {
 /**
  * @brief Inserts a new element into the queue
  * @param x Pointer to the element to insert
- * @complexity O(log n) where n is the number of elements in the queue
+ * @details O(log n) where n is the number of elements in the queue
  */
 template<class T>
 void MutablePriorityQueue<T>::insert(T *x) {
@@ -138,7 +138,7 @@ void MutablePriorityQueue<T>::insert(T *x) {
 /**
  * @brief Updates the position of an element whose priority has decreased
  * @param x Pointer to the element whose priority changed
- * @complexity O(log n) where n is the number of elements in the queue
+ * @details O(log n) where n is the number of elements in the queue
  */
 template<class T>
 void MutablePriorityQueue<T>::decreaseKey(T *x) {
@@ -152,7 +152,7 @@ void MutablePriorityQueue<T>::decreaseKey(T *x) {
  * and continue moving up the heap.
  * 
  * @param i Index of the element to move up
- * @complexity O(log n) where n is the number of elements in the queue
+ * @details O(log n) where n is the number of elements in the queue
  */
 template<class T>
 void MutablePriorityQueue<T>::heapifyUp(unsigned i) {
@@ -171,7 +171,7 @@ void MutablePriorityQueue<T>::heapifyUp(unsigned i) {
  * the child of lowest priority and continue moving down the heap.
  * 
  * @param i Index of the element to move down
- * @complexity O(log n) where n is the number of elements in the queue
+ * @details O(log n) where n is the number of elements in the queue
  */
 template<class T>
 void MutablePriorityQueue<T>::heapifyDown(unsigned i) {
@@ -197,7 +197,7 @@ void MutablePriorityQueue<T>::heapifyDown(unsigned i) {
  * 
  * @param i Index where to place the element
  * @param x Pointer to the element
- * @complexity O(1)
+ * @details O(1)
  */
 template<class T>
 void MutablePriorityQueue<T>::set(unsigned i, T *x) {

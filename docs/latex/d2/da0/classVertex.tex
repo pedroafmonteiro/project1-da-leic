@@ -11,8 +11,7 @@ Represents a vertex in a graph data structure.
 
 
 
-Collaboration diagram for Vertex\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:
-\nopagebreak
+Collaboration diagram for Vertex\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -51,7 +50,7 @@ bool \mbox{\hyperlink{classVertex_a5a6670b842354232bac4dad2f551d66e}{operator$<$
 bool \mbox{\hyperlink{classVertex_ac1f1dd0a8e1019a242f1120d6559c754}{remove\+Edge}} (T in)
 \begin{DoxyCompactList}\small\item\em Removes an outgoing edge to a vertex with the given information. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classVertex_a414ce58fdf35ee5200a82912f3865506}{remove\+Outgoing\+Edges}} ()
-\begin{DoxyCompactList}\small\item\em Removes all outgoing edges from this vertex @complexity O(\+E) where E is the number of outgoing edges. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Removes all outgoing edges from this vertex. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classVertex_a060fbea0c3738cc3e09d84ad8c431b34}{set\+Dist}} (double \mbox{\hyperlink{classVertex_a08a2b813e77f97aa8b6c1d252e5417f7}{dist}})
 \begin{DoxyCompactList}\small\item\em Sets the distance value. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classVertex_af9c4caaac19bdaae5a88a7a671639b59}{set\+Indegree}} (unsigned int \mbox{\hyperlink{classVertex_af5db7e2f035a38dcc7c6e1b03117b06a}{indegree}})
@@ -133,10 +132,10 @@ Constructs a vertex with the given information.
 
 
 \begin{DoxyParams}{Parameters}
-{\em in} & The information to store in the vertex @complexity O(1) \\
+{\em in} & The information to store in the vertex\\
 \hline
 \end{DoxyParams}
-
+O(1) 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classVertex_a36a616b80daad6e2a8c6d2fa78a1eb34}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!addEdge@{addEdge}}
@@ -158,9 +157,9 @@ Adds an outgoing edge to another vertex.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Pointer to the newly created edge @complexity O(1) 
+Pointer to the newly created edge
 \end{DoxyReturn}
-\Hypertarget{classVertex_a622503fe44ef12d5c39bd1043d47865c}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!deleteEdge@{deleteEdge}}
+O(1) \Hypertarget{classVertex_a622503fe44ef12d5c39bd1043d47865c}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!deleteEdge@{deleteEdge}}
 \index{deleteEdge@{deleteEdge}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{deleteEdge()}{deleteEdge()}}
 {\footnotesize\ttfamily \label{classVertex_a622503fe44ef12d5c39bd1043d47865c} 
@@ -173,10 +172,10 @@ Deletes an edge.
 
 
 \begin{DoxyParams}{Parameters}
-{\em edge} & The edge to delete @complexity O(1) \\
+{\em edge} & The edge to delete\\
 \hline
 \end{DoxyParams}
-\Hypertarget{classVertex_a0010a7d0b7db1bb81dd2ebb1ffae650a}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!getAdj@{getAdj}}
+O(1) \Hypertarget{classVertex_a0010a7d0b7db1bb81dd2ebb1ffae650a}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!getAdj@{getAdj}}
 \index{getAdj@{getAdj}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{getAdj()}{getAdj()}}
 {\footnotesize\ttfamily \label{classVertex_a0010a7d0b7db1bb81dd2ebb1ffae650a} 
@@ -188,9 +187,9 @@ std\+::vector$<$ \mbox{\hyperlink{classEdge}{Edge}}$<$ T $>$ \texorpdfstring{$\a
 Gets all outgoing edges from this vertex. 
 
 \begin{DoxyReturn}{Returns}
-Vector of pointers to outgoing edges @complexity O(1) 
+Vector of pointers to outgoing edges
 \end{DoxyReturn}
-\Hypertarget{classVertex_a01e90e3cdb2ee11dd3b1d593c8207382}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!getDist@{getDist}}
+O(1) \Hypertarget{classVertex_a01e90e3cdb2ee11dd3b1d593c8207382}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!getDist@{getDist}}
 \index{getDist@{getDist}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{getDist()}{getDist()}}
 {\footnotesize\ttfamily \label{classVertex_a01e90e3cdb2ee11dd3b1d593c8207382} 
@@ -202,9 +201,9 @@ double \mbox{\hyperlink{classVertex}{Vertex}}$<$ T $>$\+::get\+Dist (\begin{Doxy
 Gets the current distance value (used in shortest path algorithms) 
 
 \begin{DoxyReturn}{Returns}
-The distance value @complexity O(1) 
+The distance value
 \end{DoxyReturn}
-\Hypertarget{classVertex_a361d7d0459d37aead6401d6af9f81f0a}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!getIncoming@{getIncoming}}
+O(1) \Hypertarget{classVertex_a361d7d0459d37aead6401d6af9f81f0a}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!getIncoming@{getIncoming}}
 \index{getIncoming@{getIncoming}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{getIncoming()}{getIncoming()}}
 {\footnotesize\ttfamily \label{classVertex_a361d7d0459d37aead6401d6af9f81f0a} 
@@ -216,9 +215,9 @@ std\+::vector$<$ \mbox{\hyperlink{classEdge}{Edge}}$<$ T $>$ \texorpdfstring{$\a
 Gets all incoming edges to this vertex. 
 
 \begin{DoxyReturn}{Returns}
-Vector of pointers to incoming edges @complexity O(1) 
+Vector of pointers to incoming edges
 \end{DoxyReturn}
-\Hypertarget{classVertex_a25642875df28caa2195bad5a9ae44683}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!getIndegree@{getIndegree}}
+O(1) \Hypertarget{classVertex_a25642875df28caa2195bad5a9ae44683}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!getIndegree@{getIndegree}}
 \index{getIndegree@{getIndegree}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{getIndegree()}{getIndegree()}}
 {\footnotesize\ttfamily \label{classVertex_a25642875df28caa2195bad5a9ae44683} 
@@ -230,9 +229,9 @@ unsigned int \mbox{\hyperlink{classVertex}{Vertex}}$<$ T $>$\+::get\+Indegree (\
 Gets the number of incoming edges to this vertex. 
 
 \begin{DoxyReturn}{Returns}
-The indegree count @complexity O(1) 
+The indegree count
 \end{DoxyReturn}
-\Hypertarget{classVertex_a48eae2f7af2362634adab02b7b2dbec6}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!getInfo@{getInfo}}
+O(1) \Hypertarget{classVertex_a48eae2f7af2362634adab02b7b2dbec6}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!getInfo@{getInfo}}
 \index{getInfo@{getInfo}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{getInfo()}{getInfo()}}
 {\footnotesize\ttfamily \label{classVertex_a48eae2f7af2362634adab02b7b2dbec6} 
@@ -244,9 +243,9 @@ T \mbox{\hyperlink{classVertex}{Vertex}}$<$ T $>$\+::get\+Info (\begin{DoxyParam
 Gets the information stored in the vertex. 
 
 \begin{DoxyReturn}{Returns}
-The vertex information @complexity O(1) 
+The vertex information
 \end{DoxyReturn}
-\Hypertarget{classVertex_a3b8e12b4d9805979321212dd6db05961}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!getLow@{getLow}}
+O(1) \Hypertarget{classVertex_a3b8e12b4d9805979321212dd6db05961}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!getLow@{getLow}}
 \index{getLow@{getLow}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{getLow()}{getLow()}}
 {\footnotesize\ttfamily \label{classVertex_a3b8e12b4d9805979321212dd6db05961} 
@@ -258,9 +257,9 @@ int \mbox{\hyperlink{classVertex}{Vertex}}$<$ T $>$\+::get\+Low (\begin{DoxyPara
 Gets the low value (used in strongly connected components algorithms) 
 
 \begin{DoxyReturn}{Returns}
-The low value @complexity O(1) 
+The low value
 \end{DoxyReturn}
-\Hypertarget{classVertex_ab2916c006fa35b918910a2232095e785}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!getNum@{getNum}}
+O(1) \Hypertarget{classVertex_ab2916c006fa35b918910a2232095e785}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!getNum@{getNum}}
 \index{getNum@{getNum}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{getNum()}{getNum()}}
 {\footnotesize\ttfamily \label{classVertex_ab2916c006fa35b918910a2232095e785} 
@@ -272,9 +271,9 @@ int \mbox{\hyperlink{classVertex}{Vertex}}$<$ T $>$\+::get\+Num (\begin{DoxyPara
 Gets the num value (used in strongly connected components algorithms) 
 
 \begin{DoxyReturn}{Returns}
-The num value @complexity O(1) 
+The num value
 \end{DoxyReturn}
-\Hypertarget{classVertex_a15e4ff95fba2bb5970a6551137ceb950}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!getPath@{getPath}}
+O(1) \Hypertarget{classVertex_a15e4ff95fba2bb5970a6551137ceb950}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!getPath@{getPath}}
 \index{getPath@{getPath}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{getPath()}{getPath()}}
 {\footnotesize\ttfamily \label{classVertex_a15e4ff95fba2bb5970a6551137ceb950} 
@@ -286,9 +285,9 @@ template$<$class T $>$ \\
 Gets the edge that leads to this vertex in a path. 
 
 \begin{DoxyReturn}{Returns}
-Pointer to the path edge @complexity O(1) 
+Pointer to the path edge
 \end{DoxyReturn}
-\Hypertarget{classVertex_aaa41dfa4ce1a19b4e529cc6cdc23b764}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!isProcessing@{isProcessing}}
+O(1) \Hypertarget{classVertex_aaa41dfa4ce1a19b4e529cc6cdc23b764}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!isProcessing@{isProcessing}}
 \index{isProcessing@{isProcessing}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{isProcessing()}{isProcessing()}}
 {\footnotesize\ttfamily \label{classVertex_aaa41dfa4ce1a19b4e529cc6cdc23b764} 
@@ -300,9 +299,9 @@ bool \mbox{\hyperlink{classVertex}{Vertex}}$<$ T $>$\+::is\+Processing (\begin{D
 Checks if the vertex is currently being processed. 
 
 \begin{DoxyReturn}{Returns}
-True if the vertex is being processed @complexity O(1) 
+True if the vertex is being processed
 \end{DoxyReturn}
-\Hypertarget{classVertex_aa2bb17f6ebd98a67f8da1f689b22fadc}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!isVisited@{isVisited}}
+O(1) \Hypertarget{classVertex_aa2bb17f6ebd98a67f8da1f689b22fadc}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!isVisited@{isVisited}}
 \index{isVisited@{isVisited}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{isVisited()}{isVisited()}}
 {\footnotesize\ttfamily \label{classVertex_aa2bb17f6ebd98a67f8da1f689b22fadc} 
@@ -314,9 +313,9 @@ bool \mbox{\hyperlink{classVertex}{Vertex}}$<$ T $>$\+::is\+Visited (\begin{Doxy
 Checks if the vertex has been visited in a traversal. 
 
 \begin{DoxyReturn}{Returns}
-True if the vertex has been visited @complexity O(1) 
+True if the vertex has been visited
 \end{DoxyReturn}
-\Hypertarget{classVertex_a5a6670b842354232bac4dad2f551d66e}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!operator$<$@{operator$<$}}
+O(1) \Hypertarget{classVertex_a5a6670b842354232bac4dad2f551d66e}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!operator$<$@{operator$<$}}
 \index{operator$<$@{operator$<$}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
 {\footnotesize\ttfamily \label{classVertex_a5a6670b842354232bac4dad2f551d66e} 
@@ -333,9 +332,9 @@ Comparison operator for priority queue operations.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-True if this vertex has lower priority than the given vertex @complexity O(1) 
+True if this vertex has lower priority than the given vertex
 \end{DoxyReturn}
-\Hypertarget{classVertex_ac1f1dd0a8e1019a242f1120d6559c754}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!removeEdge@{removeEdge}}
+O(1) \Hypertarget{classVertex_ac1f1dd0a8e1019a242f1120d6559c754}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!removeEdge@{removeEdge}}
 \index{removeEdge@{removeEdge}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{removeEdge()}{removeEdge()}}
 {\footnotesize\ttfamily \label{classVertex_ac1f1dd0a8e1019a242f1120d6559c754} 
@@ -352,9 +351,9 @@ Removes an outgoing edge to a vertex with the given information.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-True if the edge was successfully removed @complexity O(\+E) where E is the number of outgoing edges 
+True if the edge was successfully removed
 \end{DoxyReturn}
-\Hypertarget{classVertex_a414ce58fdf35ee5200a82912f3865506}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!removeOutgoingEdges@{removeOutgoingEdges}}
+O(\+E) where E is the number of outgoing edges \Hypertarget{classVertex_a414ce58fdf35ee5200a82912f3865506}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!removeOutgoingEdges@{removeOutgoingEdges}}
 \index{removeOutgoingEdges@{removeOutgoingEdges}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{removeOutgoingEdges()}{removeOutgoingEdges()}}
 {\footnotesize\ttfamily \label{classVertex_a414ce58fdf35ee5200a82912f3865506} 
@@ -363,9 +362,9 @@ void \mbox{\hyperlink{classVertex}{Vertex}}$<$ T $>$\+::remove\+Outgoing\+Edges 
 
 
 
-Removes all outgoing edges from this vertex @complexity O(\+E) where E is the number of outgoing edges. 
+Removes all outgoing edges from this vertex. 
 
-\Hypertarget{classVertex_a060fbea0c3738cc3e09d84ad8c431b34}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!setDist@{setDist}}
+O(\+E) where E is the number of outgoing edges \Hypertarget{classVertex_a060fbea0c3738cc3e09d84ad8c431b34}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!setDist@{setDist}}
 \index{setDist@{setDist}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{setDist()}{setDist()}}
 {\footnotesize\ttfamily \label{classVertex_a060fbea0c3738cc3e09d84ad8c431b34} 
@@ -378,10 +377,10 @@ Sets the distance value.
 
 
 \begin{DoxyParams}{Parameters}
-{\em dist} & The new distance value @complexity O(1) \\
+{\em dist} & The new distance value\\
 \hline
 \end{DoxyParams}
-\Hypertarget{classVertex_af9c4caaac19bdaae5a88a7a671639b59}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!setIndegree@{setIndegree}}
+O(1) \Hypertarget{classVertex_af9c4caaac19bdaae5a88a7a671639b59}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!setIndegree@{setIndegree}}
 \index{setIndegree@{setIndegree}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{setIndegree()}{setIndegree()}}
 {\footnotesize\ttfamily \label{classVertex_af9c4caaac19bdaae5a88a7a671639b59} 
@@ -394,10 +393,10 @@ Sets the indegree count.
 
 
 \begin{DoxyParams}{Parameters}
-{\em indegree} & The new indegree count @complexity O(1) \\
+{\em indegree} & The new indegree count\\
 \hline
 \end{DoxyParams}
-\Hypertarget{classVertex_a31cd60c26640f8072a928ba70eb2f95e}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!setInfo@{setInfo}}
+O(1) \Hypertarget{classVertex_a31cd60c26640f8072a928ba70eb2f95e}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!setInfo@{setInfo}}
 \index{setInfo@{setInfo}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{setInfo()}{setInfo()}}
 {\footnotesize\ttfamily \label{classVertex_a31cd60c26640f8072a928ba70eb2f95e} 
@@ -410,10 +409,10 @@ Sets the information stored in the vertex.
 
 
 \begin{DoxyParams}{Parameters}
-{\em info} & The new information @complexity O(1) \\
+{\em info} & The new information\\
 \hline
 \end{DoxyParams}
-\Hypertarget{classVertex_a62acec2c4fcbec56e995974b91444ec9}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!setLow@{setLow}}
+O(1) \Hypertarget{classVertex_a62acec2c4fcbec56e995974b91444ec9}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!setLow@{setLow}}
 \index{setLow@{setLow}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{setLow()}{setLow()}}
 {\footnotesize\ttfamily \label{classVertex_a62acec2c4fcbec56e995974b91444ec9} 
@@ -426,10 +425,10 @@ Sets the low value.
 
 
 \begin{DoxyParams}{Parameters}
-{\em value} & The new low value @complexity O(1) \\
+{\em value} & The new low value\\
 \hline
 \end{DoxyParams}
-\Hypertarget{classVertex_ab3f9026ba6cbd11243ab484a856c6581}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!setNum@{setNum}}
+O(1) \Hypertarget{classVertex_ab3f9026ba6cbd11243ab484a856c6581}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!setNum@{setNum}}
 \index{setNum@{setNum}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{setNum()}{setNum()}}
 {\footnotesize\ttfamily \label{classVertex_ab3f9026ba6cbd11243ab484a856c6581} 
@@ -442,10 +441,10 @@ Sets the num value.
 
 
 \begin{DoxyParams}{Parameters}
-{\em value} & The new num value @complexity O(1) \\
+{\em value} & The new num value\\
 \hline
 \end{DoxyParams}
-\Hypertarget{classVertex_a5ebf4b550ec94b89a8f80df1a53cc97d}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!setPath@{setPath}}
+O(1) \Hypertarget{classVertex_a5ebf4b550ec94b89a8f80df1a53cc97d}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!setPath@{setPath}}
 \index{setPath@{setPath}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{setPath()}{setPath()}}
 {\footnotesize\ttfamily \label{classVertex_a5ebf4b550ec94b89a8f80df1a53cc97d} 
@@ -458,10 +457,10 @@ Sets the path edge.
 
 
 \begin{DoxyParams}{Parameters}
-{\em path} & The new path edge @complexity O(1) \\
+{\em path} & The new path edge\\
 \hline
 \end{DoxyParams}
-\Hypertarget{classVertex_a5ccb6f7215c915afdbcbdb81ad70a408}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!setProcessing@{setProcessing}}
+O(1) \Hypertarget{classVertex_a5ccb6f7215c915afdbcbdb81ad70a408}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!setProcessing@{setProcessing}}
 \index{setProcessing@{setProcessing}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{setProcessing()}{setProcessing()}}
 {\footnotesize\ttfamily \label{classVertex_a5ccb6f7215c915afdbcbdb81ad70a408} 
@@ -474,10 +473,10 @@ Sets the processing status of the vertex.
 
 
 \begin{DoxyParams}{Parameters}
-{\em processing} & The new processing status @complexity O(1) \\
+{\em processing} & The new processing status\\
 \hline
 \end{DoxyParams}
-\Hypertarget{classVertex_a95a3f3c55f2ba371fae51d3fe0e76c23}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!setVisited@{setVisited}}
+O(1) \Hypertarget{classVertex_a95a3f3c55f2ba371fae51d3fe0e76c23}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!setVisited@{setVisited}}
 \index{setVisited@{setVisited}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{setVisited()}{setVisited()}}
 {\footnotesize\ttfamily \label{classVertex_a95a3f3c55f2ba371fae51d3fe0e76c23} 
@@ -490,10 +489,10 @@ Sets the visited status of the vertex.
 
 
 \begin{DoxyParams}{Parameters}
-{\em visited} & The new visited status @complexity O(1) \\
+{\em visited} & The new visited status\\
 \hline
 \end{DoxyParams}
-
+O(1) 
 
 \doxysubsection{Friends And Related Symbol Documentation}
 \Hypertarget{classVertex_a6e8dd99e4d0d0f5083b2fb64743a8953}\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!MutablePriorityQueue$<$ Vertex $>$@{MutablePriorityQueue$<$ Vertex $>$}}

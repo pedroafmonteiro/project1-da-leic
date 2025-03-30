@@ -128,7 +128,7 @@ Collaboration diagram for Graph&lt; T &gt;:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a43eab1460b5c8ceaa526b40e56a0fb0c" id="r_a43eab1460b5c8ceaa526b40e56a0fb0c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43eab1460b5c8ceaa526b40e56a0fb0c">~Graph</a> ()</td></tr>
-<tr class="memdesc:a43eab1460b5c8ceaa526b40e56a0fb0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor @complexity O(V + E) where V is the number of vertices and E is the number of edges.  <br /></td></tr>
+<tr class="memdesc:a43eab1460b5c8ceaa526b40e56a0fb0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
 <tr class="separator:a43eab1460b5c8ceaa526b40e56a0fb0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb94a42983b1612ddbeade1a2a0132ea" id="r_aeb94a42983b1612ddbeade1a2a0132ea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb94a42983b1612ddbeade1a2a0132ea">addBidirectionalEdge</a> (const T &amp;sourc, const T &amp;dest, double w)</td></tr>
 <tr class="memdesc:aeb94a42983b1612ddbeade1a2a0132ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a bidirectional edge between two vertices.  <br /></td></tr>
@@ -198,7 +198,8 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Destructor @complexity O(V + E) where V is the number of vertices and E is the number of edges. </p>
+<p>Destructor. </p>
+<p>O(V + E) where V is the number of vertices and E is the number of edges </p>
 
 </div>
 </div>
@@ -238,7 +239,8 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if successful, false if either vertex doesn't exist @complexity O(V) where V is the number of vertices </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if successful, false if either vertex doesn't exist</dd></dl>
+<p>O(V) where V is the number of vertices </p>
 
 </div>
 </div>
@@ -277,7 +279,8 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if successful, false if either vertex doesn't exist @complexity O(V) where V is the number of vertices </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if successful, false if either vertex doesn't exist</dd></dl>
+<p>O(V) where V is the number of vertices </p>
 
 </div>
 </div>
@@ -305,7 +308,8 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if successful, false if a vertex with that information already exists @complexity O(V) where V is the number of vertices </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if successful, false if a vertex with that information already exists</dd></dl>
+<p>O(V) where V is the number of vertices </p>
 
 </div>
 </div>
@@ -333,7 +337,8 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the vertex if found, nullptr otherwise @complexity O(V) where V is the number of vertices </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the vertex if found, nullptr otherwise</dd></dl>
+<p>O(V) where V is the number of vertices </p>
 
 </div>
 </div>
@@ -369,7 +374,8 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The index of the vertex if found, -1 otherwise @complexity O(V) where V is the number of vertices </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the vertex if found, -1 otherwise</dd></dl>
+<p>O(V) where V is the number of vertices </p>
 
 </div>
 </div>
@@ -391,7 +397,8 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Gets the number of vertices in the graph. </p>
-<dl class="section return"><dt>Returns</dt><dd>The number of vertices @complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of vertices</dd></dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -413,7 +420,8 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Gets all vertices in the graph. </p>
-<dl class="section return"><dt>Returns</dt><dd>Vector of pointers to all vertices @complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of pointers to all vertices</dd></dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -446,7 +454,8 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if successful, false if the edge doesn't exist @complexity O(V + E) where V is the number of vertices and E is the number of edges </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if successful, false if the edge doesn't exist</dd></dl>
+<p>O(V + E) where V is the number of vertices and E is the number of edges </p>
 
 </div>
 </div>
@@ -474,7 +483,8 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if successful, false if the vertex doesn't exist @complexity O(V + E) where V is the number of vertices and E is the number of edges </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if successful, false if the vertex doesn't exist</dd></dl>
+<p>O(V + E) where V is the number of vertices and E is the number of edges </p>
 
 </div>
 </div>

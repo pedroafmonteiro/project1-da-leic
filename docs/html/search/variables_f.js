@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['vertexset_0',['vertexSet',['../d2/d62/classGraph.html#a26b3a6b9c61f02f5b2cd38ad4c6a4953',1,'Graph']]],
-  ['visited_1',['visited',['../d2/da0/classVertex.html#a187a2fe4ff50261cf3c15b8cda7dfc56',1,'Vertex']]]
+  ['totaltime_0',['totalTime',['../d0/d58/structRouting_1_1EcoRoute.html#ae20ee0569d2996e4431a54232a7b1d02',1,'Routing::EcoRoute']]],
+  ['transportgraph_1',['transportGraph',['../d8/ddb/classMenu.html#aeb7851cbc3e752e6ed0d26e14511a3bd',1,'Menu']]],
+  ['type_2',['type',['../d8/d8c/classEdge.html#aed8f2c897f094a224ef84001c0f0cb0c',1,'Edge']]]
 ];

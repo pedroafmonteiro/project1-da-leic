@@ -11,12 +11,11 @@ Singleton class for managing transportation network data.
 
 
 
-Collaboration diagram for Data\+Manager\+:
-\nopagebreak
+Collaboration diagram for Data\+Manager\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=177pt]{d7/d36/classDataManager__coll__graph}
+\includegraphics[width=238pt]{d7/d36/classDataManager__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
@@ -35,12 +34,44 @@ bool \mbox{\hyperlink{classDataManager_a00f92a0980fc06a6449ff493123a28e3}{load\+
 \item 
 static \mbox{\hyperlink{classDataManager}{Data\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classDataManager_a3d07ec9018cc744e9335a2b2fe94ed95}{get\+Instance}} ()
 \begin{DoxyCompactList}\small\item\em Gets the singleton instance of the \doxylink{classDataManager}{Data\+Manager}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDataManager_ac2eec7fa355109eda41308e1de76d2a8}{Data\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Private constructor (singleton pattern) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classDataManager_abc4dd67ca7f88343f64eb2b1a02e079a}{data\+Loaded}}
+\begin{DoxyCompactList}\small\item\em Flag indicating if data has been successfully loaded. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structDistanceData}{Distance\+Data}} $>$ \mbox{\hyperlink{classDataManager_af48924792b7b9cbd4004e34dd0ceb12c}{distance\+Data}}
+\begin{DoxyCompactList}\small\item\em Collection of distance data between locations. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structLocationData}{Location\+Data}} $>$ \mbox{\hyperlink{classDataManager_ad9ff4e20ceaf21519f5f35903c6b991d}{location\+Data}}
+\begin{DoxyCompactList}\small\item\em Collection of location data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classDataManager}{Data\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classDataManager_aa8b13c433cfdf2bcadbd6ba77f2444fa}{instance}} = nullptr
+\begin{DoxyCompactList}\small\item\em Singleton instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Singleton class for managing transportation network data. 
 
 This class is responsible for loading, storing, and providing access to location and distance data used throughout the application. It follows the singleton pattern to ensure a single point of data access. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classDataManager_ac2eec7fa355109eda41308e1de76d2a8}\index{DataManager@{DataManager}!DataManager@{DataManager}}
+\index{DataManager@{DataManager}!DataManager@{DataManager}}
+\doxysubsubsection{\texorpdfstring{DataManager()}{DataManager()}}
+{\footnotesize\ttfamily \label{classDataManager_ac2eec7fa355109eda41308e1de76d2a8} 
+Data\+Manager\+::\+Data\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Private constructor (singleton pattern) 
+
+O(1) 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classDataManager_a560e676b9a495a7e537f00cc742ee7f5}\index{DataManager@{DataManager}!getDistanceData@{getDistanceData}}
@@ -54,9 +85,9 @@ std\+::vector$<$ \mbox{\hyperlink{structDistanceData}{Distance\+Data}} $>$ Data\
 Gets the collection of distance data. 
 
 \begin{DoxyReturn}{Returns}
-Vector of distance data objects @complexity O(1) 
+Vector of distance data objects
 \end{DoxyReturn}
-\Hypertarget{classDataManager_a3d07ec9018cc744e9335a2b2fe94ed95}\index{DataManager@{DataManager}!getInstance@{getInstance}}
+O(1) \Hypertarget{classDataManager_a3d07ec9018cc744e9335a2b2fe94ed95}\index{DataManager@{DataManager}!getInstance@{getInstance}}
 \index{getInstance@{getInstance}!DataManager@{DataManager}}
 \doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
 {\footnotesize\ttfamily \label{classDataManager_a3d07ec9018cc744e9335a2b2fe94ed95} 
@@ -67,9 +98,9 @@ Vector of distance data objects @complexity O(1)
 Gets the singleton instance of the \doxylink{classDataManager}{Data\+Manager}. 
 
 \begin{DoxyReturn}{Returns}
-Pointer to the \doxylink{classDataManager}{Data\+Manager} instance @complexity O(1) 
+Pointer to the \doxylink{classDataManager}{Data\+Manager} instance
 \end{DoxyReturn}
-\Hypertarget{classDataManager_ab942c4c867eec529293c46b87ae6a7bb}\index{DataManager@{DataManager}!getLocationData@{getLocationData}}
+O(1) \Hypertarget{classDataManager_ab942c4c867eec529293c46b87ae6a7bb}\index{DataManager@{DataManager}!getLocationData@{getLocationData}}
 \index{getLocationData@{getLocationData}!DataManager@{DataManager}}
 \doxysubsubsection{\texorpdfstring{getLocationData()}{getLocationData()}}
 {\footnotesize\ttfamily \label{classDataManager_ab942c4c867eec529293c46b87ae6a7bb} 
@@ -80,9 +111,9 @@ std\+::vector$<$ \mbox{\hyperlink{structLocationData}{Location\+Data}} $>$ Data\
 Gets the collection of location data. 
 
 \begin{DoxyReturn}{Returns}
-Vector of location data objects @complexity O(1) 
+Vector of location data objects
 \end{DoxyReturn}
-\Hypertarget{classDataManager_a1e173c4359070d56941e22f170265e61}\index{DataManager@{DataManager}!isDataLoaded@{isDataLoaded}}
+O(1) \Hypertarget{classDataManager_a1e173c4359070d56941e22f170265e61}\index{DataManager@{DataManager}!isDataLoaded@{isDataLoaded}}
 \index{isDataLoaded@{isDataLoaded}!DataManager@{DataManager}}
 \doxysubsubsection{\texorpdfstring{isDataLoaded()}{isDataLoaded()}}
 {\footnotesize\ttfamily \label{classDataManager_a1e173c4359070d56941e22f170265e61} 
@@ -93,9 +124,9 @@ bool Data\+Manager\+::is\+Data\+Loaded (\begin{DoxyParamCaption}{}{}\end{DoxyPar
 Checks if data has been loaded. 
 
 \begin{DoxyReturn}{Returns}
-True if data is loaded, false otherwise @complexity O(1) 
+True if data is loaded, false otherwise
 \end{DoxyReturn}
-\Hypertarget{classDataManager_a00f92a0980fc06a6449ff493123a28e3}\index{DataManager@{DataManager}!loadData@{loadData}}
+O(1) \Hypertarget{classDataManager_a00f92a0980fc06a6449ff493123a28e3}\index{DataManager@{DataManager}!loadData@{loadData}}
 \index{loadData@{loadData}!DataManager@{DataManager}}
 \doxysubsubsection{\texorpdfstring{loadData()}{loadData()}}
 {\footnotesize\ttfamily \label{classDataManager_a00f92a0980fc06a6449ff493123a28e3} 
@@ -113,8 +144,51 @@ Loads location and distance data from files.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-True if data was loaded successfully, false otherwise @complexity O(L + D) where L is the number of locations and D is the number of distances 
+True if data was loaded successfully, false otherwise
 \end{DoxyReturn}
+O(L + D) where L is the number of locations and D is the number of distances 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classDataManager_abc4dd67ca7f88343f64eb2b1a02e079a}\index{DataManager@{DataManager}!dataLoaded@{dataLoaded}}
+\index{dataLoaded@{dataLoaded}!DataManager@{DataManager}}
+\doxysubsubsection{\texorpdfstring{dataLoaded}{dataLoaded}}
+{\footnotesize\ttfamily \label{classDataManager_abc4dd67ca7f88343f64eb2b1a02e079a} 
+bool Data\+Manager\+::data\+Loaded\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flag indicating if data has been successfully loaded. 
+
+\Hypertarget{classDataManager_af48924792b7b9cbd4004e34dd0ceb12c}\index{DataManager@{DataManager}!distanceData@{distanceData}}
+\index{distanceData@{distanceData}!DataManager@{DataManager}}
+\doxysubsubsection{\texorpdfstring{distanceData}{distanceData}}
+{\footnotesize\ttfamily \label{classDataManager_af48924792b7b9cbd4004e34dd0ceb12c} 
+std\+::vector$<$\mbox{\hyperlink{structDistanceData}{Distance\+Data}}$>$ Data\+Manager\+::distance\+Data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Collection of distance data between locations. 
+
+\Hypertarget{classDataManager_aa8b13c433cfdf2bcadbd6ba77f2444fa}\index{DataManager@{DataManager}!instance@{instance}}
+\index{instance@{instance}!DataManager@{DataManager}}
+\doxysubsubsection{\texorpdfstring{instance}{instance}}
+{\footnotesize\ttfamily \label{classDataManager_aa8b13c433cfdf2bcadbd6ba77f2444fa} 
+\mbox{\hyperlink{classDataManager}{Data\+Manager}} \texorpdfstring{$\ast$}{*} Data\+Manager\+::instance = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Singleton instance. 
+
+\Hypertarget{classDataManager_ad9ff4e20ceaf21519f5f35903c6b991d}\index{DataManager@{DataManager}!locationData@{locationData}}
+\index{locationData@{locationData}!DataManager@{DataManager}}
+\doxysubsubsection{\texorpdfstring{locationData}{locationData}}
+{\footnotesize\ttfamily \label{classDataManager_ad9ff4e20ceaf21519f5f35903c6b991d} 
+std\+::vector$<$\mbox{\hyperlink{structLocationData}{Location\+Data}}$>$ Data\+Manager\+::location\+Data\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Collection of location data. 
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

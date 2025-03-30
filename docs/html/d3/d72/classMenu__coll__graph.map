@@ -1,3 +1,8 @@
 <map id="Menu" name="Menu">
-<area shape="rect" id="Node000001" title="Main user interface class that handles user interaction and routing operations." alt="" coords="5,5,209,203"/>
+<area shape="rect" id="Node000001" title="Main user interface class that handles user interaction and routing operations." alt="" coords="83,373,303,699"/>
+<area shape="rect" id="Node000002" href="$da/dcb/classDataManager.html" title="Singleton class for managing transportation network data." alt="" coords="5,48,135,267"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,266,137,357,132,358,103,267"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="136,122,154,133,159,144,161,157,159,173,152,184,147,181,154,171,156,157,154,145,150,136,133,126"/>
+<area shape="rect" id="Node000003" href="$d2/d62/classGraph.html" title=" " alt="" coords="240,5,393,309"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="270,310,254,358,249,357,265,308"/>
 </map>

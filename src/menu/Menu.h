@@ -26,20 +26,20 @@ class Menu {
 
     /**
      * @brief Handles user option selection from the main menu
-     * @complexity O(1)
+     * @details O(1)
      */
     void optionPicker();
 
     /**
      * @brief Verifies if data is loaded and graph is built
      * @return True if data is loaded and graph is built, false otherwise
-     * @complexity O(1)
+     * @details O(1)
      */
     bool checkDataLoaded() const;
 
     /**
      * @brief Builds the transportation graph from loaded data
-     * @complexity O(V + E) where V is the number of vertices and E is the number of edges
+     * @details O(V + E) where V is the number of vertices and E is the number of edges
      */
     void buildGraph();
 
@@ -53,7 +53,7 @@ class Menu {
      * @param avoidSegments Reference to store segments to avoid
      * @param includeNode Reference to store a node to include
      * @return True if input was successfully read, false otherwise
-     * @complexity O(N) where N is the number of lines in the input file
+     * @details O(N) where N is the number of lines in the input file
      */
     bool readInput(const std::string &filename,
                    Edge<LocationInfo>::EdgeType &transportMode,
@@ -68,7 +68,7 @@ class Menu {
      * @param route The eco-route to display
      * @param sourceCode Source location code
      * @param destCode Destination location code
-     * @complexity O(N) where N is the length of the route
+     * @details O(N) where N is the length of the route
      */
     void displayEcoRouteResults(const Routing::EcoRoute &route,
                                 const std::string &sourceCode,
@@ -79,7 +79,7 @@ class Menu {
      * @param routes Vector of eco-routes to display
      * @param sourceCode Source location code
      * @param destCode Destination location code
-     * @complexity O(M * N) where M is the number of routes and N is the average length of a route
+     * @details O(M * N) where M is the number of routes and N is the average length of a route
      */
     void displayMultipleEcoRouteResults(const std::vector<Routing::EcoRoute> &routes,
                                         const std::string &sourceCode,
@@ -88,43 +88,43 @@ class Menu {
 public:
     /**
      * @brief Constructor for the Menu class
-     * @complexity O(1)
+     * @details O(1)
      */
     Menu();
 
     /**
      * @brief Displays the main menu options
-     * @complexity O(1)
+     * @details O(1)
      */
     void mainMenu();
 
     /**
      * @brief Displays project credits
-     * @complexity O(1)
+     * @details O(1)
      */
     static void credits();
 
     /**
      * @brief Menu for loading dataset files
-     * @complexity O(N) where N is the size of the dataset
+     * @details O(N) where N is the size of the dataset
      */
     void datasetMenu() const;
 
     /**
      * @brief Handles the independent route planning functionality
-     * @complexity O(E log V) due to Dijkstra's algorithm
+     * @details O(E log V) due to Dijkstra's algorithm
      */
     void independentRoute();
 
     /**
      * @brief Handles the restricted route planning functionality
-     * @complexity O(E log V) due to Dijkstra's algorithm with added filters
+     * @details O(E log V) due to Dijkstra's algorithm with added filters
      */
     void restrictedRoute();
 
     /**
      * @brief Handles the environmentally-friendly route planning functionality
-     * @complexity O(P * E log V) where P is the number of parking nodes and E, V are edges and vertices
+     * @details O(P * E log V) where P is the number of parking nodes and E, V are edges and vertices
      */
     void environmentallyFriendlyRoute();
 };

@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['main_0',['main',['../df/d0a/main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.cpp']]],
-  ['mainmenu_1',['mainMenu',['../d8/ddb/classMenu.html#aef9edee86d2ea460606361c92e061583',1,'Menu']]],
-  ['menu_2',['Menu',['../d8/ddb/classMenu.html#ad466dd83355124a6ed958430450bfe94',1,'Menu']]],
-  ['mutablepriorityqueue_3',['MutablePriorityQueue',['../dd/d3a/classMutablePriorityQueue.html#aba8ebedcbe659f2680bac229cfaca526',1,'MutablePriorityQueue']]]
+  ['loaddata_0',['loadData',['../da/dcb/classDataManager.html#a00f92a0980fc06a6449ff493123a28e3',1,'DataManager']]],
+  ['locationinfo_1',['LocationInfo',['../d7/db4/structLocationInfo.html#a360455673beabe0ec3e6ece3d7c0d4ca',1,'LocationInfo::LocationInfo(const std::string &amp;n, int i, const std::string &amp;c, bool p)'],['../d7/db4/structLocationInfo.html#a5c76b8f6805ea9c2115d342b5032a89b',1,'LocationInfo::LocationInfo()']]]
 ];

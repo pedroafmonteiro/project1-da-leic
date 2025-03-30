@@ -11,34 +11,57 @@ Main user interface class that handles user interaction and routing operations.
 
 
 
-Collaboration diagram for Menu\+:
-\nopagebreak
+Collaboration diagram for Menu\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=233pt]{d3/d72/classMenu__coll__graph}
+\includegraphics[height=550pt]{d3/d72/classMenu__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classMenu_ad466dd83355124a6ed958430450bfe94}{Menu}} ()
-\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classMenu}{Menu} class @complexity O(1) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classMenu}{Menu} class. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMenu_abd8a18583a4d2bfde309aa5d84544103}{dataset\+Menu}} () const
-\begin{DoxyCompactList}\small\item\em \doxylink{classMenu}{Menu} for loading dataset files @complexity O(\+N) where N is the size of the dataset. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \doxylink{classMenu}{Menu} for loading dataset files. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMenu_a69e3eff6c62959a8128b2cbeacbaf451}{environmentally\+Friendly\+Route}} ()
-\begin{DoxyCompactList}\small\item\em Handles the environmentally-\/friendly route planning functionality @complexity O(\+P \texorpdfstring{$\ast$}{*} E log V) where P is the number of parking nodes and E, V are edges and vertices. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Handles the environmentally-\/friendly route planning functionality. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMenu_a9ed91693201da62d46c882cbeaedfcd5}{independent\+Route}} ()
-\begin{DoxyCompactList}\small\item\em Handles the independent route planning functionality @complexity O(\+E log V) due to Dijkstra\textquotesingle{}s algorithm. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Handles the independent route planning functionality. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMenu_aef9edee86d2ea460606361c92e061583}{main\+Menu}} ()
-\begin{DoxyCompactList}\small\item\em Displays the main menu options @complexity O(1) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Displays the main menu options. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classMenu_a30cf0a74f8ae010c98a107140cec958e}{restricted\+Route}} ()
-\begin{DoxyCompactList}\small\item\em Handles the restricted route planning functionality @complexity O(\+E log V) due to Dijkstra\textquotesingle{}s algorithm with added filters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Handles the restricted route planning functionality. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static void \mbox{\hyperlink{classMenu_ad038639f1dbf6e0d16ce7986d141155d}{credits}} ()
-\begin{DoxyCompactList}\small\item\em Displays project credits @complexity O(1) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Displays project credits. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMenu_ac29614b51139c9c642c76e0c1a1f8c35}{build\+Graph}} ()
+\begin{DoxyCompactList}\small\item\em Builds the transportation graph from loaded data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMenu_af00ede1434fbf2da4e6afc3596f401da}{check\+Data\+Loaded}} () const
+\begin{DoxyCompactList}\small\item\em Verifies if data is loaded and graph is built. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMenu_a800bbe860882f9bee42cb06a969bda2c}{display\+Eco\+Route\+Results}} (const \mbox{\hyperlink{structRouting_1_1EcoRoute}{Routing\+::\+Eco\+Route}} \&route, const std\+::string \&source\+Code, const std\+::string \&dest\+Code)
+\begin{DoxyCompactList}\small\item\em Displays the results of an environmentally-\/friendly route. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMenu_a14598044a1d6877eff9c1a263ca410d8}{display\+Multiple\+Eco\+Route\+Results}} (const std\+::vector$<$ \mbox{\hyperlink{structRouting_1_1EcoRoute}{Routing\+::\+Eco\+Route}} $>$ \&routes, const std\+::string \&source\+Code, const std\+::string \&dest\+Code)
+\begin{DoxyCompactList}\small\item\em Displays the results of multiple environmentally-\/friendly routes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMenu_a5c621f78496e2ad77ad91d185dc7c639}{option\+Picker}} ()
+\begin{DoxyCompactList}\small\item\em Handles user option selection from the main menu. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMenu_aeb8f762203b2b512a828267259b4bc6e}{read\+Input}} (const std\+::string \&filename, \mbox{\hyperlink{classEdge}{Edge}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$\+::\+Edge\+Type \&transport\+Mode, std\+::string \&source\+Code, std\+::string \&dest\+Code, std\+::vector$<$ int $>$ \&avoid\+Nodes, std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ \&avoid\+Segments, int \&include\+Node)
+\begin{DoxyCompactList}\small\item\em Reads input parameters from a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDataManager}{Data\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classMenu_ad49e64748f342558c8857387a045f5d1}{data\+Manager}}
+\begin{DoxyCompactList}\small\item\em Singleton data manager instance. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMenu_a0608cb48d09f59eed836e2a9cd767433}{graph\+Built}}
+\begin{DoxyCompactList}\small\item\em Flag indicating if the graph has been successfully built. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGraph}{Graph}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$ \mbox{\hyperlink{classMenu_aeb7851cbc3e752e6ed0d26e14511a3bd}{transport\+Graph}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classGraph}{Graph} representing the transportation network. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -55,12 +78,35 @@ Menu\+::\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Constructor for the \doxylink{classMenu}{Menu} class @complexity O(1) 
+Constructor for the \doxylink{classMenu}{Menu} class. 
 
-
+O(1) 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classMenu_ad038639f1dbf6e0d16ce7986d141155d}\index{Menu@{Menu}!credits@{credits}}
+\Hypertarget{classMenu_ac29614b51139c9c642c76e0c1a1f8c35}\index{Menu@{Menu}!buildGraph@{buildGraph}}
+\index{buildGraph@{buildGraph}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{buildGraph()}{buildGraph()}}
+{\footnotesize\ttfamily \label{classMenu_ac29614b51139c9c642c76e0c1a1f8c35} 
+void Menu\+::build\+Graph (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Builds the transportation graph from loaded data. 
+
+O(V + E) where V is the number of vertices and E is the number of edges \Hypertarget{classMenu_af00ede1434fbf2da4e6afc3596f401da}\index{Menu@{Menu}!checkDataLoaded@{checkDataLoaded}}
+\index{checkDataLoaded@{checkDataLoaded}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{checkDataLoaded()}{checkDataLoaded()}}
+{\footnotesize\ttfamily \label{classMenu_af00ede1434fbf2da4e6afc3596f401da} 
+bool Menu\+::check\+Data\+Loaded (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Verifies if data is loaded and graph is built. 
+
+\begin{DoxyReturn}{Returns}
+True if data is loaded and graph is built, false otherwise
+\end{DoxyReturn}
+O(1) \Hypertarget{classMenu_ad038639f1dbf6e0d16ce7986d141155d}\index{Menu@{Menu}!credits@{credits}}
 \index{credits@{credits}!Menu@{Menu}}
 \doxysubsubsection{\texorpdfstring{credits()}{credits()}}
 {\footnotesize\ttfamily \label{classMenu_ad038639f1dbf6e0d16ce7986d141155d} 
@@ -68,9 +114,9 @@ void Menu\+::credits (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace
 
 
 
-Displays project credits @complexity O(1) 
+Displays project credits. 
 
-\Hypertarget{classMenu_abd8a18583a4d2bfde309aa5d84544103}\index{Menu@{Menu}!datasetMenu@{datasetMenu}}
+O(1) \Hypertarget{classMenu_abd8a18583a4d2bfde309aa5d84544103}\index{Menu@{Menu}!datasetMenu@{datasetMenu}}
 \index{datasetMenu@{datasetMenu}!Menu@{Menu}}
 \doxysubsubsection{\texorpdfstring{datasetMenu()}{datasetMenu()}}
 {\footnotesize\ttfamily \label{classMenu_abd8a18583a4d2bfde309aa5d84544103} 
@@ -78,9 +124,47 @@ void Menu\+::dataset\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) 
 
 
 
-\doxylink{classMenu}{Menu} for loading dataset files @complexity O(\+N) where N is the size of the dataset. 
+\doxylink{classMenu}{Menu} for loading dataset files. 
 
-\Hypertarget{classMenu_a69e3eff6c62959a8128b2cbeacbaf451}\index{Menu@{Menu}!environmentallyFriendlyRoute@{environmentallyFriendlyRoute}}
+O(\+N) where N is the size of the dataset \Hypertarget{classMenu_a800bbe860882f9bee42cb06a969bda2c}\index{Menu@{Menu}!displayEcoRouteResults@{displayEcoRouteResults}}
+\index{displayEcoRouteResults@{displayEcoRouteResults}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{displayEcoRouteResults()}{displayEcoRouteResults()}}
+{\footnotesize\ttfamily \label{classMenu_a800bbe860882f9bee42cb06a969bda2c} 
+void Menu\+::display\+Eco\+Route\+Results (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structRouting_1_1EcoRoute}{Routing\+::\+Eco\+Route}} \&}]{route}{, }\item[{const std\+::string \&}]{source\+Code}{, }\item[{const std\+::string \&}]{dest\+Code}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Displays the results of an environmentally-\/friendly route. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em route} & The eco-\/route to display \\
+\hline
+{\em source\+Code} & Source location code \\
+\hline
+{\em dest\+Code} & Destination location code\\
+\hline
+\end{DoxyParams}
+O(\+N) where N is the length of the route \Hypertarget{classMenu_a14598044a1d6877eff9c1a263ca410d8}\index{Menu@{Menu}!displayMultipleEcoRouteResults@{displayMultipleEcoRouteResults}}
+\index{displayMultipleEcoRouteResults@{displayMultipleEcoRouteResults}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{displayMultipleEcoRouteResults()}{displayMultipleEcoRouteResults()}}
+{\footnotesize\ttfamily \label{classMenu_a14598044a1d6877eff9c1a263ca410d8} 
+void Menu\+::display\+Multiple\+Eco\+Route\+Results (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structRouting_1_1EcoRoute}{Routing\+::\+Eco\+Route}} $>$ \&}]{routes}{, }\item[{const std\+::string \&}]{source\+Code}{, }\item[{const std\+::string \&}]{dest\+Code}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Displays the results of multiple environmentally-\/friendly routes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em routes} & Vector of eco-\/routes to display \\
+\hline
+{\em source\+Code} & Source location code \\
+\hline
+{\em dest\+Code} & Destination location code\\
+\hline
+\end{DoxyParams}
+O(\+M \texorpdfstring{$\ast$}{*} N) where M is the number of routes and N is the average length of a route \Hypertarget{classMenu_a69e3eff6c62959a8128b2cbeacbaf451}\index{Menu@{Menu}!environmentallyFriendlyRoute@{environmentallyFriendlyRoute}}
 \index{environmentallyFriendlyRoute@{environmentallyFriendlyRoute}!Menu@{Menu}}
 \doxysubsubsection{\texorpdfstring{environmentallyFriendlyRoute()}{environmentallyFriendlyRoute()}}
 {\footnotesize\ttfamily \label{classMenu_a69e3eff6c62959a8128b2cbeacbaf451} 
@@ -88,9 +172,9 @@ void Menu\+::environmentally\+Friendly\+Route (\begin{DoxyParamCaption}{}{}\end{
 
 
 
-Handles the environmentally-\/friendly route planning functionality @complexity O(\+P \texorpdfstring{$\ast$}{*} E log V) where P is the number of parking nodes and E, V are edges and vertices. 
+Handles the environmentally-\/friendly route planning functionality. 
 
-\Hypertarget{classMenu_a9ed91693201da62d46c882cbeaedfcd5}\index{Menu@{Menu}!independentRoute@{independentRoute}}
+O(\+P \texorpdfstring{$\ast$}{*} E log V) where P is the number of parking nodes and E, V are edges and vertices \Hypertarget{classMenu_a9ed91693201da62d46c882cbeaedfcd5}\index{Menu@{Menu}!independentRoute@{independentRoute}}
 \index{independentRoute@{independentRoute}!Menu@{Menu}}
 \doxysubsubsection{\texorpdfstring{independentRoute()}{independentRoute()}}
 {\footnotesize\ttfamily \label{classMenu_a9ed91693201da62d46c882cbeaedfcd5} 
@@ -98,9 +182,9 @@ void Menu\+::independent\+Route (\begin{DoxyParamCaption}{}{}\end{DoxyParamCapti
 
 
 
-Handles the independent route planning functionality @complexity O(\+E log V) due to Dijkstra\textquotesingle{}s algorithm. 
+Handles the independent route planning functionality. 
 
-\Hypertarget{classMenu_aef9edee86d2ea460606361c92e061583}\index{Menu@{Menu}!mainMenu@{mainMenu}}
+O(\+E log V) due to Dijkstra\textquotesingle{}s algorithm \Hypertarget{classMenu_aef9edee86d2ea460606361c92e061583}\index{Menu@{Menu}!mainMenu@{mainMenu}}
 \index{mainMenu@{mainMenu}!Menu@{Menu}}
 \doxysubsubsection{\texorpdfstring{mainMenu()}{mainMenu()}}
 {\footnotesize\ttfamily \label{classMenu_aef9edee86d2ea460606361c92e061583} 
@@ -108,9 +192,49 @@ void Menu\+::main\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Displays the main menu options @complexity O(1) 
+Displays the main menu options. 
 
-\Hypertarget{classMenu_a30cf0a74f8ae010c98a107140cec958e}\index{Menu@{Menu}!restrictedRoute@{restrictedRoute}}
+O(1) \Hypertarget{classMenu_a5c621f78496e2ad77ad91d185dc7c639}\index{Menu@{Menu}!optionPicker@{optionPicker}}
+\index{optionPicker@{optionPicker}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{optionPicker()}{optionPicker()}}
+{\footnotesize\ttfamily \label{classMenu_a5c621f78496e2ad77ad91d185dc7c639} 
+void Menu\+::option\+Picker (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Handles user option selection from the main menu. 
+
+O(1) \Hypertarget{classMenu_aeb8f762203b2b512a828267259b4bc6e}\index{Menu@{Menu}!readInput@{readInput}}
+\index{readInput@{readInput}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{readInput()}{readInput()}}
+{\footnotesize\ttfamily \label{classMenu_aeb8f762203b2b512a828267259b4bc6e} 
+bool Menu\+::read\+Input (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{, }\item[{\mbox{\hyperlink{classEdge}{Edge}}$<$ \mbox{\hyperlink{structLocationInfo}{Location\+Info}} $>$\+::\+Edge\+Type \&}]{transport\+Mode}{, }\item[{std\+::string \&}]{source\+Code}{, }\item[{std\+::string \&}]{dest\+Code}{, }\item[{std\+::vector$<$ int $>$ \&}]{avoid\+Nodes}{, }\item[{std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ \&}]{avoid\+Segments}{, }\item[{int \&}]{include\+Node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reads input parameters from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Path to the input file \\
+\hline
+{\em transport\+Mode} & Reference to store the selected transport mode \\
+\hline
+{\em source\+Code} & Reference to store the source location code \\
+\hline
+{\em dest\+Code} & Reference to store the destination location code \\
+\hline
+{\em avoid\+Nodes} & Reference to store nodes to avoid \\
+\hline
+{\em avoid\+Segments} & Reference to store segments to avoid \\
+\hline
+{\em include\+Node} & Reference to store a node to include \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if input was successfully read, false otherwise
+\end{DoxyReturn}
+O(\+N) where N is the number of lines in the input file \Hypertarget{classMenu_a30cf0a74f8ae010c98a107140cec958e}\index{Menu@{Menu}!restrictedRoute@{restrictedRoute}}
 \index{restrictedRoute@{restrictedRoute}!Menu@{Menu}}
 \doxysubsubsection{\texorpdfstring{restrictedRoute()}{restrictedRoute()}}
 {\footnotesize\ttfamily \label{classMenu_a30cf0a74f8ae010c98a107140cec958e} 
@@ -118,7 +242,40 @@ void Menu\+::restricted\+Route (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaptio
 
 
 
-Handles the restricted route planning functionality @complexity O(\+E log V) due to Dijkstra\textquotesingle{}s algorithm with added filters. 
+Handles the restricted route planning functionality. 
+
+O(\+E log V) due to Dijkstra\textquotesingle{}s algorithm with added filters 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classMenu_ad49e64748f342558c8857387a045f5d1}\index{Menu@{Menu}!dataManager@{dataManager}}
+\index{dataManager@{dataManager}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{dataManager}{dataManager}}
+{\footnotesize\ttfamily \label{classMenu_ad49e64748f342558c8857387a045f5d1} 
+\mbox{\hyperlink{classDataManager}{Data\+Manager}}\texorpdfstring{$\ast$}{*} Menu\+::data\+Manager\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Singleton data manager instance. 
+
+\Hypertarget{classMenu_a0608cb48d09f59eed836e2a9cd767433}\index{Menu@{Menu}!graphBuilt@{graphBuilt}}
+\index{graphBuilt@{graphBuilt}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{graphBuilt}{graphBuilt}}
+{\footnotesize\ttfamily \label{classMenu_a0608cb48d09f59eed836e2a9cd767433} 
+bool Menu\+::graph\+Built\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flag indicating if the graph has been successfully built. 
+
+\Hypertarget{classMenu_aeb7851cbc3e752e6ed0d26e14511a3bd}\index{Menu@{Menu}!transportGraph@{transportGraph}}
+\index{transportGraph@{transportGraph}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{transportGraph}{transportGraph}}
+{\footnotesize\ttfamily \label{classMenu_aeb7851cbc3e752e6ed0d26e14511a3bd} 
+\mbox{\hyperlink{classGraph}{Graph}}$<$\mbox{\hyperlink{structLocationInfo}{Location\+Info}}$>$ Menu\+::transport\+Graph\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxylink{classGraph}{Graph} representing the transportation network. 
 
 
 

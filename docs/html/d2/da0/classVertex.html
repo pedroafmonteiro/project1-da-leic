@@ -171,7 +171,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac1f1dd0a8e1019a242f1120d6559c754"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an outgoing edge to a vertex with the given information.  <br /></td></tr>
 <tr class="separator:ac1f1dd0a8e1019a242f1120d6559c754"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a414ce58fdf35ee5200a82912f3865506" id="r_a414ce58fdf35ee5200a82912f3865506"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a414ce58fdf35ee5200a82912f3865506">removeOutgoingEdges</a> ()</td></tr>
-<tr class="memdesc:a414ce58fdf35ee5200a82912f3865506"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all outgoing edges from this vertex @complexity O(E) where E is the number of outgoing edges.  <br /></td></tr>
+<tr class="memdesc:a414ce58fdf35ee5200a82912f3865506"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all outgoing edges from this vertex.  <br /></td></tr>
 <tr class="separator:a414ce58fdf35ee5200a82912f3865506"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a060fbea0c3738cc3e09d84ad8c431b34" id="r_a060fbea0c3738cc3e09d84ad8c431b34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a060fbea0c3738cc3e09d84ad8c431b34">setDist</a> (double <a class="el" href="#a08a2b813e77f97aa8b6c1d252e5417f7">dist</a>)</td></tr>
 <tr class="memdesc:a060fbea0c3738cc3e09d84ad8c431b34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the distance value.  <br /></td></tr>
@@ -265,10 +265,11 @@ template&lt;class T &gt; </div>
 <p>Constructs a vertex with the given information. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">in</td><td>The information to store in the vertex @complexity O(1) </td></tr>
+    <tr><td class="paramname">in</td><td>The information to store in the vertex</td></tr>
   </table>
   </dd>
 </dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -302,7 +303,8 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the newly created edge @complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the newly created edge</dd></dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -334,10 +336,11 @@ template&lt;class T &gt; </div>
 <p>Deletes an edge. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">edge</td><td>The edge to delete @complexity O(1) </td></tr>
+    <tr><td class="paramname">edge</td><td>The edge to delete</td></tr>
   </table>
   </dd>
 </dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -359,7 +362,8 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Gets all outgoing edges from this vertex. </p>
-<dl class="section return"><dt>Returns</dt><dd>Vector of pointers to outgoing edges @complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of pointers to outgoing edges</dd></dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -381,7 +385,8 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Gets the current distance value (used in shortest path algorithms) </p>
-<dl class="section return"><dt>Returns</dt><dd>The distance value @complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The distance value</dd></dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -403,7 +408,8 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Gets all incoming edges to this vertex. </p>
-<dl class="section return"><dt>Returns</dt><dd>Vector of pointers to incoming edges @complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of pointers to incoming edges</dd></dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -425,7 +431,8 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Gets the number of incoming edges to this vertex. </p>
-<dl class="section return"><dt>Returns</dt><dd>The indegree count @complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The indegree count</dd></dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -447,7 +454,8 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Gets the information stored in the vertex. </p>
-<dl class="section return"><dt>Returns</dt><dd>The vertex information @complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The vertex information</dd></dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -469,7 +477,8 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Gets the low value (used in strongly connected components algorithms) </p>
-<dl class="section return"><dt>Returns</dt><dd>The low value @complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The low value</dd></dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -491,7 +500,8 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Gets the num value (used in strongly connected components algorithms) </p>
-<dl class="section return"><dt>Returns</dt><dd>The num value @complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The num value</dd></dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -513,7 +523,8 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Gets the edge that leads to this vertex in a path. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the path edge @complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the path edge</dd></dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -535,7 +546,8 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Checks if the vertex is currently being processed. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the vertex is being processed @complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the vertex is being processed</dd></dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -557,7 +569,8 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Checks if the vertex has been visited in a traversal. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the vertex has been visited @complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the vertex has been visited</dd></dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -585,7 +598,8 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if this vertex has lower priority than the given vertex @complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if this vertex has lower priority than the given vertex</dd></dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -613,7 +627,8 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the edge was successfully removed @complexity O(E) where E is the number of outgoing edges </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the edge was successfully removed</dd></dl>
+<p>O(E) where E is the number of outgoing edges </p>
 
 </div>
 </div>
@@ -634,7 +649,8 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Removes all outgoing edges from this vertex @complexity O(E) where E is the number of outgoing edges. </p>
+<p>Removes all outgoing edges from this vertex. </p>
+<p>O(E) where E is the number of outgoing edges </p>
 
 </div>
 </div>
@@ -658,10 +674,11 @@ template&lt;class T &gt; </div>
 <p>Sets the distance value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dist</td><td>The new distance value @complexity O(1) </td></tr>
+    <tr><td class="paramname">dist</td><td>The new distance value</td></tr>
   </table>
   </dd>
 </dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -685,10 +702,11 @@ template&lt;class T &gt; </div>
 <p>Sets the indegree count. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">indegree</td><td>The new indegree count @complexity O(1) </td></tr>
+    <tr><td class="paramname">indegree</td><td>The new indegree count</td></tr>
   </table>
   </dd>
 </dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -712,10 +730,11 @@ template&lt;class T &gt; </div>
 <p>Sets the information stored in the vertex. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">info</td><td>The new information @complexity O(1) </td></tr>
+    <tr><td class="paramname">info</td><td>The new information</td></tr>
   </table>
   </dd>
 </dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -739,10 +758,11 @@ template&lt;class T &gt; </div>
 <p>Sets the low value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>The new low value @complexity O(1) </td></tr>
+    <tr><td class="paramname">value</td><td>The new low value</td></tr>
   </table>
   </dd>
 </dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -766,10 +786,11 @@ template&lt;class T &gt; </div>
 <p>Sets the num value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>The new num value @complexity O(1) </td></tr>
+    <tr><td class="paramname">value</td><td>The new num value</td></tr>
   </table>
   </dd>
 </dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -793,10 +814,11 @@ template&lt;class T &gt; </div>
 <p>Sets the path edge. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>The new path edge @complexity O(1) </td></tr>
+    <tr><td class="paramname">path</td><td>The new path edge</td></tr>
   </table>
   </dd>
 </dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -820,10 +842,11 @@ template&lt;class T &gt; </div>
 <p>Sets the processing status of the vertex. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">processing</td><td>The new processing status @complexity O(1) </td></tr>
+    <tr><td class="paramname">processing</td><td>The new processing status</td></tr>
   </table>
   </dd>
 </dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -847,10 +870,11 @@ template&lt;class T &gt; </div>
 <p>Sets the visited status of the vertex. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">visited</td><td>The new visited status @complexity O(1) </td></tr>
+    <tr><td class="paramname">visited</td><td>The new visited status</td></tr>
   </table>
   </dd>
 </dl>
+<p>O(1) </p>
 
 </div>
 </div>

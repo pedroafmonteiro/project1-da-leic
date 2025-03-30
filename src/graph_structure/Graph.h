@@ -31,7 +31,7 @@ public:
     /**
      * @brief Constructs a vertex with the given information
      * @param in The information to store in the vertex
-     * @complexity O(1)
+     * @details O(1)
      */
     Vertex(T in);
 
@@ -39,133 +39,133 @@ public:
      * @brief Comparison operator for priority queue operations
      * @param vertex The vertex to compare with
      * @return True if this vertex has lower priority than the given vertex
-     * @complexity O(1)
+     * @details O(1)
      */
     bool operator<(Vertex<T> &vertex) const; // // required by MutablePriorityQueue
 
     /**
      * @brief Gets the information stored in the vertex
      * @return The vertex information
-     * @complexity O(1)
+     * @details O(1)
      */
     T getInfo() const;
 
     /**
      * @brief Gets all outgoing edges from this vertex
      * @return Vector of pointers to outgoing edges
-     * @complexity O(1)
+     * @details O(1)
      */
     std::vector<Edge<T> *> getAdj() const;
 
     /**
      * @brief Checks if the vertex has been visited in a traversal
      * @return True if the vertex has been visited
-     * @complexity O(1)
+     * @details O(1)
      */
     bool isVisited() const;
 
     /**
      * @brief Checks if the vertex is currently being processed
      * @return True if the vertex is being processed
-     * @complexity O(1)
+     * @details O(1)
      */
     bool isProcessing() const;
 
     /**
      * @brief Gets the number of incoming edges to this vertex
      * @return The indegree count
-     * @complexity O(1)
+     * @details O(1)
      */
     unsigned int getIndegree() const;
 
     /**
      * @brief Gets the current distance value (used in shortest path algorithms)
      * @return The distance value
-     * @complexity O(1)
+     * @details O(1)
      */
     double getDist() const;
 
     /**
      * @brief Gets the edge that leads to this vertex in a path
      * @return Pointer to the path edge
-     * @complexity O(1)
+     * @details O(1)
      */
     Edge<T> *getPath() const;
 
     /**
      * @brief Gets all incoming edges to this vertex
      * @return Vector of pointers to incoming edges
-     * @complexity O(1)
+     * @details O(1)
      */
     std::vector<Edge<T> *> getIncoming() const;
 
     /**
      * @brief Sets the information stored in the vertex
      * @param info The new information
-     * @complexity O(1)
+     * @details O(1)
      */
     void setInfo(T info);
 
     /**
      * @brief Sets the visited status of the vertex
      * @param visited The new visited status
-     * @complexity O(1)
+     * @details O(1)
      */
     void setVisited(bool visited);
 
     /**
      * @brief Sets the processing status of the vertex
      * @param processing The new processing status
-     * @complexity O(1)
+     * @details O(1)
      */
     void setProcessing(bool processing);
 
     /**
      * @brief Gets the low value (used in strongly connected components algorithms)
      * @return The low value
-     * @complexity O(1)
+     * @details O(1)
      */
     int getLow() const;
 
     /**
      * @brief Sets the low value
      * @param value The new low value
-     * @complexity O(1)
+     * @details O(1)
      */
     void setLow(int value);
 
     /**
      * @brief Gets the num value (used in strongly connected components algorithms)
      * @return The num value
-     * @complexity O(1)
+     * @details O(1)
      */
     int getNum() const;
 
     /**
      * @brief Sets the num value
      * @param value The new num value
-     * @complexity O(1)
+     * @details O(1)
      */
     void setNum(int value);
 
     /**
      * @brief Sets the indegree count
      * @param indegree The new indegree count
-     * @complexity O(1)
+     * @details O(1)
      */
     void setIndegree(unsigned int indegree);
 
     /**
      * @brief Sets the distance value
      * @param dist The new distance value
-     * @complexity O(1)
+     * @details O(1)
      */
     void setDist(double dist);
 
     /**
      * @brief Sets the path edge
      * @param path The new path edge
-     * @complexity O(1)
+     * @details O(1)
      */
     void setPath(Edge<T> *path);
 
@@ -174,7 +174,7 @@ public:
      * @param dest The destination vertex
      * @param w The edge weight
      * @return Pointer to the newly created edge
-     * @complexity O(1)
+     * @details O(1)
      */
     Edge<T> *addEdge(Vertex<T> *dest, double w);
 
@@ -182,13 +182,13 @@ public:
      * @brief Removes an outgoing edge to a vertex with the given information
      * @param in The information of the destination vertex
      * @return True if the edge was successfully removed
-     * @complexity O(E) where E is the number of outgoing edges
+     * @details O(E) where E is the number of outgoing edges
      */
     bool removeEdge(T in);
 
     /**
      * @brief Removes all outgoing edges from this vertex
-     * @complexity O(E) where E is the number of outgoing edges
+     * @details O(E) where E is the number of outgoing edges
      */
     void removeOutgoingEdges();
 
@@ -213,7 +213,7 @@ protected:
     /**
      * @brief Deletes an edge
      * @param edge The edge to delete
-     * @complexity O(1)
+     * @details O(1)
      */
     void deleteEdge(Edge<T> *edge);
 };
@@ -244,7 +244,7 @@ public:
      * @param orig The origin vertex
      * @param dest The destination vertex
      * @param w The edge weight
-     * @complexity O(1)
+     * @details O(1)
      */
     Edge(Vertex<T> *orig, Vertex<T> *dest, double w);
 
@@ -256,84 +256,84 @@ public:
     /**
      * @brief Gets the destination vertex
      * @return Pointer to the destination vertex
-     * @complexity O(1)
+     * @details O(1)
      */
     Vertex<T> *getDest() const;
 
     /**
      * @brief Gets the edge weight
      * @return The edge weight
-     * @complexity O(1)
+     * @details O(1)
      */
     double getWeight() const;
 
     /**
      * @brief Checks if the edge is selected
      * @return True if the edge is selected
-     * @complexity O(1)
+     * @details O(1)
      */
     bool isSelected() const;
 
     /**
      * @brief Gets the origin vertex
      * @return Pointer to the origin vertex
-     * @complexity O(1)
+     * @details O(1)
      */
     Vertex<T> *getOrig() const;
 
     /**
      * @brief Gets the reverse edge
      * @return Pointer to the reverse edge
-     * @complexity O(1)
+     * @details O(1)
      */
     Edge<T> *getReverse() const;
 
     /**
      * @brief Gets the flow value
      * @return The flow value
-     * @complexity O(1)
+     * @details O(1)
      */
     double getFlow() const;
 
     /**
      * @brief Gets the edge type
      * @return The edge type
-     * @complexity O(1)
+     * @details O(1)
      */
     EdgeType getType() const;
 
     /**
      * @brief Sets the selected status
      * @param selected The new selected status
-     * @complexity O(1)
+     * @details O(1)
      */
     void setSelected(bool selected);
 
     /**
      * @brief Sets the reverse edge
      * @param reverse Pointer to the reverse edge
-     * @complexity O(1)
+     * @details O(1)
      */
     void setReverse(Edge<T> *reverse);
 
     /**
      * @brief Sets the flow value
      * @param flow The new flow value
-     * @complexity O(1)
+     * @details O(1)
      */
     void setFlow(double flow);
 
     /**
      * @brief Sets the edge type
      * @param type The new edge type
-     * @complexity O(1)
+     * @details O(1)
      */
     void setType(EdgeType type);
 
     /**
      * @brief Gets the edge type as a string
      * @return String representation of the edge type
-     * @complexity O(1)
+     * @details O(1)
      */
     virtual std::string getTypeString() const;
 
@@ -366,7 +366,7 @@ class Graph {
 public:
     /**
      * @brief Destructor
-     * @complexity O(V + E) where V is the number of vertices and E is the number of edges
+     * @details O(V + E) where V is the number of vertices and E is the number of edges
      */
     ~Graph();
 
@@ -374,7 +374,7 @@ public:
      * @brief Finds a vertex with the given information
      * @param in The information to search for
      * @return Pointer to the vertex if found, nullptr otherwise
-     * @complexity O(V) where V is the number of vertices
+     * @details O(V) where V is the number of vertices
      */
     Vertex<T> *findVertex(const T &in) const;
 
@@ -382,7 +382,7 @@ public:
      * @brief Adds a vertex with the given information
      * @param in The information for the new vertex
      * @return True if successful, false if a vertex with that information already exists
-     * @complexity O(V) where V is the number of vertices
+     * @details O(V) where V is the number of vertices
      */
     bool addVertex(const T &in);
 
@@ -390,7 +390,7 @@ public:
      * @brief Removes a vertex with the given information
      * @param in The information of the vertex to remove
      * @return True if successful, false if the vertex doesn't exist
-     * @complexity O(V + E) where V is the number of vertices and E is the number of edges
+     * @details O(V + E) where V is the number of vertices and E is the number of edges
      */
     bool removeVertex(const T &in);
 
@@ -400,7 +400,7 @@ public:
      * @param dest The information of the destination vertex
      * @param w The edge weight
      * @return True if successful, false if either vertex doesn't exist
-     * @complexity O(V) where V is the number of vertices
+     * @details O(V) where V is the number of vertices
      */
     bool addEdge(const T &sourc, const T &dest, double w);
 
@@ -409,7 +409,7 @@ public:
      * @param source The information of the source vertex
      * @param dest The information of the destination vertex
      * @return True if successful, false if the edge doesn't exist
-     * @complexity O(V + E) where V is the number of vertices and E is the number of edges
+     * @details O(V + E) where V is the number of vertices and E is the number of edges
      */
     bool removeEdge(const T &source, const T &dest);
 
@@ -419,21 +419,21 @@ public:
      * @param dest The information of the second vertex
      * @param w The edge weight
      * @return True if successful, false if either vertex doesn't exist
-     * @complexity O(V) where V is the number of vertices
+     * @details O(V) where V is the number of vertices
      */
     bool addBidirectionalEdge(const T &sourc, const T &dest, double w);
 
     /**
      * @brief Gets the number of vertices in the graph
      * @return The number of vertices
-     * @complexity O(1)
+     * @details O(1)
      */
     int getNumVertex() const;
 
     /**
      * @brief Gets all vertices in the graph
      * @return Vector of pointers to all vertices
-     * @complexity O(1)
+     * @details O(1)
      */
     std::vector<Vertex<T> *> getVertexSet() const;
 
@@ -447,7 +447,7 @@ protected:
      * @brief Finds the index of a vertex with the given information
      * @param in The information to search for
      * @return The index of the vertex if found, -1 otherwise
-     * @complexity O(V) where V is the number of vertices
+     * @details O(V) where V is the number of vertices
      */
     int findVertexIdx(const T &in) const;
 };
@@ -456,7 +456,7 @@ protected:
  * @brief Deletes a matrix of integers
  * @param m The matrix to delete
  * @param n The number of rows in the matrix
- * @complexity O(n)
+ * @details O(n)
  */
 void deleteMatrix(int **m, int n);
 
@@ -464,7 +464,7 @@ void deleteMatrix(int **m, int n);
  * @brief Deletes a matrix of doubles
  * @param m The matrix to delete
  * @param n The number of rows in the matrix
- * @complexity O(n)
+ * @details O(n)
  */
 void deleteMatrix(double **m, int n);
 

@@ -105,6 +105,8 @@ $(function(){initNavTree('dd/d3a/classMutablePriorityQueue.html','../../'); init
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="../../dc/d2f/classMutablePriorityQueue-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">MutablePriorityQueue&lt; T &gt; Class Template Reference</div></div>
 </div><!--header-->
@@ -119,14 +121,14 @@ Collaboration diagram for MutablePriorityQueue&lt; T &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="../../d2/d2f/classMutablePriorityQueue__coll__graph.png" border="0" usemap="#aMutablePriorityQueue_3_01T_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="aMutablePriorityQueue_3_01T_01_4_coll__map" id="aMutablePriorityQueue_3_01T_01_4_coll__map">
-<area shape="rect" title="A mutable priority queue implementation used primarily by Dijkstra&#39;s algorithm." alt="" coords="5,5,175,160"/>
+<area shape="rect" title="A mutable priority queue implementation used primarily by Dijkstra&#39;s algorithm." alt="" coords="5,5,175,224"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aba8ebedcbe659f2680bac229cfaca526" id="r_aba8ebedcbe659f2680bac229cfaca526"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba8ebedcbe659f2680bac229cfaca526">MutablePriorityQueue</a> ()</td></tr>
-<tr class="memdesc:aba8ebedcbe659f2680bac229cfaca526"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor @complexity O(1)  <br /></td></tr>
+<tr class="memdesc:aba8ebedcbe659f2680bac229cfaca526"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
 <tr class="separator:aba8ebedcbe659f2680bac229cfaca526"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0878839cc1d2dba2b8ab2e589ecc6405" id="r_a0878839cc1d2dba2b8ab2e589ecc6405"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0878839cc1d2dba2b8ab2e589ecc6405">decreaseKey</a> (T *x)</td></tr>
 <tr class="memdesc:a0878839cc1d2dba2b8ab2e589ecc6405"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the position of an element whose priority has decreased.  <br /></td></tr>
@@ -140,6 +142,23 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a058fc182052af82e10cc3719e448b62d" id="r_a058fc182052af82e10cc3719e448b62d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a058fc182052af82e10cc3719e448b62d">insert</a> (T *x)</td></tr>
 <tr class="memdesc:a058fc182052af82e10cc3719e448b62d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts a new element into the queue.  <br /></td></tr>
 <tr class="separator:a058fc182052af82e10cc3719e448b62d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a699bfb6d976cabb01edead4c24284a08" id="r_a699bfb6d976cabb01edead4c24284a08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a699bfb6d976cabb01edead4c24284a08">heapifyDown</a> (unsigned i)</td></tr>
+<tr class="memdesc:a699bfb6d976cabb01edead4c24284a08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves an element down the heap to restore heap property.  <br /></td></tr>
+<tr class="separator:a699bfb6d976cabb01edead4c24284a08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2518c7a1be2bd1e7c633d82dede5450" id="r_ae2518c7a1be2bd1e7c633d82dede5450"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2518c7a1be2bd1e7c633d82dede5450">heapifyUp</a> (unsigned i)</td></tr>
+<tr class="memdesc:ae2518c7a1be2bd1e7c633d82dede5450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves an element up the heap to restore heap property.  <br /></td></tr>
+<tr class="separator:ae2518c7a1be2bd1e7c633d82dede5450"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbe461c0a2ea2f16006ed7e1bf9c105d" id="r_afbe461c0a2ea2f16006ed7e1bf9c105d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afbe461c0a2ea2f16006ed7e1bf9c105d">set</a> (unsigned i, T *x)</td></tr>
+<tr class="memdesc:afbe461c0a2ea2f16006ed7e1bf9c105d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an element at a specific position in the heap.  <br /></td></tr>
+<tr class="separator:afbe461c0a2ea2f16006ed7e1bf9c105d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a28cece6545bdc0df529e7878ad2c3ad4" id="r_a28cece6545bdc0df529e7878ad2c3ad4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; T * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28cece6545bdc0df529e7878ad2c3ad4">H</a></td></tr>
+<tr class="separator:a28cece6545bdc0df529e7878ad2c3ad4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class T&gt;<br />
@@ -169,8 +188,9 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor @complexity O(1) </p>
-<p>Constructor initializes the queue with a null element at index 0 @complexity O(1) </p>
+<p>Constructor. </p>
+<p>Constructor initializes the queue with a null element at index 0.</p>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -195,10 +215,11 @@ template&lt;class T &gt; </div>
 <p>Updates the position of an element whose priority has decreased. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>Pointer to the element whose priority changed @complexity O(log n) where n is the number of elements in the queue </td></tr>
+    <tr><td class="paramname">x</td><td>Pointer to the element whose priority changed</td></tr>
   </table>
   </dd>
 </dl>
+<p>O(log n) where n is the number of elements in the queue </p>
 
 </div>
 </div>
@@ -220,7 +241,8 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Checks if the queue is empty. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the queue is empty, false otherwise @complexity O(1) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the queue is empty, false otherwise</dd></dl>
+<p>O(1) </p>
 
 </div>
 </div>
@@ -242,7 +264,96 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>Extracts and returns the minimum element from the queue. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the minimum element @complexity O(log n) where n is the number of elements in the queue </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the minimum element</dd></dl>
+<p>O(log n) where n is the number of elements in the queue </p>
+
+</div>
+</div>
+<a id="a699bfb6d976cabb01edead4c24284a08" name="a699bfb6d976cabb01edead4c24284a08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a699bfb6d976cabb01edead4c24284a08">&#9670;&#160;</a></span>heapifyDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dd/d3a/classMutablePriorityQueue.html">MutablePriorityQueue</a>&lt; T &gt;::heapifyDown </td>
+          <td>(</td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moves an element down the heap to restore heap property. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Index of the element to move down</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>O(log n) where n is the number of elements in the queue</p>
+<p>If the element has a higher priority than its children, swap it with the child of lowest priority and continue moving down the heap.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Index of the element to move down</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>O(log n) where n is the number of elements in the queue </p>
+
+</div>
+</div>
+<a id="ae2518c7a1be2bd1e7c633d82dede5450" name="ae2518c7a1be2bd1e7c633d82dede5450"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2518c7a1be2bd1e7c633d82dede5450">&#9670;&#160;</a></span>heapifyUp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dd/d3a/classMutablePriorityQueue.html">MutablePriorityQueue</a>&lt; T &gt;::heapifyUp </td>
+          <td>(</td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moves an element up the heap to restore heap property. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Index of the element to move up</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>O(log n) where n is the number of elements in the queue</p>
+<p>If the element has a lower priority than its parent, swap them and continue moving up the heap.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Index of the element to move up</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>O(log n) where n is the number of elements in the queue </p>
 
 </div>
 </div>
@@ -266,10 +377,87 @@ template&lt;class T &gt; </div>
 <p>Inserts a new element into the queue. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>Pointer to the element to insert @complexity O(log n) where n is the number of elements in the queue </td></tr>
+    <tr><td class="paramname">x</td><td>Pointer to the element to insert</td></tr>
   </table>
   </dd>
 </dl>
+<p>O(log n) where n is the number of elements in the queue </p>
+
+</div>
+</div>
+<a id="afbe461c0a2ea2f16006ed7e1bf9c105d" name="afbe461c0a2ea2f16006ed7e1bf9c105d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbe461c0a2ea2f16006ed7e1bf9c105d">&#9670;&#160;</a></span>set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dd/d3a/classMutablePriorityQueue.html">MutablePriorityQueue</a>&lt; T &gt;::set </td>
+          <td>(</td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T *</td>          <td class="paramname"><span class="paramname"><em>x</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets an element at a specific position in the heap. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Index where to place the element </td></tr>
+    <tr><td class="paramname">x</td><td>Pointer to the element</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>O(1)</p>
+<p>Updates both the heap array and the queueIndex of the element.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Index where to place the element </td></tr>
+    <tr><td class="paramname">x</td><td>Pointer to the element</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>O(1) </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a28cece6545bdc0df529e7878ad2c3ad4" name="a28cece6545bdc0df529e7878ad2c3ad4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28cece6545bdc0df529e7878ad2c3ad4">&#9670;&#160;</a></span>H</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;T *&gt; <a class="el" href="../../dd/d3a/classMutablePriorityQueue.html">MutablePriorityQueue</a>&lt; T &gt;::H</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Heap array (1-indexed for easier parent/child calculations) </p>
 
 </div>
 </div>

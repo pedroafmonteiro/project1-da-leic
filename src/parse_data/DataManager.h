@@ -28,7 +28,7 @@ class DataManager {
 
     /**
      * @brief Private constructor (singleton pattern)
-     * @complexity O(1)
+     * @details O(1)
      */
     DataManager();
 
@@ -36,7 +36,7 @@ public:
     /**
      * @brief Gets the singleton instance of the DataManager
      * @return Pointer to the DataManager instance
-     * @complexity O(1)
+     * @details O(1)
      */
     static DataManager *getInstance();
 
@@ -45,28 +45,28 @@ public:
      * @param locationsFilePath Path to the locations data file
      * @param distancesFilePath Path to the distances data file
      * @return True if data was loaded successfully, false otherwise
-     * @complexity O(L + D) where L is the number of locations and D is the number of distances
+     * @details O(L + D) where L is the number of locations and D is the number of distances
      */
     bool loadData(const std::string &locationsFilePath, const std::string &distancesFilePath);
 
     /**
      * @brief Checks if data has been loaded
      * @return True if data is loaded, false otherwise
-     * @complexity O(1)
+     * @details O(1)
      */
     bool isDataLoaded() const;
 
     /**
      * @brief Gets the collection of distance data
      * @return Vector of distance data objects
-     * @complexity O(1)
+     * @details O(1)
      */
     std::vector<DistanceData> getDistanceData() const;
 
     /**
      * @brief Gets the collection of location data
      * @return Vector of location data objects
-     * @complexity O(1)
+     * @details O(1)
      */
     std::vector<LocationData> getLocationData() const;
 };

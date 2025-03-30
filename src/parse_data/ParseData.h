@@ -36,7 +36,7 @@ struct LocationData {
  * @brief Reads distance data from a CSV file
  * @param filePath Path to the CSV file containing distance data
  * @return Vector of DistanceData objects
- * @complexity O(N) where N is the number of rows in the CSV file
+ * @details O(N) where N is the number of rows in the CSV file
  */
 std::vector<DistanceData> readDistancesCSV(const std::string &filePath);
 
@@ -44,7 +44,7 @@ std::vector<DistanceData> readDistancesCSV(const std::string &filePath);
  * @brief Reads location data from a CSV file
  * @param filePath Path to the CSV file containing location data
  * @return Vector of LocationData objects
- * @complexity O(N) where N is the number of rows in the CSV file
+ * @details O(N) where N is the number of rows in the CSV file
  */
 std::vector<LocationData> readLocationsCSV(const std::string &filePath);
 

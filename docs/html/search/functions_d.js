@@ -1,15 +1,11 @@
 var searchData=
 [
-  ['setdist_0',['setDist',['../d2/da0/classVertex.html#a060fbea0c3738cc3e09d84ad8c431b34',1,'Vertex']]],
-  ['setflow_1',['setFlow',['../d8/d8c/classEdge.html#a1819116e2c156733a14bbd94cc27908e',1,'Edge']]],
-  ['setindegree_2',['setIndegree',['../d2/da0/classVertex.html#af9c4caaac19bdaae5a88a7a671639b59',1,'Vertex']]],
-  ['setinfo_3',['setInfo',['../d2/da0/classVertex.html#a31cd60c26640f8072a928ba70eb2f95e',1,'Vertex']]],
-  ['setlow_4',['setLow',['../d2/da0/classVertex.html#a62acec2c4fcbec56e995974b91444ec9',1,'Vertex']]],
-  ['setnum_5',['setNum',['../d2/da0/classVertex.html#ab3f9026ba6cbd11243ab484a856c6581',1,'Vertex']]],
-  ['setpath_6',['setPath',['../d2/da0/classVertex.html#a5ebf4b550ec94b89a8f80df1a53cc97d',1,'Vertex']]],
-  ['setprocessing_7',['setProcessing',['../d2/da0/classVertex.html#a5ccb6f7215c915afdbcbdb81ad70a408',1,'Vertex']]],
-  ['setreverse_8',['setReverse',['../d8/d8c/classEdge.html#afe8f8429025756c63f38e8c6fde7382c',1,'Edge']]],
-  ['setselected_9',['setSelected',['../d8/d8c/classEdge.html#a87c8402c5edd6729a2c934e2a0cce6fe',1,'Edge']]],
-  ['settype_10',['setType',['../d8/d8c/classEdge.html#af0f7464eb616d5833fee089cd704a59c',1,'Edge']]],
-  ['setvisited_11',['setVisited',['../d2/da0/classVertex.html#a95a3f3c55f2ba371fae51d3fe0e76c23',1,'Vertex']]]
+  ['readdistancescsv_0',['readDistancesCSV',['../d3/dbe/ParseData_8cpp.html#a096662b913f6d41800cf97e168bb9231',1,'readDistancesCSV(const std::string &amp;filePath):&#160;ParseData.cpp'],['../dd/dd6/ParseData_8h.html#a096662b913f6d41800cf97e168bb9231',1,'readDistancesCSV(const std::string &amp;filePath):&#160;ParseData.cpp']]],
+  ['readinput_1',['readInput',['../d8/ddb/classMenu.html#aeb8f762203b2b512a828267259b4bc6e',1,'Menu']]],
+  ['readlocationscsv_2',['readLocationsCSV',['../d3/dbe/ParseData_8cpp.html#a746daebb80b828a19f333d80e9c6adb4',1,'readLocationsCSV(const std::string &amp;filePath):&#160;ParseData.cpp'],['../dd/dd6/ParseData_8h.html#a746daebb80b828a19f333d80e9c6adb4',1,'readLocationsCSV(const std::string &amp;filePath):&#160;ParseData.cpp']]],
+  ['relax_3',['relax',['../d4/d90/classRouting.html#af423f27d770291676307639dfa89fc3d',1,'Routing']]],
+  ['removeedge_4',['removeEdge',['../d2/da0/classVertex.html#ac1f1dd0a8e1019a242f1120d6559c754',1,'Vertex::removeEdge()'],['../d2/d62/classGraph.html#a8949d071d45bf93e171e275462e1007a',1,'Graph::removeEdge()']]],
+  ['removeoutgoingedges_5',['removeOutgoingEdges',['../d2/da0/classVertex.html#a414ce58fdf35ee5200a82912f3865506',1,'Vertex']]],
+  ['removevertex_6',['removeVertex',['../d2/d62/classGraph.html#af9c903104ad69a7782979fa9caedf163',1,'Graph']]],
+  ['restrictedroute_7',['restrictedRoute',['../d8/ddb/classMenu.html#a30cf0a74f8ae010c98a107140cec958e',1,'Menu']]]
 ];
