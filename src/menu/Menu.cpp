@@ -426,17 +426,7 @@ void Menu::independentRoute() {
             }
         }
 
-        std::cout << "\nSelect transport mode:" << std::endl;
-        std::cout << "1. Driving" << std::endl;
-        std::cout << "2. Walking" << std::endl;
-        std::cout << "Enter choice (1/2): ";
-
-        int modeChoice;
-        std::cin >> modeChoice;
-
-        transportMode = (modeChoice == 2)
-                            ? Edge<LocationInfo>::EdgeType::WALKING
-                            : Edge<LocationInfo>::EdgeType::DRIVING;
+        transportMode = Edge<LocationInfo>::EdgeType::DRIVING;
     } else {
         std::cout << "\nInvalid option. Returning to main menu." << std::endl;
         std::cout << "\nPress Enter to return to the main menu...";
@@ -461,8 +451,7 @@ void Menu::independentRoute() {
     std::cout << "\n--- Route Results ---" << std::endl;
     std::cout << "From: " << sourceCode << " (ID: " << sourceId << ")" << std::endl;
     std::cout << "To: " << destCode << " (ID: " << destId << ")" << std::endl;
-    std::cout << "Transport mode: " << (transportMode == Edge<LocationInfo>::EdgeType::DRIVING ? "Driving" : "Walking")
-            << std::endl;
+    std::cout << "Transport mode: Driving" << std::endl;
 
     std::cout << "\nBest route: ";
     if (fastestRoute.empty()) {
@@ -550,9 +539,7 @@ void Menu::restrictedRoute() {
         std::cout << "Successfully read input:" << std::endl;
         std::cout << "- Source: " << sourceCode << " (ID: " << sourceId << ")" << std::endl;
         std::cout << "- Destination: " << destCode << " (ID: " << destId << ")" << std::endl;
-        std::cout << "- Transport Mode: " << (transportMode == Edge<LocationInfo>::EdgeType::DRIVING
-                                                  ? "Driving"
-                                                  : "Walking") << std::endl;
+        std::cout << "- Transport Mode: Driving" << std::endl;
 
         std::cout << "- Avoid Nodes:";
         for (int node: avoidNodes) {
@@ -647,16 +634,7 @@ void Menu::restrictedRoute() {
             }
         }
 
-        std::cout << "\nSelect transport mode:" << std::endl;
-        std::cout << "1. Driving" << std::endl;
-        std::cout << "2. Walking" << std::endl;
-        std::cout << "Enter choice (1/2): ";
-        int modeChoice;
-        std::cin >> modeChoice;
-
-        transportMode = (modeChoice == 2)
-                            ? Edge<LocationInfo>::EdgeType::WALKING
-                            : Edge<LocationInfo>::EdgeType::DRIVING;
+        transportMode = Edge<LocationInfo>::EdgeType::DRIVING;
 
         std::cout << "\nDo you want to avoid specific nodes? (y/n): ";
         char avoidNodesOption;
