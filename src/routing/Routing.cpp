@@ -590,7 +590,7 @@ bool Routing::processEcoRouteFromFile(
             std::cout << "Finding approximate solutions..." << std::endl;
 
             std::vector<EcoRoute> approximateRoutes = findApproximateEcoRoutes(
-                graph, sourceCode, destCode, maxWalkTime, avoidNodes, avoidSegments);
+                graph, sourceCode, destCode, avoidNodes, avoidSegments);
 
             if (!approximateRoutes.empty()) {
                 std::cout << "Found " << approximateRoutes.size() << " approximate routes." << std::endl;
@@ -617,7 +617,6 @@ std::vector<Routing::EcoRoute> Routing::findApproximateEcoRoutes(
     const Graph<LocationInfo> &graph,
     const std::string &sourceCode,
     const std::string &destCode,
-    double maxWalkingTime,
     const std::vector<int> &avoidNodes,
     const std::vector<std::pair<int, int> > &avoidSegments) {
     LocationInfo source("", 0, sourceCode, false);
@@ -729,10 +728,10 @@ void Routing::outputMultipleEcoRoutesToFile(
         }
         walkingRouteStr += "(" + std::to_string(static_cast<int>(route.walkingTime)) + ")";
 
-        outFile << "DrivingRoute" << (i + 1) << ":" << drivingRouteStr << std::endl;
-        outFile << "ParkingNode" << (i + 1) << ":" << route.parkingNode.id << std::endl;
-        outFile << "WalkingRoute" << (i + 1) << ":" << walkingRouteStr << std::endl;
-        outFile << "TotalTime" << (i + 1) << ":" << static_cast<int>(route.totalTime) << std::endl;
+        outFile << "DrivingRoute" << i + 1 << ":" << drivingRouteStr << std::endl;
+        outFile << "ParkingNode" << i + 1 << ":" << route.parkingNode.id << std::endl;
+        outFile << "WalkingRoute" << i + 1 << ":" << walkingRouteStr << std::endl;
+        outFile << "TotalTime" << i + 1 << ":" << static_cast<int>(route.totalTime) << std::endl;
     }
 
     outFile.flush();

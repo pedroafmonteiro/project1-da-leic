@@ -975,7 +975,7 @@ void Menu::environmentallyFriendlyRoute() {
                 std::cout << "Finding approximate solutions..." << std::endl;
 
                 std::vector<Routing::EcoRoute> approximateRoutes = Routing::findApproximateEcoRoutes(
-                    transportGraph, sourceCode, destCode, maxWalkingTime, avoidNodes, avoidSegments);
+                    transportGraph, sourceCode, destCode, avoidNodes, avoidSegments);
 
                 if (!approximateRoutes.empty()) {
                     displayMultipleEcoRouteResults(approximateRoutes, sourceCode, destCode);
@@ -1118,7 +1118,7 @@ void Menu::displayMultipleEcoRouteResults(const std::vector<Routing::EcoRoute> &
     for (size_t routeIndex = 0; routeIndex < routes.size(); routeIndex++) {
         const auto &route = routes[routeIndex];
 
-        std::cout << "ROUTE OPTION " << (routeIndex + 1) << ":" << std::endl;
+        std::cout << "ROUTE OPTION " << routeIndex + 1 << ":" << std::endl;
         std::cout << "-----------------" << std::endl;
 
         std::cout << "Driving Route:" << std::endl;

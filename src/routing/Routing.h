@@ -4,7 +4,6 @@
 #include <string>
 #include <vector>
 #include <functional>
-#include <fstream>
 #include "../graph_structure/Graph.h"
 #include "../graph_builder/GraphBuilder.h"
 
@@ -181,7 +180,6 @@ public:
      * @param graph The transportation graph
      * @param sourceCode Source location code
      * @param destCode Destination location code
-     * @param maxWalkingTime Maximum preferred walking time
      * @param avoidNodes Optional list of nodes to avoid
      * @param avoidSegments Optional list of segments to avoid
      * @return Vector of EcoRoute structures with approximate solutions
@@ -192,9 +190,8 @@ public:
         const Graph<LocationInfo> &graph,
         const std::string &sourceCode,
         const std::string &destCode,
-        double maxWalkingTime,
         const std::vector<int> &avoidNodes = {},
-        const std::vector<std::pair<int, int> > &avoidSegments = {});
+        const std::vector<std::pair<int, int>> &avoidSegments = {});
 
     /**
      * @brief Outputs an eco-route to a file
