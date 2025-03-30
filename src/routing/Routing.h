@@ -16,8 +16,7 @@
  * alternative route finding, and environmentally-friendly routes that combine driving
  * and walking segments.
  */
-class Routing
-{
+class Routing {
 public:
     /** @brief Type definition for edge filter functions */
     using EdgeFilter = std::function<bool(Edge<LocationInfo> *)>;
@@ -147,15 +146,14 @@ public:
     /**
      * @brief Structure to store environmentally-friendly route information
      */
-    struct EcoRoute
-    {
+    struct EcoRoute {
         std::vector<LocationInfo> drivingRoute; /**< The driving segment of the route */
-        LocationInfo parkingNode;               /**< The parking location */
+        LocationInfo parkingNode; /**< The parking location */
         std::vector<LocationInfo> walkingRoute; /**< The walking segment of the route */
-        double totalTime;                       /**< Total travel time in minutes */
-        double walkingTime;                     /**< Walking time in minutes */
-        bool isValid;                           /**< Flag indicating if the route is valid */
-        std::string errorMessage;               /**< Error message if route is invalid */
+        double totalTime; /**< Total travel time in minutes */
+        double walkingTime; /**< Walking time in minutes */
+        bool isValid; /**< Flag indicating if the route is valid */
+        std::string errorMessage; /**< Error message if route is invalid */
     };
 
     /**
@@ -176,7 +174,7 @@ public:
         const std::string &destCode,
         double maxWalkingTime,
         const std::vector<int> &avoidNodes = {},
-        const std::vector<std::pair<int, int>> &avoidSegments = {});
+        const std::vector<std::pair<int, int> > &avoidSegments = {});
 
     /**
      * @brief Finds approximate environmentally-friendly routes when strict constraints can't be met
@@ -196,7 +194,7 @@ public:
         const std::string &destCode,
         double maxWalkingTime,
         const std::vector<int> &avoidNodes = {},
-        const std::vector<std::pair<int, int>> &avoidSegments = {});
+        const std::vector<std::pair<int, int> > &avoidSegments = {});
 
     /**
      * @brief Outputs an eco-route to a file
@@ -284,7 +282,7 @@ private:
      */
     static EdgeFilter createEcoRouteFilter(
         const std::vector<int> &avoidNodes,
-        const std::vector<std::pair<int, int>> &avoidSegments,
+        const std::vector<std::pair<int, int> > &avoidSegments,
         Edge<LocationInfo>::EdgeType transportMode);
 
     /**

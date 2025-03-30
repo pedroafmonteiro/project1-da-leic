@@ -19,10 +19,10 @@ class DataManager {
 
     /** @brief Collection of distance data between locations */
     std::vector<DistanceData> distanceData;
-    
+
     /** @brief Collection of location data */
     std::vector<LocationData> locationData;
-    
+
     /** @brief Flag indicating if data has been successfully loaded */
     bool dataLoaded;
 

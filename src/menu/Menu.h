@@ -14,8 +14,7 @@
  * The Menu class provides a command-line interface for users to interact with the routing system.
  * It presents various options for route planning, handles user input, and displays results.
  */
-class Menu
-{
+class Menu {
     /** @brief Singleton data manager instance */
     DataManager *dataManager;
 
@@ -61,7 +60,7 @@ class Menu
                    std::string &sourceCode,
                    std::string &destCode,
                    std::vector<int> &avoidNodes,
-                   std::vector<std::pair<int, int>> &avoidSegments,
+                   std::vector<std::pair<int, int> > &avoidSegments,
                    int &includeNode);
 
     /**
