@@ -263,7 +263,7 @@ void Routing::outputRoutesToFile(
     outFile.flush();
     outFile.close();
 
-    std::cout << "Output written to " << filename << " and is ready to view." << std::endl;
+    std::cout << "Results written to " << filename << " and are ready to view." << std::endl;
 }
 
 Graph<LocationInfo> Routing::createGraphWithoutPath(
@@ -484,7 +484,7 @@ void Routing::outputEcoRouteToFile(
     outFile.flush();
     outFile.close();
 
-    std::cout << "Output written to " << filename << " and is ready to view." << std::endl;
+    std::cout << "Results written to " << filename << " and are ready to view." << std::endl;
 }
 
 bool Routing::processEcoRouteFromFile(
@@ -738,5 +738,5 @@ void Routing::outputMultipleEcoRoutesToFile(
     outFile.flush();
     outFile.close();
 
-    std::cout << "Multiple routes output written to " << filename << " and is ready to view." << std::endl;
+    std::cout << "Multiple routes output written to " << filename << " and are ready to view." << std::endl;
 }

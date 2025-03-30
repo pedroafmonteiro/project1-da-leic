@@ -349,12 +349,12 @@ void Menu::independentRoute() {
 
         std::cout << "Successfully read route from file." << std::endl;
     } else if (choice == 1) {
-        std::cout << "\nEnter source location (code or ID): ";
+        std::cout << "\nEnter source location ID: ";
         std::cin.ignore();
         std::string sourceInput;
         std::getline(std::cin, sourceInput);
 
-        std::cout << "Enter destination location (code or ID): ";
+        std::cout << "Enter destination location ID: ";
         std::string destInput;
         std::getline(std::cin, destInput);
 
@@ -448,11 +448,6 @@ void Menu::independentRoute() {
     double fastestTime = Routing::calculateRouteTime(fastestRoute, transportGraph, transportMode);
     double alternativeTime = Routing::calculateRouteTime(alternativeRoute, transportGraph, transportMode);
 
-    std::cout << "\n--- Route Results ---" << std::endl;
-    std::cout << "From: " << sourceCode << " (ID: " << sourceId << ")" << std::endl;
-    std::cout << "To: " << destCode << " (ID: " << destId << ")" << std::endl;
-    std::cout << "Transport mode: Driving" << std::endl;
-
     std::cout << "\nBest route: ";
     if (fastestRoute.empty()) {
         std::cout << "No route found." << std::endl;
@@ -479,7 +474,6 @@ void Menu::independentRoute() {
 
     std::string outputFilename = "output.txt";
     Routing::outputRoutesToFile(outputFilename, sourceId, destId, fastestRoute, alternativeRoute, transportGraph);
-    std::cout << "\nResults also saved to " << outputFilename << std::endl;
 
     std::cout << "\nPress Enter to return to the main menu...";
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -535,34 +529,13 @@ void Menu::restrictedRoute() {
                 destId = loc.id;
             }
         }
-
-        std::cout << "Successfully read input:" << std::endl;
-        std::cout << "- Source: " << sourceCode << " (ID: " << sourceId << ")" << std::endl;
-        std::cout << "- Destination: " << destCode << " (ID: " << destId << ")" << std::endl;
-        std::cout << "- Transport Mode: Driving" << std::endl;
-
-        std::cout << "- Avoid Nodes:";
-        for (int node: avoidNodes) {
-            std::cout << " " << node;
-        }
-        std::cout << std::endl;
-
-        std::cout << "- Avoid Segments:";
-        for (const auto &segment: avoidSegments) {
-            std::cout << " (" << segment.first << "," << segment.second << ")";
-        }
-        std::cout << std::endl;
-
-        if (includeNode != -1) {
-            std::cout << "- Include Node: " << includeNode << std::endl;
-        }
     } else if (choice == 1) {
-        std::cout << "\nEnter source location (code or ID): ";
+        std::cout << "\nEnter source location ID: ";
         std::cin.ignore();
         std::string sourceInput;
         std::getline(std::cin, sourceInput);
 
-        std::cout << "Enter destination location (code or ID): ";
+        std::cout << "Enter destination location ID: ";
         std::string destInput;
         std::getline(std::cin, destInput);
 
@@ -787,13 +760,10 @@ void Menu::restrictedRoute() {
         return;
     }
 
-    outFile << "Source:" << sourceId << std::endl;
-    outFile << "Destination:" << destId << std::endl;
     outFile << "RestrictedDrivingRoute:" << Routing::formatRouteForOutput(restrictedRoute, routeTime) << std::endl;
 
     outFile.flush();
     outFile.close();
-    std::cout << "Results written to output.txt and is ready to view." << std::endl;
 
     std::cout << "\nRestricted Route Result:" << std::endl;
     if (!restrictedRoute.empty()) {
@@ -807,6 +777,7 @@ void Menu::restrictedRoute() {
     } else {
         std::cout << "No route found." << std::endl;
     }
+    std::cout << "Results written to output.txt and are ready to view." << std::endl;
 
     std::cout << "\nPress Enter to return to the main menu...";
     std::cin.get();
@@ -841,9 +812,7 @@ void Menu::environmentallyFriendlyRoute() {
 
         bool success = Routing::processEcoRouteFromFile(filePath, outputFilename, transportGraph);
 
-        if (success) {
-            std::cout << "Route processed successfully and saved to " << outputFilename << std::endl;
-        } else {
+        if (!success) {
             std::cout << "Failed to process route from input file." << std::endl;
         }
     } else if (choice == 1) {
@@ -852,11 +821,11 @@ void Menu::environmentallyFriendlyRoute() {
         std::vector<int> avoidNodes;
         std::vector<std::pair<int, int> > avoidSegments;
 
-        std::cout << "\nEnter source location (code or ID): ";
+        std::cout << "\nEnter source location ID: ";
         std::string sourceInput;
         std::getline(std::cin, sourceInput);
 
-        std::cout << "Enter destination location (code or ID): ";
+        std::cout << "Enter destination location ID: ";
         std::string destInput;
         std::getline(std::cin, destInput);
 
@@ -1032,7 +1001,6 @@ void Menu::environmentallyFriendlyRoute() {
             displayEcoRouteResults(ecoRoute, sourceCode, destCode);
 
             Routing::outputEcoRouteToFile(outputFilename, sourceId, destId, ecoRoute);
-            std::cout << "\nResults saved to " << outputFilename << std::endl;
         }
     } else {
         std::cout << "\nInvalid option. Returning to main menu." << std::endl;
